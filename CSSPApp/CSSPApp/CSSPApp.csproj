@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks>net6.0</TargetFrameworks>
+    <!--<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>-->
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
-		<OutputType>Exe</OutputType>
+		 <!--<TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks>--> 
+		<OutputType Condition="'$(TargetFramework)' != 'net6.0'">Exe</OutputType>
 		<RootNamespace>CSSPApp</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
@@ -22,12 +23,12 @@
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
 
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<!--<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>-->
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<!--<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>-->
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -49,31 +50,56 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
-	  <PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.7" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\CSSPCultureServices\CSSPCultureServices.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="Main\Strings\MainPageRes.Designer.cs">
-	    <DependentUpon>MainPageRes.resx</DependentUpon>
+	  <Compile Update="Resources\Strings\FirstPageRes.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
+	    <DependentUpon>FirstPageRes.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Strings\MainPageRes.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>MainPageRes.resx</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Main\Strings\MainPageRes.fr.resx">
+	  <EmbeddedResource Update="Resources\Strings\FirstPageRes.fr.resx">
+	    <LastGenOutput>FirstPageRes.fr.Designer.cs</LastGenOutput>
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Strings\FirstPageRes.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>FirstPageRes.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Strings\MainPageRes.fr.resx">
 	    <LastGenOutput>MainPageRes.fr.Designer.cs</LastGenOutput>
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Main\Strings\MainPageRes.resx">
-	    <LastGenOutput>MainPageRes.Designer.cs</LastGenOutput>
+	  <EmbeddedResource Update="Resources\Strings\MainPageRes.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>MainPageRes.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\FirstPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="DataModels\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\services\CSSPScrambleServices\CSSPScrambleServices.csproj" />
 	</ItemGroup>
 
 </Project>

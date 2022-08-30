@@ -1,28 +1,41 @@
-﻿namespace CSSPApp;
+﻿
+namespace CSSPApp;
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+    public static MauiApp CreateMauiApp()
+    {
 
-        Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-CA");
-        Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-CA");
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
-        builder.Services.AddLocalization();
+        try
+        {
+            builder.Services.AddSingleton<AppService>();
+            builder.Services.AddSingleton<ICSSPScrambleService, CSSPScrambleService>();
 
-        builder.Services.AddTransient<MainPageViewModel>();
+            builder.Services.AddSingleton<MainPageViewTextModel>();
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<MainPageViewModel>();
 
-		builder.Services.AddTransient<MainPage>();
+            builder.Services.AddSingleton<FirstPageViewTextModel>();
+            builder.Services.AddTransient<FirstPage>();
+            builder.Services.AddTransient<FirstPageViewModel>();
 
 
-        return builder.Build();
-	}
+            return builder.Build();
+        }
+        catch (Exception ex)
+        {
+            var sejf = ex.Message;
+        }
+
+        return null;
+    }
 }

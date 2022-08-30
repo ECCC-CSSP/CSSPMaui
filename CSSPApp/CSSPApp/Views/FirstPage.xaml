@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CSSPApp.Views.FirstPage"
+             xmlns:viewmodel="clr-namespace:CSSPApp.ViewModels"
+             x:DataType="viewmodel:FirstPageViewModel"
+             xmlns:appservice="appser"
+             Title="{Binding FirstPageViewTextModel.Title}">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20">
+            <Button HorizontalOptions="Center" Text="Goto Main Page" Command="{Binding GoToMainPageCommand}" />
+            <HorizontalStackLayout IsVisible="{Binding AppService.IsFrench}" Spacing="30" HorizontalOptions="Center">
+                <Button Text="English"
+                    Command="{Binding SetCultureCommand}"
+                    CommandParameter="en-CA" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout IsVisible="{Binding AppService.IsEnglish}" Spacing="30" HorizontalOptions="Center">
+                <Button Text="Français"
+                    Command="{Binding SetCultureCommand}"
+                    CommandParameter="fr-CA" />
+            </HorizontalStackLayout>
+
+            <Button HorizontalOptions="Center" x:Name="TheButton" Text="add" Command="{Binding AddCommand}"/>
+            <CollectionView HorizontalOptions="Center" ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label Text="{Binding FirstPageViewTextModel.Title}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
