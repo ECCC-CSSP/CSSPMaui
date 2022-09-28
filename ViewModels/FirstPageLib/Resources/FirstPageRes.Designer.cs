@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CSSPApp.Resources.Strings {
+namespace FirstPageLib.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CSSPApp.Resources.Strings {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSSPApp.Resources.Strings.FirstPageRes", typeof(FirstPageRes).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FirstPageLib.Resources.FirstPageRes", typeof(FirstPageRes).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

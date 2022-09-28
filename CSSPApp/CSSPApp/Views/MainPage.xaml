@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CSSPApp"
              x:Class="CSSPApp.Views.MainPage"
-             xmlns:viewmodel="clr-namespace:CSSPApp.ViewModels"
-             x:DataType="viewmodel:MainPageViewModel"
-            Title="{Binding MainPageViewTextModel.Title}">
+             Title="">
 
     <ScrollView>
         <VerticalStackLayout HorizontalOptions="Center"
                              VerticalOptions="Center"
                              Spacing="50">
-            <HorizontalStackLayout IsVisible="{Binding AppService.IsFrench}" Spacing="30" HorizontalOptions="Center">
-                <Button Text="English"
-                    Command="{Binding SetCultureCommand}"
-                    CommandParameter="en-CA" />
+            <HorizontalStackLayout Spacing="30" HorizontalOptions="Center">
+                <Button Text="English" Clicked="btnEnglish_Clicked" />
+                <Button Text="Français" Clicked="btnFrench_Clicked" />
             </HorizontalStackLayout>
-            <HorizontalStackLayout IsVisible="{Binding AppService.IsEnglish}" Spacing="30" HorizontalOptions="Center">
-                <Button Text="Français"
-                    Command="{Binding SetCultureCommand}"
-                    CommandParameter="fr-CA" />
-            </HorizontalStackLayout>
-            <VerticalStackLayout HorizontalOptions="Start" Spacing="10">
-                <Label Text="{Binding MainPageViewTextModel.CsspFullText}" FontSize="Medium" />
-                <Label Text="{Binding MainPageViewTextModel.CSSPDesktopApplicationWillLetYou}" Margin="0,10" />
-                <Label Text="{Binding MainPageViewTextModel.ViewAndUpdateWWTPInfo}" />
-                <Label Text="{Binding MainPageViewTextModel.MakeCalculationUsingBoxModelAndVP}" />
-                <Label Text="{Binding MainPageViewTextModel.SetupAndRunMIKEScenariosAndStoreInputsAndResults}" />
-                <Label Text="{Binding MainPageViewTextModel.VisualizeAndManageMarineWQInfo}" />
-                <Label Text="{Binding MainPageViewTextModel.PleaseContactASiteAdministratorListedBelowForAccess}" HorizontalOptions="Center" FontSize="Medium" Margin="0,10" />
+
+            <!--<VerticalStackLayout HorizontalOptions="Start" Spacing="10">
+                <Label Text="{Binding CSSPFullText}" FontSize="Medium" />
+                <Label Text="{Binding CSSPDesktopApplicationWillLetYou}" Margin="0,10" />
+                <Label Text="{Binding ViewAndUpdateWWTPInfo}" />
+                <Label Text="{Binding MakeCalculationUsingBoxModelAndVP}" />
+                <Label Text="{Binding SetupAndRunMIKEScenariosAndStoreInputsAndResults}" />
+                <Label Text="{Binding VisualizeAndManageMarineWQInfo}" />
+                <Label Text="{Binding PleaseContactASiteAdministratorListedBelowForAccess}" HorizontalOptions="Center" FontSize="Medium" Margin="0,10" />
                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="30">
                     <Button Text="charles.leblanc@ec.gc.ca"
                             Command="{Binding EmailCommand}"
@@ -38,14 +32,13 @@
                 </HorizontalStackLayout>
             </VerticalStackLayout>
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Button Text="{Binding MainPageViewTextModel.StartText}" 
+                <Button Text="{Binding StartText}" 
                     Command="{Binding StartCommand}" />
             </HorizontalStackLayout>
             <Label Text="{Binding ScrambleResult}" />
             <Button Text="Scramble Bonjour" 
                     Command="{Binding ScrambleCommand}"
-                    CommandParameter="Bonjour" />
-
+                    CommandParameter="Bonjour" />-->
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

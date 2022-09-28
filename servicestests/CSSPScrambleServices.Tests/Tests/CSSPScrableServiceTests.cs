@@ -17,11 +17,14 @@ public partial class CSSPScrambleServicesTests
     {
         Assert.True(await CSSPScrambleServiceSetup(culture));
 
-        string retStr = CSSPScrambleService.Scramble("");
-        Assert.Equal("", retStr);
+        if (CSSPScrambleService != null)
+        {
+            string retStr = CSSPScrambleService.Scramble("");
+            Assert.Equal("", retStr);
 
-        retStr = CSSPScrambleService.Descramble("");
-        Assert.Equal("", retStr);
+            retStr = CSSPScrambleService.Descramble("");
+            Assert.Equal("", retStr);
+        }
     }
     [Theory]
     [InlineData("en-CA")]
@@ -44,11 +47,14 @@ public partial class CSSPScrambleServicesTests
                 Word += (char)random.Next('0', 'z');
             }
 
-            ScrambleWord = CSSPScrambleService.Scramble(Word);
-            Assert.NotEqual(Word, ScrambleWord);
+            if (CSSPScrambleService != null)
+            {
+                ScrambleWord = CSSPScrambleService.Scramble(Word);
+                Assert.NotEqual(Word, ScrambleWord);
 
-            DescrambleWord = CSSPScrambleService.Descramble(ScrambleWord);
-            Assert.Equal(Word, DescrambleWord);
+                DescrambleWord = CSSPScrambleService.Descramble(ScrambleWord);
+                Assert.Equal(Word, DescrambleWord);
+            }
         }
 
     }

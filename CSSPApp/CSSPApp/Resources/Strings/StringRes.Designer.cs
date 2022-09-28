@@ -22,24 +22,24 @@ namespace CSSPApp.Resources.Strings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MainPageRes {
+    internal class StringRes {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MainPageRes() {
+        internal StringRes() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSSPApp.Resources.Strings.MainPageRes", typeof(MainPageRes).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSSPApp.Resources.Strings.StringRes", typeof(StringRes).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace CSSPApp.Resources.Strings {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to CSSP Desktop.
         /// </summary>
-        public static string CSSPDesktop {
+        internal static string CSSPDesktop {
             get {
                 return ResourceManager.GetString("CSSPDesktop", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to The CSSP Desktop application will let you:.
         /// </summary>
-        public static string CSSPDesktopApplicationWillLetYou {
+        internal static string CSSPDesktopApplicationWillLetYou {
             get {
                 return ResourceManager.GetString("CSSPDesktopApplicationWillLetYou", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to CSSP Desktop Description.
         /// </summary>
-        public static string CSSPDesktopDesc {
+        internal static string CSSPDesktopDesc {
             get {
                 return ResourceManager.GetString("CSSPDesktopDesc", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to The Canadian Shellfish Sanitation Program (CSSP).
         /// </summary>
-        public static string CSSPFullText {
+        internal static string CSSPFullText {
             get {
                 return ResourceManager.GetString("CSSPFullText", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
-        public static string CurrentLanguageText {
+        internal static string CurrentLanguageText {
             get {
                 return ResourceManager.GetString("CurrentLanguageText", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to  - Make calculation using Box Model and Visual Plumes,.
         /// </summary>
-        public static string MakeCalculationUsingBoxModelAndVP {
+        internal static string MakeCalculationUsingBoxModelAndVP {
             get {
                 return ResourceManager.GetString("MakeCalculationUsingBoxModelAndVP", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Please contact a site administrator listed below for access.
         /// </summary>
-        public static string PleaseContactASiteAdministratorListedBelowForAccess {
+        internal static string PleaseContactASiteAdministratorListedBelowForAccess {
             get {
                 return ResourceManager.GetString("PleaseContactASiteAdministratorListedBelowForAccess", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to  - Setup and run MIKE scenarios and store inputs and results.
         /// </summary>
-        public static string SetupAndRunMIKEScenariosAndStoreInputsAndResults {
+        internal static string SetupAndRunMIKEScenariosAndStoreInputsAndResults {
             get {
                 return ResourceManager.GetString("SetupAndRunMIKEScenariosAndStoreInputsAndResults", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to Start.
         /// </summary>
-        public static string StartText {
+        internal static string StartText {
             get {
                 return ResourceManager.GetString("StartText", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to  - View and update the waste water treatment plants and the lift stations information,.
         /// </summary>
-        public static string ViewAndUpdateWWTPInfo {
+        internal static string ViewAndUpdateWWTPInfo {
             get {
                 return ResourceManager.GetString("ViewAndUpdateWWTPInfo", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace CSSPApp.Resources.Strings {
         /// <summary>
         ///   Looks up a localized string similar to  - Visualize and manage Marine Water Quality Monitoring Information.
         /// </summary>
-        public static string VisualizeAndManageMarineWQInfo {
+        internal static string VisualizeAndManageMarineWQInfo {
             get {
                 return ResourceManager.GetString("VisualizeAndManageMarineWQInfo", resourceCulture);
             }

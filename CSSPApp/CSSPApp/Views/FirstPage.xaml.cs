@@ -2,15 +2,24 @@ namespace CSSPApp.Views;
 
 public partial class FirstPage : ContentPage
 {
-    public FirstPage(FirstPageViewModel vm)
+    public string bonjour = "bonjour";
+
+    //ICSSPAppService CSSPAppService { get; }
+    public FirstPage()//IFirstPageViewModel vm/*, ICSSPAppService csspAppService*/)
     {
         InitializeComponent();
-        BindingContext = vm;
+        //CSSPAppService = csspAppService;
+
+        //bonjour = "allo working";
+        //BindingContext = csspAppService;
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        ((FirstPageViewModel)BindingContext).SetCulture(((FirstPageViewModel)BindingContext).appService.AppCulture.Name);
+        //if (CSSPAppService.AppCulture != null)
+        //{
+        //((IFirstPageViewModel)BindingContext).SetCulture("en-CA"); // CSSPAppService.AppCulture.Name);
+        //}
     }
 }

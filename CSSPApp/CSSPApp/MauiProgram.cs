@@ -1,11 +1,9 @@
-﻿
-namespace CSSPApp;
+﻿namespace CSSPApp;
 
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
-
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
@@ -15,27 +13,27 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        try
-        {
-            builder.Services.AddSingleton<AppService>();
-            builder.Services.AddSingleton<ICSSPScrambleService, CSSPScrambleService>();
+        //try
+        //{
+        //builder.Services.AddSingleton<IAppService, AppService>();
+        builder.Services.AddSingleton<ICSSPAppService, CSSPAppService>();
+        //builder.Services.AddSingleton<ICSSPScrambleService, CSSPScrambleService>();
 
-            builder.Services.AddSingleton<MainPageViewTextModel>();
-            builder.Services.AddTransient<MainPage>();
-            builder.Services.AddTransient<MainPageViewModel>();
+        //builder.Services.AddTransient<AppViewModel>();
+        //builder.Services.AddTransient<IFirstPageViewModel, FirstPageViewModel>();
+        //builder.Services.AddTransient<IMainPageViewModel, MainPageViewModel>();
 
-            builder.Services.AddSingleton<FirstPageViewTextModel>();
-            builder.Services.AddTransient<FirstPage>();
-            builder.Services.AddTransient<FirstPageViewModel>();
+        builder.Services.AddTransient<FirstPage>();
+        builder.Services.AddTransient<MainPage>();
+        //}
+        //catch (Exception ex)
+        //{
+        //    var sejf = ex.Message;
+        //}
 
+        builder.Services.AddLocalization();
 
-            return builder.Build();
-        }
-        catch (Exception ex)
-        {
-            var sejf = ex.Message;
-        }
+        return builder.Build();
 
-        return null;
     }
 }

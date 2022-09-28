@@ -1,5 +1,11 @@
 namespace CSSPScrambleServices;
 
+public partial interface ICSSPScrambleService
+{
+    string Descramble(string Text);
+    string Scramble(string Text);
+}
+
 public partial class CSSPScrambleService : ICSSPScrambleService
 {
     private List<int> skip { get; set; } = new List<int>()
