@@ -1,55 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:CSSPApp.Extensions"
              x:Class="CSSPApp.Views.FirstPage"
-             Title="">
-    
-    <ScrollView>
-        <VerticalStackLayout HorizontalOptions="Start" Spacing="10">
-            <Label Text="{local:Localize CSSPFullText}" FontSize="Medium" />
-            <Label Text="{local:Localize CSSPDesktopApplicationWillLetYou}" Margin="0,10" />
-            <Label Text="{local:Localize ViewAndUpdateWWTPInfo}" />
-            <Label Text="{local:Localize MakeCalculationUsingBoxModelAndVP}" />
-            <Label Text="{local:Localize SetupAndRunMIKEScenariosAndStoreInputsAndResults}" />
-            <Label Text="{local:Localize VisualizeAndManageMarineWQInfo}" />
-            <Label Text="{local:Localize PleaseContactASiteAdministratorListedBelowForAccess}" HorizontalOptions="Center" FontSize="Medium" Margin="0,10" />
-            <Label Text="Before Error" />
-            <Label Text="{local:Localize Notworking}" />
-            <Label Text="After Error" />
-            <Label Text="{Binding bonjour}" />
-
-        </VerticalStackLayout>
-        <!--<HorizontalStackLayout HorizontalOptions="Center">
-            <Button Text="{Binding StartText}" 
-                    Command="{Binding StartCommand}" />
-        </HorizontalStackLayout>
-
-        <Label Text="{local:Localize CSSPDesktop}" />
-        <VerticalStackLayout Spacing="20">
-            <Button HorizontalOptions="Center" Text="Goto Main Page" Command="{Binding GoToMainPageCommand}" />
-            <HorizontalStackLayout IsVisible="{Binding IsFrench}" Spacing="30" HorizontalOptions="Center">
-                <Button Text="English"
-                    Command="{Binding SetCultureCommand}"
-                    CommandParameter="en-CA" />
-            </HorizontalStackLayout>
-            <HorizontalStackLayout IsVisible="{Binding IsEnglish}" Spacing="30" HorizontalOptions="Center">
-                <Button Text="Français"
-                    Command="{Binding SetCultureCommand}"
-                    CommandParameter="fr-CA" />
-            </HorizontalStackLayout>
-
-            <Button HorizontalOptions="Center" x:Name="TheButton" Text="add" Command="{Binding AddCommand}"/>
-            <CollectionView HorizontalOptions="Center" ItemsSource="{Binding Items}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label Text="{Binding .}"/>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <Label Text="{Binding Title}" />
-
-        </VerticalStackLayout>
-        -->
-    </ScrollView>
+             xmlns:res="clr-namespace:CSSPApp.Resources.Strings"
+             xmlns:vm="clr-namespace:CSSPApp.ViewModels"
+             x:DataType="vm:FirstPageViewModel"
+             Title="FirstPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label Text="{x:Static res:FirstPageRes.FirstMessage}" />
+        <Label Text="{x:Static res:FirstPageRes.Title}" />
+    </VerticalStackLayout>
 </ContentPage>

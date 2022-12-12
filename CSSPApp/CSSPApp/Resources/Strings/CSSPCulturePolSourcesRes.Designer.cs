@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CSSPCultureServices.Resources {
+namespace CSSPApp.Resources.Strings {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CSSPCultureServices.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSSPCultureServices.Resources.CSSPCulturePolSourcesRes", typeof(CSSPCulturePolSourcesRes).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CSSPApp.Resources.Strings.CSSPCulturePolSourcesRes", typeof(CSSPCulturePolSourcesRes).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:CSSPApp"
              x:Class="CSSPApp.Views.MainPage"
+             xmlns:res="clr-namespace:CSSPApp.Resources.Strings"
              Title="">
 
     <ScrollView>
@@ -10,8 +10,11 @@
                              VerticalOptions="Center"
                              Spacing="50">
             <HorizontalStackLayout Spacing="30" HorizontalOptions="Center">
-                <Button Text="English" Clicked="btnEnglish_Clicked" />
-                <Button Text="Français" Clicked="btnFrench_Clicked" />
+                <Button Text="English ade" Clicked="btnEnglish_Clicked" />
+                <Button Text="Français 4" Clicked="btnFrench_Clicked" />
+                <Label Text="bonjourfwsfasef" x:Name="lblTest" />
+                <Label Text="bonjour" x:Name="lblTest2" />
+                <Label Text="{x:Static res:MainPageRes.MainMessage}" />
             </HorizontalStackLayout>
 
             <!--<VerticalStackLayout HorizontalOptions="Start" Spacing="10">

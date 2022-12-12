@@ -2,48 +2,52 @@ namespace CSSPApp.Views;
 
 public partial class MainPage : ContentPage
 {
-	ICSSPAppService CSSPAppService { get; }
+    ICSSPAppService CSSPAppService { get; }
+    ICSSPScrambleService CSSPScrambleService { get; }
 
-	public MainPage(ICSSPAppService csspAppService) // ICSSPScrambleService csspScrambleService, ICSSPAppService csspAppService)
-	{
-		InitializeComponent();
+    public MainPage(ICSSPAppService csspAppService, ICSSPScrambleService csspScrambleService)
+    {
+        InitializeComponent();
         CSSPAppService = csspAppService;
-		//BindingContext = vm;
-	}
+        CSSPScrambleService = csspScrambleService;
+        //BindingContext = this;
+    }
 
-	protected override void OnAppearing()
-	{
-		base.OnAppearing();
-		//if (CSSPAppService.AppCulture != null)
-		//{
-		//((IMainPageViewModel)BindingContext).SetCulture("en-CA"); // CSSPAppService.AppCulture.Name);
-		//}
-	}
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        lblTest.Text = "bonjour";
+        lblTest2.Text = CSSPScrambleService.Scramble(lblTest.Text);
+    }
 
 
-	private void btnEnglish_Clicked(object sender, EventArgs e)
-	{
-        Thread.CurrentThread.CurrentCulture = new CultureInfo("en-CA");
-        Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-CA");
-        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-CA");
-        CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-CA");
-		CSSPAppService.AppCulture = new CultureInfo("en-CA");
-
-        Preferences.Set("Culture", "en-CA");
-
-        Shell.Current.GoToAsync("FirstPage");
+    private void btnEnglish_Clicked(object sender, EventArgs e)
+    {
+        ChangeCulture("en-CA");
     }
 
     private void btnFrench_Clicked(object sender, EventArgs e)
-	{
-        Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-CA");
-        Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-CA");
-        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("fr-CA");
-        CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("fr-CA");
-        CSSPAppService.AppCulture = new CultureInfo("fr-CA");
+    {
+        ChangeCulture("fr-CA");
+    }
 
-        Preferences.Set("Culture", "fr-CA");
+    private void ChangeCulture(string cultureText)
+    {
+        Thread.CurrentThread.CurrentCulture = new CultureInfo(cultureText);
+        Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureText);
+        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(cultureText);
+        CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(cultureText);
+        CSSPAppService.AppCulture = new CultureInfo(cultureText);
 
-        Shell.Current.GoToAsync("FirstPage");
+        Preferences.Set("Culture", cultureText);
+
+        if (Application.Current != null)
+        {
+            Application.Current.MainPage = new AppShell();
+        }
+
+        Shell.Current.GoToAsync(nameof(FirstPage));
+        //Shell.Current.GoToAsync(nameof(MainPage));
     }
 }

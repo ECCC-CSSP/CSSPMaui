@@ -1,23 +1,28 @@
-﻿
-namespace CSSPApp.Extensions;
+﻿//namespace CSSPApp.Extensions;
 
-[ContentProperty(nameof(Key))]
-public class LocalizeExtension : IMarkupExtension
-{
-    IStringLocalizer<StringRes> _localizer;
+//[ContentProperty(nameof(Key))]
+//public class LocalizeExtension : IMarkupExtension
+//{
+//    IStringLocalizer<StringRes> _localizer;
 
-    public string Key { get; set; } = string.Empty;
+//    public string Key { get; set; } = string.Empty;
 
-    public LocalizeExtension()
-    {
-        _localizer = ServiceHelper.GetService<IStringLocalizer<StringRes>>();
-    }
+//    public LocalizeExtension()
+//    {
+//        _localizer = ServiceHelper.GetService<IStringLocalizer<StringRes>>();
+//    }
 
-    public object ProvideValue(IServiceProvider serviceProvider)
-    {
-        string localizedText = _localizer[Key];
-        return localizedText;
-    }
+//    public object ProvideValue(IServiceProvider serviceProvider)
+//    {
+//        string localizedText = string.Empty;
 
-    object IMarkupExtension.ProvideValue(IServiceProvider serviceProvider) => ProvideValue(serviceProvider);
-}
+//        if (_localizer != null)
+//        {
+//            localizedText = _localizer[Key];
+//        }
+
+//        return localizedText;
+//    }
+
+//    object IMarkupExtension.ProvideValue(IServiceProvider serviceProvider) => ProvideValue(serviceProvider);
+//}

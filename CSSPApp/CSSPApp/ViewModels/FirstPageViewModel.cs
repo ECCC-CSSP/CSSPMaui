@@ -1,6 +1,6 @@
 ﻿namespace CSSPApp.ViewModels;
 
-public partial class MainPageViewModel : ObservableObject
+public partial class FirstPageViewModel : ObservableObject
 {
     private ICSSPAppService? CSSPAppService { get; }
 
@@ -10,7 +10,7 @@ public partial class MainPageViewModel : ObservableObject
         "one", "two", "three"
     };
 
-    public MainPageViewModel(/*ICSSPAppService csspAppService*/)
+    public FirstPageViewModel(/*ICSSPAppService csspAppService*/)
     {
         //CSSPAppService = csspAppService;
         //if (this.CSSPAppService != null)

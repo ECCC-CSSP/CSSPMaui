@@ -26,5 +26,11 @@ public partial class App : Application
         Preferences.Set("Culture", culture);
 
         MainPage = new AppShell();
-	}
+
+        if (Application.Current != null)
+        {
+            Application.Current.MainPage = new AppShell();
+        }
+
+    }
 }

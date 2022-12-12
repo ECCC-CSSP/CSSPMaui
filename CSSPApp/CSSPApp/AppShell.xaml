@@ -4,11 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CSSPApp"
+    xmlns:pageview="clr-namespace:CSSPApp.Views"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
         Title="CSSP Desktop"
-        ContentTemplate="{DataTemplate local:Views.MainPage}"
+        ContentTemplate="{DataTemplate pageview:MainPage}"
         Route="MainPage" />
 
 </Shell>

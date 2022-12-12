@@ -1,6 +1,6 @@
-namespace CSSPAppServices;
+namespace CSSPAppShellServices;
 
-public interface ICSSPAppService
+public interface ICSSPAppShellService
 {
     CultureInfo? AppCulture { get; set; }
     //bool? IsFrench { get; set; }
@@ -9,7 +9,7 @@ public interface ICSSPAppService
     void SetCulture(string CultureText);
 }
 
-public partial class CSSPAppService : ICSSPAppService
+public partial class CSSPAppShellService : ICSSPAppService
 {
     public CultureInfo? AppCulture { get; set; }
 
@@ -17,7 +17,7 @@ public partial class CSSPAppService : ICSSPAppService
 
     //public bool? IsEnglish { get; set; }
 
-    public CSSPAppService()
+    public CSSPAppShellService()
     {
         SetCulture("en-CA");
     }

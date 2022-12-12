@@ -117,37 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CSSPDesktop" xml:space="preserve">
-    <value>Bureau PCCSM</value>
+  <data name="MainMessage" xml:space="preserve">
+    <value>Main Message (english)</value>
   </data>
-  <data name="CSSPDesktopApplicationWillLetYou" xml:space="preserve">
-    <value>Cette application bureau PCCSM vous permettra de:</value>
+  <data name="Title" xml:space="preserve">
+    <value>Title (english)</value>
   </data>
-  <data name="CSSPDesktopDesc" xml:space="preserve">
-    <value>Bureau PCCSM description</value>
-  </data>
-  <data name="CSSPFullText" xml:space="preserve">
-    <value>Le Programme canadien de contrôle de la salubrité des mollusques (PCCSM)</value>
-  </data>
-  <data name="CurrentLanguageText" xml:space="preserve">
-    <value>Français</value>
-  </data>
-  <data name="MakeCalculationUsingBoxModelAndVP" xml:space="preserve">
-    <value> - Exécuter les calculs utilisant Box Model et Visual Plumes,</value>
-  </data>
-  <data name="PleaseContactASiteAdministratorListedBelowForAccess" xml:space="preserve">
-    <value>Veuillez contacter un administrateur du site suivants pour y avoir accès</value>
-  </data>
-  <data name="SetupAndRunMIKEScenariosAndStoreInputsAndResults" xml:space="preserve">
-    <value> - Configurer et exécuter des scénarios MIKE et stocker les entrées et les résultats</value>
-  </data>
-  <data name="StartText" xml:space="preserve">
-    <value>Débuter</value>
-  </data>
-  <data name="ViewAndUpdateWWTPInfo" xml:space="preserve">
-    <value> - Consulter et mettre à jour l'information des usines de traitement des eaux usées et des postes de pompage,</value>
-  </data>
-  <data name="VisualizeAndManageMarineWQInfo" xml:space="preserve">
-    <value> - Visualiser et gérer l'information de surveillance de qualité d'eau marine</value>
+  <data name="ttt" xml:space="preserve">
+    <value>ttt english</value>
   </data>
 </root>
