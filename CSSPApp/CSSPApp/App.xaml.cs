@@ -23,6 +23,7 @@ public partial class App : Application
             CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-CA");
         }
 
+
         Preferences.Set("Culture", culture);
 
         MainPage = new AppShell();
