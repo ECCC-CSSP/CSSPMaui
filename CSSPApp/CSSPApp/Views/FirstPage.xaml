@@ -11,6 +11,7 @@
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Label Text="{x:Static res:CSSPCultureServicesRes.Child}" />
         <Label Text="{x:Static res:FirstPageRes.FirstMessage}" />
         <Label Text="{x:Static res:FirstPageRes.Title}" />
     </VerticalStackLayout>
