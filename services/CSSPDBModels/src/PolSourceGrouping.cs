@@ -9,11 +9,11 @@ public partial class PolSourceGrouping : LastUpdate
     [CSSPRange(10000, 100000)]
     public int CSSPID { get; set; }
     [CSSPMaxLength(500)]
-    public string GroupName { get; set; }
+    public string GroupName { get; set; } = string.Empty;
     [CSSPMaxLength(500)]
-    public string Child { get; set; }
+    public string Child { get; set; } = string.Empty;
     [CSSPMaxLength(500)]
-    public string Hide { get; set; }
+    public string Hide { get; set; } = string.Empty;
 
     public PolSourceGrouping() : base()
     {

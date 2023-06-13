@@ -3,15 +3,13 @@
 [NotMapped]
 public partial class WebClimateSites
 {
-    public TVItemModel TVItemModel { get; set; }
-    public List<TVItemModel> TVItemModelParentList { get; set; }
-    public List<ClimateSiteModel> ClimateSiteModelList { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public List<TVItemModel> TVItemModelParentList { get; set; } = new List<TVItemModel>();
+    public List<ClimateSiteModel> ClimateSiteModelList { get; set; } = new List<ClimateSiteModel>();
 
     public WebClimateSites()
     {
-        TVItemModel = new TVItemModel();
-        TVItemModelParentList = new List<TVItemModel>();
-        ClimateSiteModelList = new List<ClimateSiteModel>();
+
     }
 }
 

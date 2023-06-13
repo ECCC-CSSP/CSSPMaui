@@ -10,10 +10,10 @@ public partial class MWQMSubsector : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MWQMSubsectorTVItemID { get; set; }
     [CSSPMaxLength(20)]
-    public string SubsectorHistoricKey { get; set; }
+    public string SubsectorHistoricKey { get; set; } = string.Empty;
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string TideLocationSIDText { get; set; }
+    public string TideLocationSIDText { get; set; } = string.Empty;
 
     public MWQMSubsector() : base()
     {

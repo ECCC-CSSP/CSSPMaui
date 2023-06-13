@@ -3,13 +3,12 @@
 [NotMapped]
 public partial class RatingCurveModel
 {
-    public RatingCurve RatingCurve { get; set; }
-    public List<RatingCurveValue> RatingCurveValueList { get; set; }
+    public RatingCurve RatingCurve { get; set; } = new RatingCurve();
+    public List<RatingCurveValue> RatingCurveValueList { get; set; } = new List<RatingCurveValue>();
 
     public RatingCurveModel()
     {
-        RatingCurve = new RatingCurve();
-        RatingCurveValueList = new List<RatingCurveValue>();
+
     }
 }
 

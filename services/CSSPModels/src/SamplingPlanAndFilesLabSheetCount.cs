@@ -7,11 +7,12 @@ public partial class SamplingPlanAndFilesLabSheetCount
     public int LabSheetHistoryCount { get; set; }
     [CSSPRange(0, -1)]
     public int LabSheetTransferredCount { get; set; }
-    public SamplingPlan SamplingPlan { get; set; }
-    public TVFile TVFileSamplingPlanFileTXT { get; set; }
+    public SamplingPlan SamplingPlan { get; set; } = new SamplingPlan();
+    public TVFile TVFileSamplingPlanFileTXT { get; set; } = new TVFile();
 
-    public SamplingPlanAndFilesLabSheetCount() : base()
+    public SamplingPlanAndFilesLabSheetCount()
     {
+
     }
 }
 

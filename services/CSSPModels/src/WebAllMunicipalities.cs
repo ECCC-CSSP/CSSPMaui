@@ -3,11 +3,11 @@
 [NotMapped]
 public partial class WebAllMunicipalities
 {
-    public List<TVItemModel> TVItemModelList { get; set; }
+    public List<TVItemModel> TVItemModelList { get; set; } = new List<TVItemModel>();
 
     public WebAllMunicipalities()
     {
-        TVItemModelList = new List<TVItemModel>();
+
     }
 }
 

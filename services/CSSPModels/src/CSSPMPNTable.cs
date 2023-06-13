@@ -12,8 +12,9 @@ public partial class CSSPMPNTable
     [CSSPRange(0, 100000000)]
     public int MPN { get; set; }
 
-    public CSSPMPNTable() : base()
+    public CSSPMPNTable()
     {
+
     }
 }
 

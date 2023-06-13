@@ -7,10 +7,11 @@ public partial class NodeLayer
     public int Layer { get; set; }
     [CSSPRange(-10000.0D, 10000.0D)]
     public double Z { get; set; }
-    public Node Node { get; set; }
+    public Node Node { get; set; } = new Node();
 
-    public NodeLayer() : base()
+    public NodeLayer()
     {
+
     }
 }
 

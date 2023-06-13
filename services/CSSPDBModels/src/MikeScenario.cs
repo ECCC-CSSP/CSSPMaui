@@ -15,7 +15,7 @@ public partial class MikeScenario : LastUpdate
     [CSSPEnumType]
     public ScenarioStatusEnum ScenarioStatus { get; set; }
     [CSSPAllowNull]
-    public string ErrorInfo { get; set; }
+    public string ErrorInfo { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
     public DateTime MikeScenarioStartDateTime_Local { get; set; }
     [CSSPAfter(Year = 1980)]

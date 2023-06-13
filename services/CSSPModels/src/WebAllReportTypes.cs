@@ -3,10 +3,10 @@
 [NotMapped]
 public partial class WebAllReportTypes
 {
-    public List<ReportTypeModel> ReportTypeModelList { get; set; }
+    public List<ReportTypeModel> ReportTypeModelList { get; set; } = new List<ReportTypeModel>();
 
     public WebAllReportTypes()
     {
-        ReportTypeModelList = new List<ReportTypeModel>();
+
     }
 }

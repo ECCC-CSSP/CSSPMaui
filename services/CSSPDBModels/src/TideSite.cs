@@ -10,10 +10,10 @@ public partial class TideSite : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int TideSiteTVItemID { get; set; }
     [CSSPMaxLength(100)]
-    public string TideSiteName { get; set; }
+    public string TideSiteName { get; set; } = string.Empty;
     [CSSPMaxLength(2)]
     [CSSPMinLength(2)]
-    public string Province { get; set; }
+    public string Province { get; set; } = string.Empty;
     [CSSPRange(0, 10000)]
     public int sid { get; set; }
     [CSSPRange(0, 10000)]

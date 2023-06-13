@@ -11,10 +11,10 @@ public partial class EmailDistributionListContact : LastUpdate
     public int EmailDistributionListID { get; set; }
     public bool IsCC { get; set; }
     [CSSPMaxLength(100)]
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     [CSSPMaxLength(200)]
     [DataType(DataType.EmailAddress)]
-    public string Email { get; set; }
+    public string Email { get; set; } = string.Empty;
     public bool CMPRainfallSeasonal { get; set; }
     public bool CMPWastewater { get; set; }
     public bool EmergencyWeather { get; set; }

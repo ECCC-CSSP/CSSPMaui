@@ -3,11 +3,11 @@
 [NotMapped]
 public partial class WebMonitoringOtherStatsProvince
 {
-    public List<MonitoringStatsModel> MonitoringStatsModelList { get; set; }
+    public List<MonitoringStatsModel> MonitoringStatsModelList { get; set; } = new List<MonitoringStatsModel>();
 
     public WebMonitoringOtherStatsProvince()
     {
-        MonitoringStatsModelList = new List<MonitoringStatsModel>();
+
     }
 }
 

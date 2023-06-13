@@ -11,19 +11,19 @@ public partial class ReportType : LastUpdate
     [CSSPEnumType]
     public FileTypeEnum FileType { get; set; }
     [CSSPMaxLength(100)]
-    public string UniqueCode { get; set; }
+    public string UniqueCode { get; set; } = string.Empty;
     [CSSPEnumType]
     [CSSPAllowNull]
     public LanguageEnum? Language { get; set; }
     [CSSPMaxLength(100)]
     [CSSPAllowNull]
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     [CSSPMaxLength(1000)]
     [CSSPAllowNull]
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
     [CSSPAllowNull]
-    public string StartOfFileName { get; set; }
+    public string StartOfFileName { get; set; } = string.Empty;
 
     public ReportType() : base()
     {

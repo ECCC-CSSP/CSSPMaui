@@ -9,6 +9,7 @@ public partial class RunsToRemoveFromStat
 
     public RunsToRemoveFromStat()
     {
+
     }
 }
 

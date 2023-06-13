@@ -12,11 +12,11 @@ public partial class MWQMSubsectorLanguage : LastUpdate
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
     [CSSPMaxLength(250)]
-    public string SubsectorDesc { get; set; }
+    public string SubsectorDesc { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatusSubsectorDesc { get; set; }
     [CSSPAllowNull]
-    public string LogBook { get; set; }
+    public string LogBook { get; set; } = string.Empty;
     [CSSPEnumType]
     [CSSPAllowNull]
     public TranslationStatusEnum? TranslationStatusLogBook { get; set; }

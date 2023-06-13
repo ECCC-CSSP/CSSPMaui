@@ -11,7 +11,7 @@ public partial class MWQMSampleLanguage : LastUpdate
     public int MWQMSampleID { get; set; }
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
-    public string MWQMSampleNote { get; set; }
+    public string MWQMSampleNote { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatus { get; set; }
 

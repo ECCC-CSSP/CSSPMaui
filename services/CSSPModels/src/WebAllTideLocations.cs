@@ -3,11 +3,11 @@
 [NotMapped]
 public partial class WebAllTideLocations
 {
-    public List<TideLocation> TideLocationList { get; set; }
+    public List<TideLocation> TideLocationList { get; set; } = new List<TideLocation>();
 
     public WebAllTideLocations()
     {
-        TideLocationList = new List<TideLocation>();
+
     }
 }
 

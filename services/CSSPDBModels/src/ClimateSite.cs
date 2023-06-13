@@ -12,26 +12,26 @@ public partial class ClimateSite : LastUpdate
     [CSSPRange(1, 100000)]
     public int? ECDBID { get; set; }
     [CSSPMaxLength(100)]
-    public string ClimateSiteName { get; set; }
+    public string ClimateSiteName { get; set; } = string.Empty;
     [CSSPMaxLength(4)]
-    public string Province { get; set; }
+    public string Province { get; set; } = string.Empty;
     [CSSPRange(0.0D, 10000.0D)]
     public double? Elevation_m { get; set; }
     [CSSPMaxLength(10)]
     [CSSPAllowNull]
-    public string ClimateID { get; set; }
+    public string ClimateID { get; set; } = string.Empty;
     [CSSPRange(1, 100000)]
     public int? WMOID { get; set; }
     [CSSPMaxLength(3)]
     [CSSPAllowNull]
-    public string TCID { get; set; }
+    public string TCID { get; set; } = string.Empty;
     public bool? IsQuebecSite { get; set; }
     public bool? IsCoCoRaHS { get; set; }
     [CSSPRange(-10.0D, 0.0D)]
     public double? TimeOffset_hour { get; set; }
     [CSSPMaxLength(50)]
     [CSSPAllowNull]
-    public string File_desc { get; set; }
+    public string File_desc { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
     public DateTime? HourlyStartDate_Local { get; set; }
     [CSSPAfter(Year = 1980)]

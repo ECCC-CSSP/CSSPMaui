@@ -3,11 +3,11 @@
 [NotMapped]
 public partial class WebAllContacts
 {
-    public List<ContactModel> ContactModelList { get; set; }
+    public List<ContactModel> ContactModelList { get; set; } = new List<ContactModel>();
 
     public WebAllContacts()
     {
-        ContactModelList = new List<ContactModel>();
+
     }
 }
 

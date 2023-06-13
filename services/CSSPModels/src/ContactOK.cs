@@ -8,8 +8,9 @@ public partial class ContactOK
     [CSSPRange(1, -1)]
     public int ContactTVItemID { get; set; }
 
-    public ContactOK() : base()
+    public ContactOK()
     {
+
     }
 }
 

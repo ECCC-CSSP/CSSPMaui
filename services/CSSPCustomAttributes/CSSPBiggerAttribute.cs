@@ -34,7 +34,7 @@ public class CSSPBiggerAttribute : ValidationAttribute
     /// > [!NOTE]
     /// > Represent the other date field for which it has to be bigger
     /// </summary>
-    public string OtherField { get; set; }
+    public string? OtherField { get; set; }
 
     /// <summary>
     /// > [!NOTE]
@@ -42,7 +42,7 @@ public class CSSPBiggerAttribute : ValidationAttribute
     /// </summary>
     /// <param name="value">Not used</param>
     /// <returns>Not used</returns>
-    public override bool IsValid(object value)
+    public override bool IsValid(object? value)
     {
         return true;
     }

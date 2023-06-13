@@ -3,15 +3,13 @@
 [NotMapped]
 public partial class WebMikeScenarios
 {
-    public TVItemModel TVItemModel { get; set; }
-    public List<TVItemModel> TVItemModelParentList { get; set; }
-    public List<MikeScenarioModel> MikeScenarioModelList { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public List<TVItemModel> TVItemModelParentList { get; set; } = new List<TVItemModel>();
+    public List<MikeScenarioModel> MikeScenarioModelList { get; set; } = new List<MikeScenarioModel>();
 
     public WebMikeScenarios()
     {
-        TVItemModel = new TVItemModel();
-        TVItemModelParentList = new List<TVItemModel>();
-        MikeScenarioModelList = new List<MikeScenarioModel>();
+
     }
 }
 

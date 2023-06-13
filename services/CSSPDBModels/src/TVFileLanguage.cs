@@ -12,7 +12,7 @@ public partial class TVFileLanguage : LastUpdate
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
     [CSSPAllowNull]
-    public string FileDescription { get; set; }
+    public string FileDescription { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatus { get; set; }
 

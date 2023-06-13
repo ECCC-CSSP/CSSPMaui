@@ -29,10 +29,10 @@ public partial class ReportSection : LastUpdate
     public int? TemplateReportSectionID { get; set; }
     [CSSPMaxLength(100)]
     [CSSPAllowNull]
-    public string ReportSectionName { get; set; }
+    public string ReportSectionName { get; set; } = string.Empty;
     [CSSPMaxLength(10000)]
     [CSSPAllowNull]
-    public string ReportSectionText { get; set; }
+    public string ReportSectionText { get; set; } = string.Empty;
 
     public ReportSection() : base()
     {

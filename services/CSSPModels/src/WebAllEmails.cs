@@ -3,11 +3,11 @@
 [NotMapped]
 public partial class WebAllEmails
 {
-    public List<Email> EmailList { get; set; }
+    public List<Email> EmailList { get; set; } = new List<Email>();
 
     public WebAllEmails()
     {
-        EmailList = new List<Email>();
+
     }
 }
 

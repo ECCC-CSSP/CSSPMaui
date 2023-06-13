@@ -10,20 +10,20 @@ public partial class MikeBoundaryCondition : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MikeBoundaryConditionTVItemID { get; set; }
     [CSSPMaxLength(100)]
-    public string MikeBoundaryConditionCode { get; set; }
+    public string MikeBoundaryConditionCode { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
-    public string MikeBoundaryConditionName { get; set; }
+    public string MikeBoundaryConditionName { get; set; } = string.Empty;
     [CSSPRange(1.0D, 100000.0D)]
     public double MikeBoundaryConditionLength_m { get; set; }
     [CSSPMaxLength(100)]
-    public string MikeBoundaryConditionFormat { get; set; }
+    public string MikeBoundaryConditionFormat { get; set; } = string.Empty;
     [CSSPEnumType]
     public MikeBoundaryConditionLevelOrVelocityEnum MikeBoundaryConditionLevelOrVelocity { get; set; }
     [CSSPEnumType]
     public WebTideDataSetEnum WebTideDataSet { get; set; }
     [CSSPRange(0, 1000)]
     public int NumberOfWebTideNodes { get; set; }
-    public string WebTideDataFromStartToEndDate { get; set; }
+    public string WebTideDataFromStartToEndDate { get; set; } = string.Empty;
     [CSSPEnumType]
     public TVTypeEnum TVType { get; set; }
 

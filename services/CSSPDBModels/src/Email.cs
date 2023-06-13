@@ -11,7 +11,7 @@ public partial class Email : LastUpdate
     public int EmailTVItemID { get; set; }
     [CSSPMaxLength(255)]
     [DataType(DataType.EmailAddress)]
-    public string EmailAddress { get; set; }
+    public string EmailAddress { get; set; } = string.Empty;
     [CSSPEnumType]
     public EmailTypeEnum EmailType { get; set; }
 

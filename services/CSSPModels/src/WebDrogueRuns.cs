@@ -3,15 +3,13 @@
 [NotMapped]
 public partial class WebDrogueRuns
 {
-    public TVItemModel TVItemModel { get; set; }
-    public List<TVItemModel> TVItemModelParentList { get; set; }
-    public List<DrogueRunModel> DrogueRunModelList { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public List<TVItemModel> TVItemModelParentList { get; set; } = new List<TVItemModel>();
+    public List<DrogueRunModel> DrogueRunModelList { get; set; } = new List<DrogueRunModel>();
 
     public WebDrogueRuns()
     {
-        TVItemModel = new TVItemModel();
-        TVItemModelParentList = new List<TVItemModel>();
-        DrogueRunModelList = new List<DrogueRunModel>();
+
     }
 }
 

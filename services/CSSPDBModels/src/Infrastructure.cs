@@ -22,7 +22,7 @@ public partial class Infrastructure : LastUpdate
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string InfrastructureCategory { get; set; }
+    public string InfrastructureCategory { get; set; } = string.Empty;
     [CSSPEnumType]
     [CSSPAllowNull]
     public InfrastructureTypeEnum? InfrastructureType { get; set; }
@@ -79,7 +79,7 @@ public partial class Infrastructure : LastUpdate
     [CSSPRange(-10.0D, 0.0D)]
     public double? TimeOffset_hour { get; set; }
     [CSSPAllowNull]
-    public string TempCatchAllRemoveLater { get; set; }
+    public string TempCatchAllRemoveLater { get; set; } = string.Empty;
     [CSSPRange(0.0D, 1000.0D)]
     public double? AverageDepth_m { get; set; }
     [CSSPRange(1, 1000)]

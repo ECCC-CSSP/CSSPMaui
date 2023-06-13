@@ -7,24 +7,24 @@ public partial class TVLocation
     public int TVItemID { get; set; }
     [CSSPMaxLength(255)]
     [CSSPMinLength(1)]
-    public string TVText { get; set; }
+    public string TVText { get; set; } = string.Empty;
     [CSSPEnumType]
-    public TVTypeEnum TVType { get; set; }
+    public TVTypeEnum TVType { get; set; } = TVTypeEnum.Address;
     [CSSPEnumType]
-    public TVTypeEnum SubTVType { get; set; }
+    public TVTypeEnum SubTVType { get; set; } = TVTypeEnum.Address;
     [CSSPMaxLength(100)]
     [CSSPEnumTypeText(EnumTypeName = "TVTypeEnum", EnumType = "TVType")]
     [CSSPAllowNull]
-    public string TVTypeText { get; set; }
+    public string TVTypeText { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
     [CSSPEnumTypeText(EnumTypeName = "TVTypeEnum", EnumType = "SubTVType")]
     [CSSPAllowNull]
-    public string SubTVTypeText { get; set; }
-    public List<MapObj> MapObjList { get; set; }
+    public string SubTVTypeText { get; set; } = string.Empty;
+    public List<MapObj> MapObjList { get; set; } = new List<MapObj>();
 
-    public TVLocation() : base()
+    public TVLocation()
     {
-        MapObjList = new List<MapObj>();
+
     }
 }
 

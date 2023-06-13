@@ -14,7 +14,7 @@ public partial class DocTemplate : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int TVFileTVItemID { get; set; }
     [CSSPMaxLength(150)]
-    public string FileName { get; set; }
+    public string FileName { get; set; } = string.Empty;
 
     public DocTemplate() : base()
     {

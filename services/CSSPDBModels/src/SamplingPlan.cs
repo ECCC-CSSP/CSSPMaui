@@ -8,9 +8,9 @@ public partial class SamplingPlan : LastUpdate
     public DBCommandEnum DBCommand { get; set; }
     public bool IsActive { get; set; }
     [CSSPMaxLength(200)]
-    public string SamplingPlanName { get; set; }
+    public string SamplingPlanName { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
-    public string ForGroupName { get; set; }
+    public string ForGroupName { get; set; } = string.Empty;
     [CSSPEnumType]
     public SampleTypeEnum SampleType { get; set; }
     [CSSPEnumType]
@@ -26,14 +26,14 @@ public partial class SamplingPlan : LastUpdate
     [CSSPRange(2000, 2050)]
     public int Year { get; set; }
     [CSSPMaxLength(15)]
-    public string AccessCode { get; set; }
+    public string AccessCode { get; set; } = string.Empty;
     [CSSPRange(0.0D, 100.0D)]
     public double DailyDuplicatePrecisionCriteria { get; set; }
     [CSSPRange(0.0D, 100.0D)]
     public double IntertechDuplicatePrecisionCriteria { get; set; }
     public bool IncludeLaboratoryQAQC { get; set; }
     [CSSPMaxLength(15)]
-    public string ApprovalCode { get; set; }
+    public string ApprovalCode { get; set; } = string.Empty;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "8")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int? SamplingPlanFileTVItemID { get; set; }
@@ -47,7 +47,7 @@ public partial class SamplingPlan : LastUpdate
     [CSSPAllowNull]
     public LaboratoryEnum? LaboratoryDefault { get; set; }
     [CSSPMaxLength(250)]
-    public string BackupDirectory { get; set; }
+    public string BackupDirectory { get; set; } = string.Empty;
 
     public SamplingPlan() : base()
     {

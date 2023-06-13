@@ -10,9 +10,9 @@ public partial class StatMWQMSiteSample
     public int? StartYear { get; set; }
     public int? EndYear { get; set; }
     public bool? UseInStat { get; set; }
-    public ColorAndLetter ColorAndLetter { get; set; }
+    public ColorAndLetter ColorAndLetter { get; set; } = new ColorAndLetter();
     public bool IsActive { get; set; }
-    public DateTime SampleDate { get; set; }
+    public DateTime SampleDate { get; set; } = DateTime.MinValue;
     public int? FC { get; set; }
     public double? Sal { get; set; }
     public double? Temp { get; set; }
@@ -35,8 +35,9 @@ public partial class StatMWQMSiteSample
     public int? SampleMonth { get; set; }
     public int? SampleDay { get; set; }
 
-    public StatMWQMSiteSample() : base()
+    public StatMWQMSiteSample()
     {
+
     }
 }
 

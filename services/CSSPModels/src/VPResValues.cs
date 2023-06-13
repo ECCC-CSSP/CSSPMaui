@@ -16,8 +16,9 @@ public partial class VPResValues
     [CSSPRange(0.0D, 1000.0D)]
     public double Decay { get; set; }
 
-    public VPResValues() : base()
+    public VPResValues()
     {
+
     }
 }
 

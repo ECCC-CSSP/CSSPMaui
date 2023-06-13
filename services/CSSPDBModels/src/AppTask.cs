@@ -18,7 +18,7 @@ public partial class AppTask : LastUpdate
     public AppTaskStatusEnum AppTaskStatus { get; set; }
     [CSSPRange(0, 100)]
     public int PercentCompleted { get; set; }
-    public string Parameters { get; set; }
+    public string Parameters { get; set; } = string.Empty;
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
     [CSSPAfter(Year = 1980)]

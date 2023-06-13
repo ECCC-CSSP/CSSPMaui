@@ -26,7 +26,7 @@ public partial class TVItemLink : LastUpdate
     [CSSPRange(0, 100)]
     public int TVLevel { get; set; }
     [CSSPMaxLength(250)]
-    public string TVPath { get; set; }
+    public string TVPath { get; set; } = string.Empty;
     [CSSPExist(ExistTypeName = "TVItemLink", ExistPlurial = "s", ExistFieldID = "TVItemLinkID")]
     [CSSPForeignKey(TableName = "TVItemLinks", FieldName = "TVItemLinkID")]
     public int? ParentTVItemLinkID { get; set; }

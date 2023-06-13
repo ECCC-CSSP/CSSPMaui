@@ -3,13 +3,12 @@
 [NotMapped]
 public partial class ClassificationModel
 {
-    public TVItemModel TVItemModel { get; set; }
-    public Classification Classification { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public Classification Classification { get; set; } = new Classification();
 
     public ClassificationModel()
     {
-        TVItemModel = new TVItemModel();
-        Classification = new Classification();
+
     }
 }
 

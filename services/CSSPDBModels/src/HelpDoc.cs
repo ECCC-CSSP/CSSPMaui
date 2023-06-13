@@ -7,11 +7,11 @@ public partial class HelpDoc : LastUpdate
     [CSSPEnumType]
     public DBCommandEnum DBCommand { get; set; }
     [CSSPMaxLength(100)]
-    public string DocKey { get; set; }
+    public string DocKey { get; set; } = string.Empty;
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
     [CSSPMaxLength(100000)]
-    public string DocHTMLText { get; set; }
+    public string DocHTMLText { get; set; } = string.Empty;
 
     public HelpDoc() : base()
     {

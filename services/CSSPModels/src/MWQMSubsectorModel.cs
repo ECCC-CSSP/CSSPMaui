@@ -3,13 +3,12 @@
 [NotMapped]
 public partial class MWQMSubsectorModel
 {
-    public MWQMSubsector MWQMSubsector { get; set; }
-    public List<MWQMSubsectorLanguage> MWQMSubsectorLanguageList { get; set; }
+    public MWQMSubsector MWQMSubsector { get; set; } = new MWQMSubsector();
+    public List<MWQMSubsectorLanguage> MWQMSubsectorLanguageList { get; set; } = new List<MWQMSubsectorLanguage>();
 
     public MWQMSubsectorModel()
     {
-        MWQMSubsector = new MWQMSubsector();
-        MWQMSubsectorLanguageList = new List<MWQMSubsectorLanguage>();
+
     }
 }
 

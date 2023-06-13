@@ -11,7 +11,7 @@ public partial class MWQMAnalysisReportParameter : LastUpdate
     public int SubsectorTVItemID { get; set; }
     [CSSPMaxLength(250)]
     [CSSPMinLength(5)]
-    public string AnalysisName { get; set; }
+    public string AnalysisName { get; set; } = string.Empty;
     [CSSPRange(1980, 2050)]
     public int? AnalysisReportYear { get; set; }
     [CSSPAfter(Year = 1980)]
@@ -47,10 +47,10 @@ public partial class MWQMAnalysisReportParameter : LastUpdate
     [CSSPRange(1, 100)]
     public int WetLimit96h { get; set; }
     [CSSPMaxLength(250)]
-    public string RunsToOmit { get; set; }
+    public string RunsToOmit { get; set; } = string.Empty;
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string ShowDataTypes { get; set; }
+    public string ShowDataTypes { get; set; } = string.Empty;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "8")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int? ExcelTVFileTVItemID { get; set; }

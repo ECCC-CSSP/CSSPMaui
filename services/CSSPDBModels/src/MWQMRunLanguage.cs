@@ -11,10 +11,10 @@ public partial class MWQMRunLanguage : LastUpdate
     public int MWQMRunID { get; set; }
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
-    public string RunComment { get; set; }
+    public string RunComment { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatusRunComment { get; set; }
-    public string RunWeatherComment { get; set; }
+    public string RunWeatherComment { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatusRunWeatherComment { get; set; }
 

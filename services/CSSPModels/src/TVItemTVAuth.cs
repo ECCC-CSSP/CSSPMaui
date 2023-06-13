@@ -7,21 +7,22 @@ public partial class TVItemTVAuth
     public int TVItemUserAuthID { get; set; }
     [CSSPMaxLength(255)]
     [CSSPMinLength(1)]
-    public string TVText { get; set; }
+    public string TVText { get; set; } = string.Empty;
     [CSSPRange(1, -1)]
     public int TVItemID1 { get; set; }
     [CSSPMaxLength(255)]
     [CSSPMinLength(1)]
-    public string TVTypeStr { get; set; }
+    public string TVTypeStr { get; set; } = string.Empty;
     [CSSPEnumType]
-    public TVAuthEnum TVAuth { get; set; }
+    public TVAuthEnum TVAuth { get; set; } = TVAuthEnum.NoAccess;
     [CSSPMaxLength(100)]
     [CSSPEnumTypeText(EnumTypeName = "TVAuthEnum", EnumType = "TVAuth")]
     [CSSPAllowNull]
-    public string TVAuthText { get; set; }
+    public string TVAuthText { get; set; } = string.Empty;
 
-    public TVItemTVAuth() : base()
+    public TVItemTVAuth()
     {
+
     }
 }
 

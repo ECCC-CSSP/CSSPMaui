@@ -3,21 +3,16 @@
 [NotMapped]
 public partial class WebCountry
 {
-    public TVItemModel TVItemModel { get; set; }
-    public List<TVItemModel> TVItemModelParentList { get; set; }
-    public List<TVItemModel> TVItemModelProvinceList { get; set; }
-    public List<TVFileModel> TVFileModelList { get; set; }
-    public List<RainExceedanceModel> RainExceedanceModelList { get; set; }
-    public List<EmailDistributionListModel> EmailDistributionListModelList { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public List<TVItemModel> TVItemModelParentList { get; set; } = new List<TVItemModel>();
+    public List<TVItemModel> TVItemModelProvinceList { get; set; } = new List<TVItemModel>();
+    public List<TVFileModel> TVFileModelList { get; set; } = new List<TVFileModel>();
+    public List<RainExceedanceModel> RainExceedanceModelList { get; set; } = new List<RainExceedanceModel>();
+    public List<EmailDistributionListModel> EmailDistributionListModelList { get; set; } = new List<EmailDistributionListModel>();
 
     public WebCountry()
     {
-        TVItemModel = new TVItemModel();
-        TVItemModelParentList = new List<TVItemModel>();
-        TVItemModelProvinceList = new List<TVItemModel>();
-        TVFileModelList = new List<TVFileModel>();
-        RainExceedanceModelList = new List<RainExceedanceModel>();
-        EmailDistributionListModelList = new List<EmailDistributionListModel>();
+
     }
 }
 

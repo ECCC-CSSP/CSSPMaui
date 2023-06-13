@@ -3,17 +3,14 @@
 [NotMapped]
 public partial class ContactModel
 {
-    public Contact Contact { get; set; }
-    public List<int> ContactEmailTVItemIDList { get; set; }
-    public List<int> ContactTelTVItemIDList { get; set; }
-    public List<int> ContactAddressTVItemIDList { get; set; }
+    public Contact Contact { get; set; } = new Contact();
+    public List<int> ContactEmailTVItemIDList { get; set; } = new List<int>();
+    public List<int> ContactTelTVItemIDList { get; set; } = new List<int>();
+    public List<int> ContactAddressTVItemIDList { get; set; } = new List<int>();
 
     public ContactModel()
     {
-        Contact = new Contact();
-        ContactEmailTVItemIDList = new List<int>();
-        ContactTelTVItemIDList = new List<int>();
-        ContactAddressTVItemIDList = new List<int>();
+
     }
 }
 

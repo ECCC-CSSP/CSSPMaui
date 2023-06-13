@@ -5,13 +5,14 @@ public partial class TVFullText
 {
     [CSSPMaxLength(255)]
     [CSSPMinLength(1)]
-    public string TVPath { get; set; }
+    public string TVPath { get; set; } = string.Empty;
     [CSSPMaxLength(255)]
     [CSSPMinLength(1)]
-    public string FullText { get; set; }
+    public string FullText { get; set; } = string.Empty;
 
-    public TVFullText() : base()
+    public TVFullText()
     {
+
     }
 }
 

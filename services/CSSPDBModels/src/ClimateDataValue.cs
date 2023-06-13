@@ -38,7 +38,7 @@ public partial class ClimateDataValue : LastUpdate
     [CSSPRange(0.0D, 300.0D)]
     public double? SpdMaxGust_kmh { get; set; }
     [CSSPAllowNull]
-    public string HourlyValues { get; set; }
+    public string HourlyValues { get; set; } = string.Empty;
 
     public ClimateDataValue() : base()
     {

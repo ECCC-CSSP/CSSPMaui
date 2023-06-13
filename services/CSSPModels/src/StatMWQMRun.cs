@@ -21,9 +21,9 @@ public partial class StatMWQMRun
     public double? RainDay9 { get; set; }
     public double? RainDay10 { get; set; }
     [CSSPEnumType]
-    public TideTextEnum StartTide { get; set; }
+    public TideTextEnum StartTide { get; set; } = TideTextEnum.LowTide;
     [CSSPEnumType]
-    public TideTextEnum EndTide { get; set; }
+    public TideTextEnum EndTide { get; set; } = TideTextEnum.LowTide;
     public bool? UseInStat { get; set; }
     public int? RunYear { get; set; }
     public int? RunMonth { get; set; }

@@ -15,7 +15,7 @@ public partial class PolSourceObservation : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int ContactTVItemID { get; set; }
     public bool DesktopReviewed { get; set; }
-    public string Observation_ToBeDeleted { get; set; }
+    public string Observation_ToBeDeleted { get; set; } = string.Empty;
 
     public PolSourceObservation() : base()
     {

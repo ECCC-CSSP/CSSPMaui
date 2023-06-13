@@ -10,8 +10,9 @@ public partial class Coord
     [CSSPRange(0, 10000)]
     public int Ordinal { get; set; }
 
-    public Coord() : base()
+    public Coord()
     {
+
     }
 }
 

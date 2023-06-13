@@ -7,13 +7,14 @@ public partial class SubsectorMWQMSampleYear
     public int SubsectorTVItemID { get; set; }
     public int Year { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime EarliestDate { get; set; }
+    public DateTime EarliestDate { get; set; } = DateTime.MinValue;
     [CSSPAfter(Year = 1980)]
     [CSSPBigger(OtherField = "EarliestDate")]
-    public DateTime LatestDate { get; set; }
+    public DateTime LatestDate { get; set; } = DateTime.MinValue;
 
-    public SubsectorMWQMSampleYear() : base()
+    public SubsectorMWQMSampleYear()
     {
+
     }
 }
 

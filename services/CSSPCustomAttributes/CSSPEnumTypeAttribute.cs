@@ -34,7 +34,7 @@ public class CSSPEnumTypeAttribute : ValidationAttribute
     /// </summary>
     /// <param name="value">Not used</param>
     /// <returns></returns>
-    public override bool IsValid(object value)
+    public override bool IsValid(object? value)
     {
         return true;
     }

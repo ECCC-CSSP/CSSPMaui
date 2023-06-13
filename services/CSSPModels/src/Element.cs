@@ -17,11 +17,11 @@ public partial class Element
     public double YNode0 { get; set; }
     [CSSPRange(-1.0D, -1.0D)]
     public double ZNode0 { get; set; }
-    public List<Node> NodeList { get; set; }
+    public List<Node> NodeList { get; set; } = new List<Node>();
 
-    public Element() : base()
+    public Element()
     {
-        NodeList = new List<Node>();
+
     }
 }
 

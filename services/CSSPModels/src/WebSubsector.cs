@@ -3,17 +3,14 @@
 [NotMapped]
 public partial class WebSubsector
 {
-    public TVItemModel TVItemModel { get; set; }
-    public List<TVItemModel> TVItemModelParentList { get; set; }
-    public List<TVFileModel> TVFileModelList { get; set; }
-    public List<ClassificationModel> ClassificationModelList { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public List<TVItemModel> TVItemModelParentList { get; set; } = new List<TVItemModel>();
+    public List<TVFileModel> TVFileModelList { get; set; } = new List<TVFileModel>();
+    public List<ClassificationModel> ClassificationModelList { get; set; } = new List<ClassificationModel>();
 
     public WebSubsector()
     {
-        TVItemModel = new TVItemModel();
-        TVItemModelParentList = new List<TVItemModel>();
-        TVFileModelList = new List<TVFileModel>();
-        ClassificationModelList = new List<ClassificationModel>();
+
     }
 }
 

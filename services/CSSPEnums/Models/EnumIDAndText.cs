@@ -24,6 +24,6 @@ namespace CSSPEnums;
 public class EnumIDAndText
 {
     public int? EnumID { get; set; }
-    public string EnumText { get; set; }
+    public string EnumText { get; set; } = string.Empty;
 }
 

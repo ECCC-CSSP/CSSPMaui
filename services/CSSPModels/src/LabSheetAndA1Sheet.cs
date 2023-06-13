@@ -3,10 +3,11 @@
 [NotMapped]
 public partial class LabSheetAndA1Sheet
 {
-    public LabSheet LabSheet { get; set; }
-    public LabSheetA1Sheet LabSheetA1Sheet { get; set; }
-    public LabSheetAndA1Sheet() : base()
+    public LabSheet LabSheet { get; set; } = new LabSheet();
+    public LabSheetA1Sheet LabSheetA1Sheet { get; set; } = new LabSheetA1Sheet();
+    public LabSheetAndA1Sheet()
     {
+
     }
 }
 

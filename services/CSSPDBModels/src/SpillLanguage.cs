@@ -11,7 +11,7 @@ public partial class SpillLanguage : LastUpdate
     public int SpillID { get; set; }
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
-    public string SpillComment { get; set; }
+    public string SpillComment { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatus { get; set; }
 

@@ -9,11 +9,11 @@ public partial class ContourPolygon
     public int Layer { get; set; }
     [CSSPRange(1.0D, 10000.0D)]
     public double Depth_m { get; set; }
-    public List<Node> ContourNodeList { get; set; }
+    public List<Node> ContourNodeList { get; set; } = new List<Node>();
 
-    public ContourPolygon() : base()
+    public ContourPolygon()
     {
-        ContourNodeList = new List<Node>();
+
     }
 }
 

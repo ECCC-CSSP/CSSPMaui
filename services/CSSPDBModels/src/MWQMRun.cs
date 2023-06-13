@@ -43,7 +43,7 @@ public partial class MWQMRun : LastUpdate
     public double? WaveHightAtEnd_m { get; set; }
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string SampleCrewInitials { get; set; }
+    public string SampleCrewInitials { get; set; } = string.Empty;
     [CSSPEnumType]
     [CSSPAllowNull]
     public AnalyzeMethodEnum? AnalyzeMethod { get; set; }

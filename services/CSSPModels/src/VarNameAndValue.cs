@@ -4,12 +4,13 @@
 public partial class VarNameAndValue
 {
     [CSSPMaxLength(200)]
-    public string VariableName { get; set; }
+    public string VariableName { get; set; } = string.Empty;
     [CSSPMaxLength(300)]
-    public string VariableValue { get; set; }
+    public string VariableValue { get; set; } = string.Empty;
 
-    public VarNameAndValue() : base()
+    public VarNameAndValue()
     {
+
     }
 }
 

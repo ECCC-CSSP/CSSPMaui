@@ -13,7 +13,7 @@ public partial class EmailDistributionListContactLanguage : LastUpdate
     public LanguageEnum Language { get; set; }
     [CSSPMaxLength(100)]
     [CSSPMinLength(1)]
-    public string Agency { get; set; }
+    public string Agency { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatus { get; set; }
 

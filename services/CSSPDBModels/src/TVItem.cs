@@ -9,7 +9,7 @@ public partial class TVItem : LastUpdate
     [CSSPRange(0, 100)]
     public int TVLevel { get; set; }
     [CSSPMaxLength(250)]
-    public string TVPath { get; set; }
+    public string TVPath { get; set; } = string.Empty;
     [CSSPEnumType]
     public TVTypeEnum TVType { get; set; }
     [CSSPAllowNull]

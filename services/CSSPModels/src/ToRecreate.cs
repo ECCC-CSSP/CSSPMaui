@@ -4,11 +4,12 @@
 public partial class ToRecreate
 {
     [CSSPEnumType]
-    public WebTypeEnum WebType { get; set; }
+    public WebTypeEnum WebType { get; set; } = WebTypeEnum.WebAllAddresses;
     public int TVItemID { get; set; }
 
     public ToRecreate()
     {
+
     }
 
     public static void AppendToRecreateList(List<ToRecreate> ToRecreateList, WebTypeEnum webType, int TVItemID)

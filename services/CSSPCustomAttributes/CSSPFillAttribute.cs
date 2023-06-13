@@ -96,37 +96,37 @@ public class CSSPFillAttribute : ValidationAttribute
     /// > [!NOTE]
     /// > Object Type text representing the name of the type
     /// </summary>
-    public string FillTypeName { get; set; }
+    public string? FillTypeName { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > Plurial of the type which together creates the table name of the DB
     /// </summary>
-    public string FillPlurial { get; set; }
+    public string? FillPlurial { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > Field ID of the table for which to compare with
     /// </summary>
-    public string FillFieldID { get; set; }
+    public string? FillFieldID { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > Field name/value to compare with DB table
     /// </summary>
-    public string FillEqualField { get; set; }
+    public string? FillEqualField { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > Field name/value to return
     /// </summary>
-    public string FillReturnField { get; set; }
+    public string? FillReturnField { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > If true, a language comparision will also be included
     /// </summary>
-    public bool FillNeedLanguage { get; set; }
+    public bool? FillNeedLanguage { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > If true, a list of items will be included otherwise a single item
     /// </summary>
-    public bool FillIsList { get; set; }
+    public bool? FillIsList { get; set; }
 
     /// <summary>
     /// > [!NOTE]
@@ -134,7 +134,7 @@ public class CSSPFillAttribute : ValidationAttribute
     /// </summary>
     /// <param name="value">Not used</param>
     /// <returns>Not used</returns>
-    public override bool IsValid(object value)
+    public override bool IsValid(object? value)
     {
         return true;
     }

@@ -11,7 +11,7 @@ public partial class PolSourceSite : LastUpdate
     public int PolSourceSiteTVItemID { get; set; }
     [CSSPMaxLength(50)]
     [CSSPAllowNull]
-    public string Temp_Locator_CanDelete { get; set; }
+    public string Temp_Locator_CanDelete { get; set; } = string.Empty;
     [CSSPRange(0, 1000)]
     public int? Oldsiteid { get; set; }
     [CSSPRange(0, 1000)]

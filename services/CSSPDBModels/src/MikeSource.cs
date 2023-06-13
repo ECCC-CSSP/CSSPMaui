@@ -21,7 +21,7 @@ public partial class MikeSource : LastUpdate
     [CSSPRange(0.0D, 1000000.0D)]
     public double? Factor { get; set; }
     [CSSPMaxLength(50)]
-    public string SourceNumberString { get; set; }
+    public string SourceNumberString { get; set; } = string.Empty;
 
     public MikeSource() : base()
     {

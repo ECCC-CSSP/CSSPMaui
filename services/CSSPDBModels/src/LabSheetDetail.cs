@@ -21,10 +21,10 @@ public partial class LabSheetDetail : LastUpdate
     public DateTime RunDate { get; set; }
     [CSSPMaxLength(7)]
     [CSSPMinLength(1)]
-    public string Tides { get; set; }
+    public string Tides { get; set; } = string.Empty;
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string SampleCrewInitials { get; set; }
+    public string SampleCrewInitials { get; set; } = string.Empty;
     [CSSPRange(1, 3)]
     public int? WaterBathCount { get; set; }
     [CSSPAfter(Year = 1980)]
@@ -47,13 +47,13 @@ public partial class LabSheetDetail : LastUpdate
     public int? IncubationBath3TimeCalculated_minutes { get; set; }
     [CSSPMaxLength(10)]
     [CSSPAllowNull]
-    public string WaterBath1 { get; set; }
+    public string WaterBath1 { get; set; } = string.Empty;
     [CSSPMaxLength(10)]
     [CSSPAllowNull]
-    public string WaterBath2 { get; set; }
+    public string WaterBath2 { get; set; } = string.Empty;
     [CSSPMaxLength(10)]
     [CSSPAllowNull]
-    public string WaterBath3 { get; set; }
+    public string WaterBath3 { get; set; } = string.Empty;
     [CSSPRange(-10.0D, 40.0D)]
     public double? TCField1 { get; set; }
     [CSSPRange(-10.0D, 40.0D)]
@@ -68,102 +68,102 @@ public partial class LabSheetDetail : LastUpdate
     public double? TCAverage { get; set; }
     [CSSPMaxLength(100)]
     [CSSPAllowNull]
-    public string ControlLot { get; set; }
+    public string ControlLot { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Positive35 { get; set; }
+    public string Positive35 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string NonTarget35 { get; set; }
+    public string NonTarget35 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Negative35 { get; set; }
+    public string Negative35 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath1Positive44_5 { get; set; }
+    public string Bath1Positive44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath2Positive44_5 { get; set; }
+    public string Bath2Positive44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath3Positive44_5 { get; set; }
+    public string Bath3Positive44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath1NonTarget44_5 { get; set; }
+    public string Bath1NonTarget44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath2NonTarget44_5 { get; set; }
+    public string Bath2NonTarget44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath3NonTarget44_5 { get; set; }
+    public string Bath3NonTarget44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath1Negative44_5 { get; set; }
+    public string Bath1Negative44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath2Negative44_5 { get; set; }
+    public string Bath2Negative44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath3Negative44_5 { get; set; }
+    public string Bath3Negative44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Blank35 { get; set; }
+    public string Blank35 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath1Blank44_5 { get; set; }
+    public string Bath1Blank44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath2Blank44_5 { get; set; }
+    public string Bath2Blank44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(1)]
     [CSSPMinLength(1)]
     [CSSPAllowNull]
-    public string Bath3Blank44_5 { get; set; }
+    public string Bath3Blank44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string Lot35 { get; set; }
+    public string Lot35 { get; set; } = string.Empty;
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string Lot44_5 { get; set; }
+    public string Lot44_5 { get; set; } = string.Empty;
     [CSSPMaxLength(250)]
     [CSSPAllowNull]
-    public string Weather { get; set; }
+    public string Weather { get; set; } = string.Empty;
     [CSSPMaxLength(250)]
     [CSSPAllowNull]
-    public string RunComment { get; set; }
+    public string RunComment { get; set; } = string.Empty;
     [CSSPMaxLength(250)]
     [CSSPAllowNull]
-    public string RunWeatherComment { get; set; }
+    public string RunWeatherComment { get; set; } = string.Empty;
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string SampleBottleLotNumber { get; set; }
+    public string SampleBottleLotNumber { get; set; } = string.Empty;
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string SalinitiesReadBy { get; set; }
+    public string SalinitiesReadBy { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
     public DateTime? SalinitiesReadDate { get; set; }
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string ResultsReadBy { get; set; }
+    public string ResultsReadBy { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
     public DateTime? ResultsReadDate { get; set; }
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
-    public string ResultsRecordedBy { get; set; }
+    public string ResultsRecordedBy { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
     public DateTime? ResultsRecordedDate { get; set; }
     [CSSPRange(0.0D, 100.0D)]

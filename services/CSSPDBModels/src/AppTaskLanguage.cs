@@ -13,10 +13,10 @@ public partial class AppTaskLanguage : LastUpdate
     public LanguageEnum Language { get; set; }
     [CSSPMaxLength(250)]
     [CSSPAllowNull]
-    public string StatusText { get; set; }
+    public string StatusText { get; set; } = string.Empty;
     [CSSPMaxLength(250)]
     [CSSPAllowNull]
-    public string ErrorText { get; set; }
+    public string ErrorText { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatus { get; set; }
 

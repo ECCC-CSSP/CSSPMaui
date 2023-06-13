@@ -29,7 +29,7 @@ public class CSSPMinLengthAttribute : MinLengthAttribute
     /// </summary>
     /// <param name="value">Not used</param>
     /// <returns>Not used</returns>
-    public override bool IsValid(object value)
+    public override bool IsValid(object? value)
     {
         return true;
     }

@@ -9,10 +9,11 @@ public partial class ElementLayer
     public double ZMin { get; set; }
     [CSSPRange(-1.0D, -1.0D)]
     public double ZMax { get; set; }
-    public Element Element { get; set; }
+    public Element Element { get; set; } = new Element();
 
-    public ElementLayer() : base()
+    public ElementLayer()
     {
+
     }
 }
 

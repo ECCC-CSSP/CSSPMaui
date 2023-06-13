@@ -3,15 +3,13 @@
 [NotMapped]
 public partial class WebMWQMRuns
 {
-    public TVItemModel TVItemModel { get; set; }
-    public List<TVItemModel> TVItemModelParentList { get; set; }
-    public List<MWQMRunModel> MWQMRunModelList { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public List<TVItemModel> TVItemModelParentList { get; set; } = new List<TVItemModel>();
+    public List<MWQMRunModel> MWQMRunModelList { get; set; } = new List<MWQMRunModel>();
 
     public WebMWQMRuns()
     {
-        TVItemModel = new TVItemModel();
-        TVItemModelParentList = new List<TVItemModel>();
-        MWQMRunModelList = new List<MWQMRunModel>();
+
     }
 }
 

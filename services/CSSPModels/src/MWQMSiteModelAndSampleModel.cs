@@ -3,13 +3,12 @@
 [NotMapped]
 public partial class MWQMSiteModelAndSampleModel
 {
-    public MWQMSiteModel MWQMSiteModel { get; set; }
-    public MWQMSampleModel MWQMSampleModel { get; set; }
+    public MWQMSiteModel MWQMSiteModel { get; set; } = new MWQMSiteModel();
+    public MWQMSampleModel MWQMSampleModel { get; set; } = new MWQMSampleModel();
 
     public MWQMSiteModelAndSampleModel()
     {
-        MWQMSiteModel = new MWQMSiteModel();
-        MWQMSampleModel = new MWQMSampleModel();
+
     }
 }
 

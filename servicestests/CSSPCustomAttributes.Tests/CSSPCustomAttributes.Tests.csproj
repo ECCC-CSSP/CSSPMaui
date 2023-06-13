@@ -1,13 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+  <!--<TargetFrameworks>net7.0</TargetFrameworks>-->
+  <!--<TargetFrameworks>net7.0-android</TargetFrameworks>-->
+  <!--<TargetFrameworks>net7.0-ios</TargetFrameworks>-->
+  <!--<TargetFrameworks>net7.0-maccatalyst</TargetFrameworks>-->
+  <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+  <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+  <!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+  <!--<ImplicitUsings>enable</ImplicitUsings>-->
+  <Nullable>enable</Nullable>
 
-    <IsPackable>false</IsPackable>
+  <IsPackable>false</IsPackable>
 
-    <Platforms>AnyCPU</Platforms>
+  <UserSecretsId>CSSPCustomAttributes_Tests</UserSecretsId>
 
-    <UserSecretsId>CSSPCustomAttributes_Tests</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

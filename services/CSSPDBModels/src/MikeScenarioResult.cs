@@ -10,7 +10,7 @@ public partial class MikeScenarioResult : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MikeScenarioTVItemID { get; set; }
     [CSSPAllowNull]
-    public string MikeResultsJSON { get; set; }
+    public string MikeResultsJSON { get; set; } = string.Empty;
 
     public MikeScenarioResult() : base()
     {

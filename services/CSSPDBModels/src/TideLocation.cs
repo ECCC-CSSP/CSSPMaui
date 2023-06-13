@@ -9,9 +9,9 @@ public partial class TideLocation : LastUpdate
     [CSSPRange(0, 10000)]
     public int Zone { get; set; }
     [CSSPMaxLength(100)]
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
-    public string Prov { get; set; }
+    public string Prov { get; set; } = string.Empty;
     [CSSPRange(0, 100000)]
     public int sid { get; set; }
     [CSSPRange(-90.0D, 90.0D)]

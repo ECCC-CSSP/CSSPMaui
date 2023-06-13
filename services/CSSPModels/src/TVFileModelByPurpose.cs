@@ -4,12 +4,12 @@
 public partial class TVFileModelByPurpose
 {
     [CSSPEnumType]
-    public FilePurposeEnum FilePurpose { get; set; }
-    public List<TVFileModel> TVFileModelList { get; set; }
+    public FilePurposeEnum FilePurpose { get; set; } = FilePurposeEnum.Picture;
+    public List<TVFileModel> TVFileModelList { get; set; } = new List<TVFileModel>();
 
     public TVFileModelByPurpose()
     {
-        TVFileModelList = new List<TVFileModel>();
+
     }
 }
 

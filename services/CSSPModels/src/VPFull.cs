@@ -3,14 +3,13 @@
 [NotMapped]
 public partial class VPFull
 {
-    public VPScenario VPScenario { get; set; }
-    public List<VPAmbient> VPAmbientList { get; set; }
-    public List<VPResult> VPResultList { get; set; }
+    public VPScenario VPScenario { get; set; } = new VPScenario();
+    public List<VPAmbient> VPAmbientList { get; set; } = new List<VPAmbient>();
+    public List<VPResult> VPResultList { get; set; } = new List<VPResult>();
 
-    public VPFull() : base()
+    public VPFull()
     {
-        VPAmbientList = new List<VPAmbient>();
-        VPResultList = new List<VPResult>();
+
     }
 }
 

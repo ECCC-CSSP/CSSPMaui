@@ -10,7 +10,7 @@ public partial class Tel : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int TelTVItemID { get; set; }
     [CSSPMaxLength(50)]
-    public string TelNumber { get; set; }
+    public string TelNumber { get; set; } = string.Empty;
     [CSSPEnumType]
     public TelTypeEnum TelType { get; set; }
 

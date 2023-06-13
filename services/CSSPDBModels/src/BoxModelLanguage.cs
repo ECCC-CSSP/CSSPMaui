@@ -12,7 +12,7 @@ public partial class BoxModelLanguage : LastUpdate
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
     [CSSPMaxLength(250)]
-    public string ScenarioName { get; set; }
+    public string ScenarioName { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatus { get; set; }
 

@@ -8,10 +8,11 @@ public partial class ContactSearch
     [CSSPRange(1, -1)]
     public int ContactTVItemID { get; set; }
     [CSSPMaxLength(255)]
-    public string FullName { get; set; }
+    public string FullName { get; set; } = string.Empty;
 
-    public ContactSearch() : base()
+    public ContactSearch()
     {
+
     }
 }
 

@@ -12,7 +12,7 @@ public partial class TVItemLanguage : LastUpdate
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
     [CSSPMaxLength(200)]
-    public string TVText { get; set; }
+    public string TVText { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatus { get; set; }
 

@@ -11,17 +11,17 @@ public partial class HydrometricSite : LastUpdate
     public int HydrometricSiteTVItemID { get; set; }
     [CSSPMaxLength(7)]
     [CSSPAllowNull]
-    public string FedSiteNumber { get; set; }
+    public string FedSiteNumber { get; set; } = string.Empty;
     [CSSPMaxLength(7)]
     [CSSPAllowNull]
-    public string QuebecSiteNumber { get; set; }
+    public string QuebecSiteNumber { get; set; } = string.Empty;
     [CSSPMaxLength(200)]
-    public string HydrometricSiteName { get; set; }
+    public string HydrometricSiteName { get; set; } = string.Empty;
     [CSSPMaxLength(200)]
     [CSSPAllowNull]
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
     [CSSPMaxLength(4)]
-    public string Province { get; set; }
+    public string Province { get; set; } = string.Empty;
     [CSSPRange(0.0D, 10000.0D)]
     public double? Elevation_m { get; set; }
     [CSSPAfter(Year = 1849)]

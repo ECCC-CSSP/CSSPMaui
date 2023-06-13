@@ -8,6 +8,7 @@ public partial class CalDecay
 
     public CalDecay() : base()
     {
+
     }
 }
 

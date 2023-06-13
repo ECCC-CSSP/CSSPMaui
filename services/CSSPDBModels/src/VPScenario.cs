@@ -43,7 +43,7 @@ public partial class VPScenario : LastUpdate
     [CSSPRange(0.0D, 100.0D)]
     public double? EffluentVelocity_m_s { get; set; }
     [CSSPAllowNull]
-    public string RawResults { get; set; }
+    public string RawResults { get; set; } = string.Empty;
 
     public VPScenario() : base()
     {

@@ -73,22 +73,22 @@ public class CSSPExistAttribute : ValidationAttribute
     /// > [!NOTE]
     /// > Type text representing the name of the type
     /// </summary>
-    public string ExistTypeName { get; set; }
+    public string? ExistTypeName { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > Plurial of the type which together creates the table name of the DB
     /// </summary>
-    public string ExistPlurial { get; set; }
+    public string? ExistPlurial { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > Field ID of the table for which to compare with
     /// </summary>
-    public string ExistFieldID { get; set; }
+    public string? ExistFieldID { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > List of TVTypeEnum numbers separated by commas (only used with TVItems DB table)
     /// </summary>
-    public string AllowableTVTypeList { get; set; }
+    public string? AllowableTVTypeList { get; set; }
 
     /// <summary>
     /// > [!NOTE]
@@ -96,7 +96,7 @@ public class CSSPExistAttribute : ValidationAttribute
     /// </summary>
     /// <param name="value">Not used</param>
     /// <returns>Not used</returns>
-    public override bool IsValid(object value)
+    public override bool IsValid(object? value)
     {
         return true;
     }

@@ -15,13 +15,12 @@ public partial class Node
     public int Code { get; set; }
     [CSSPRange(-1.0D, -1.0D)]
     public double Value { get; set; }
-    public List<Element> ElementList { get; set; }
-    public List<Node> ConnectNodeList { get; set; }
+    public List<Element> ElementList { get; set; } = new List<Element>();
+    public List<Node> ConnectNodeList { get; set; } = new List<Node>();
 
-    public Node() : base()
+    public Node()
     {
-        ElementList = new List<Element>();
-        ConnectNodeList = new List<Node>();
+
     }
 }
 

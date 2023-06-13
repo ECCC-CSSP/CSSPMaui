@@ -3,19 +3,15 @@
 [NotMapped]
 public partial class MikeScenarioModel
 {
-    public MikeScenario MikeScenario { get; set; }
-    public TVItemModel TVItemModel { get; set; }
-    public List<TVFileModel> TVFileModelList { get; set; }
-    public List<MikeBoundaryConditionModel> MikeBoundaryConditionModelList { get; set; }
-    public List<MikeSourceModel> MikeSourceModelList { get; set; }
+    public MikeScenario MikeScenario { get; set; } = new MikeScenario();
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public List<TVFileModel> TVFileModelList { get; set; } = new List<TVFileModel>();
+    public List<MikeBoundaryConditionModel> MikeBoundaryConditionModelList { get; set; } = new List<MikeBoundaryConditionModel>();
+    public List<MikeSourceModel> MikeSourceModelList { get; set; } = new List<MikeSourceModel>();
 
     public MikeScenarioModel()
     {
-        MikeScenario = new MikeScenario();
-        TVItemModel = new TVItemModel();
-        TVFileModelList = new List<TVFileModel>();
-        MikeBoundaryConditionModelList = new List<MikeBoundaryConditionModel>();
-        MikeSourceModelList = new List<MikeSourceModel>();
+
     }
 }
 

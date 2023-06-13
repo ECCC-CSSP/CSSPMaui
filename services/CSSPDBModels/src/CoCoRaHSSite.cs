@@ -7,9 +7,9 @@ public partial class CoCoRaHSSite : LastUpdate
     [CSSPEnumType]
     public DBCommandEnum DBCommand { get; set; }
     [CSSPMaxLength(100)]
-    public string StationNumber { get; set; }
+    public string StationNumber { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
-    public string StationName { get; set; }
+    public string StationName { get; set; } = string.Empty;
     [CSSPRange(-90.0D, 90.0D)]
     public double Latitude { get; set; }
     [CSSPRange(-180.0D, 180.0D)]

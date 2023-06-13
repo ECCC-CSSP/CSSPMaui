@@ -3,13 +3,12 @@
 [NotMapped]
 public partial class EmailDistributionListContactModel
 {
-    public EmailDistributionListContact EmailDistributionListContact { get; set; }
-    public List<EmailDistributionListContactLanguage> EmailDistributionListContactLanguageList { get; set; }
+    public EmailDistributionListContact EmailDistributionListContact { get; set; } = new EmailDistributionListContact();
+    public List<EmailDistributionListContactLanguage> EmailDistributionListContactLanguageList { get; set; } = new List<EmailDistributionListContactLanguage>();
 
     public EmailDistributionListContactModel()
     {
-        EmailDistributionListContact = EmailDistributionListContact;
-        EmailDistributionListContactLanguageList = new List<EmailDistributionListContactLanguage>();
+
     }
 }
 

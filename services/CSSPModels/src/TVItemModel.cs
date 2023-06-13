@@ -3,17 +3,14 @@
 [NotMapped]
 public partial class TVItemModel
 {
-    public TVItem TVItem { get; set; }
-    public List<TVItemLanguage> TVItemLanguageList { get; set; }
-    public List<TVItemStat> TVItemStatList { get; set; }
-    public List<MapInfoModel> MapInfoModelList { get; set; }
+    public TVItem TVItem { get; set; } = new TVItem();
+    public List<TVItemLanguage> TVItemLanguageList { get; set; } = new List<TVItemLanguage>();
+    public List<TVItemStat> TVItemStatList { get; set; } = new List<TVItemStat>();
+    public List<MapInfoModel> MapInfoModelList { get; set; } = new List<MapInfoModel>();
 
     public TVItemModel()
     {
-        TVItem = new TVItem();
-        TVItemLanguageList = new List<TVItemLanguage>();
-        TVItemStatList = new List<TVItemStat>();
-        MapInfoModelList = new List<MapInfoModel>();
+
     }
 }
 

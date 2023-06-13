@@ -33,12 +33,12 @@ public class CSSPEnumTypeTextAttribute : ValidationAttribute
     /// > [!NOTE]
     /// > Enumeration name with CSSPEnums
     /// </summary>
-    public string EnumTypeName { get; set; }
+    public string? EnumTypeName { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > Represent the property name
     /// </summary>
-    public string EnumType { get; set; }
+    public string? EnumType { get; set; }
 
     /// <summary>
     /// > [!NOTE]
@@ -46,7 +46,7 @@ public class CSSPEnumTypeTextAttribute : ValidationAttribute
     /// </summary>
     /// <param name="value">Not used</param>
     /// <returns>Not used</returns>
-    public override bool IsValid(object value)
+    public override bool IsValid(object? value)
     {
         return true;
     }

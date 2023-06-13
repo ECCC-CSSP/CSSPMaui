@@ -3,17 +3,14 @@
 [NotMapped]
 public partial class HydrometricSiteModel
 {
-    public TVItemModel TVItemModel { get; set; }
-    public HydrometricSite HydrometricSite { get; set; }
-    public List<HydrometricDataValue> HydrometricDataValueList { get; set; }
-    public List<RatingCurveModel> RatingCurveModelList { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public HydrometricSite HydrometricSite { get; set; } = new HydrometricSite();
+    public List<HydrometricDataValue> HydrometricDataValueList { get; set; } = new List<HydrometricDataValue>();
+    public List<RatingCurveModel> RatingCurveModelList { get; set; } = new List<RatingCurveModel>();
 
     public HydrometricSiteModel()
     {
-        TVItemModel = new TVItemModel();
-        HydrometricSite = new HydrometricSite();
-        HydrometricDataValueList = new List<HydrometricDataValue>();
-        RatingCurveModelList = new List<RatingCurveModel>();
+
     }
 }
 

@@ -3,15 +3,13 @@
 [NotMapped]
 public partial class BoxModelModel
 {
-    public BoxModel BoxModel { get; set; }
-    public List<BoxModelLanguage> BoxModelLanguageList { get; set; }
-    public List<BoxModelResult> BoxModelResultList { get; set; }
+    public BoxModel BoxModel { get; set; } = new BoxModel();
+    public List<BoxModelLanguage> BoxModelLanguageList { get; set; } = new List<BoxModelLanguage>();
+    public List<BoxModelResult> BoxModelResultList { get; set; } = new List<BoxModelResult>();
 
     public BoxModelModel()
     {
-        BoxModel = new BoxModel();
-        BoxModelLanguageList = new List<BoxModelLanguage>();
-        BoxModelResultList = new List<BoxModelResult>();
+
     }
 }
 

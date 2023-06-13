@@ -6,10 +6,11 @@ public partial class VPScenarioIDAndRawResults
     [CSSPRange(1, -1)]
     public int VPScenarioID { get; set; }
     [CSSPMaxLength(1000000)]
-    public string RawResults { get; set; }
+    public string RawResults { get; set; } = string.Empty;
 
-    public VPScenarioIDAndRawResults() : base()
+    public VPScenarioIDAndRawResults()
     {
+
     }
 }
 

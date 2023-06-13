@@ -10,9 +10,9 @@ public partial class MWQMSite : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MWQMSiteTVItemID { get; set; }
     [CSSPMaxLength(8)]
-    public string MWQMSiteNumber { get; set; }
+    public string MWQMSiteNumber { get; set; } = string.Empty;
     [CSSPMaxLength(200)]
-    public string MWQMSiteDescription { get; set; }
+    public string MWQMSiteDescription { get; set; } = string.Empty;
     [CSSPEnumType]
     public MWQMSiteLatestClassificationEnum MWQMSiteLatestClassification { get; set; }
     [CSSPRange(0, 1000)]

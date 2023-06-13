@@ -10,9 +10,9 @@ public partial class ContactShortcut : LastUpdate
     [CSSPForeignKey(TableName = "Contacts", FieldName = "ContactID")]
     public int ContactID { get; set; }
     [CSSPMaxLength(100)]
-    public string ShortCutText { get; set; }
+    public string ShortCutText { get; set; } = string.Empty;
     [CSSPMaxLength(200)]
-    public string ShortCutAddress { get; set; }
+    public string ShortCutAddress { get; set; } = string.Empty;
 
     public ContactShortcut() : base()
     {

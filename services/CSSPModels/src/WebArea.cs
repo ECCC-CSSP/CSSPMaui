@@ -3,17 +3,14 @@
 [NotMapped]
 public partial class WebArea
 {
-    public TVItemModel TVItemModel { get; set; }
-    public List<TVItemModel> TVItemModelParentList { get; set; }
-    public List<TVItemModel> TVItemModelSectorList { get; set; }
-    public List<TVFileModel> TVFileModelList { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public List<TVItemModel> TVItemModelParentList { get; set; } = new List<TVItemModel>();
+    public List<TVItemModel> TVItemModelSectorList { get; set; } = new List<TVItemModel>();
+    public List<TVFileModel> TVFileModelList { get; set; } = new List<TVFileModel>();
 
     public WebArea()
     {
-        TVItemModel = new TVItemModel();
-        TVItemModelParentList = new List<TVItemModel>();
-        TVItemModelSectorList = new List<TVItemModel>();
-        TVFileModelList = new List<TVFileModel>();
+
     }
 }
 

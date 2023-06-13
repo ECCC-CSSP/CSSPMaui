@@ -3,11 +3,11 @@
 [NotMapped]
 public partial class WebAllUseOfSites
 {
-    public List<UseOfSite> UseOfSiteList { get; set; }
+    public List<UseOfSite> UseOfSiteList { get; set; } = new List<UseOfSite>();
 
     public WebAllUseOfSites()
     {
-        UseOfSiteList = new List<UseOfSite>();
+
     }
 }
 

@@ -3,13 +3,12 @@
 [NotMapped]
 public partial class MapInfoModel
 {
-    public MapInfo MapInfo { get; set; }
-    public List<MapInfoPoint> MapInfoPointList { get; set; }
+    public MapInfo MapInfo { get; set; } = new MapInfo();
+    public List<MapInfoPoint> MapInfoPointList { get; set; } = new List<MapInfoPoint>();
 
     public MapInfoModel()
     {
-        MapInfo = new MapInfo();
-        MapInfoPointList = new List<MapInfoPoint>();
+
     }
 }
 

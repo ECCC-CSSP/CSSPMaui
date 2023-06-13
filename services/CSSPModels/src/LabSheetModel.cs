@@ -3,15 +3,13 @@
 [NotMapped]
 public partial class LabSheetModel
 {
-    public LabSheet LabSheet { get; set; }
-    public LabSheetDetail LabSheetDetail { get; set; }
-    public List<LabSheetTubeMPNDetail> LabSheetTubeMPNDetailList { get; set; }
+    public LabSheet LabSheet { get; set; } = new LabSheet();
+    public LabSheetDetail LabSheetDetail { get; set; } = new LabSheetDetail();
+    public List<LabSheetTubeMPNDetail> LabSheetTubeMPNDetailList { get; set; } = new List<LabSheetTubeMPNDetail>();
 
     public LabSheetModel()
     {
-        LabSheet = new LabSheet();
-        LabSheetDetail = new LabSheetDetail();
-        LabSheetTubeMPNDetailList = new List<LabSheetTubeMPNDetail>();
+
     }
 }
 

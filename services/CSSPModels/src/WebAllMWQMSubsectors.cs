@@ -3,11 +3,11 @@
 [NotMapped]
 public partial class WebAllMWQMSubsectors
 {
-    public List<MWQMSubsectorModel> MWQMSubsectorModelList { get; set; }
+    public List<MWQMSubsectorModel> MWQMSubsectorModelList { get; set; } = new List<MWQMSubsectorModel>();
 
     public WebAllMWQMSubsectors()
     {
-        MWQMSubsectorModelList = new List<MWQMSubsectorModel>();
+
     }
 }
 

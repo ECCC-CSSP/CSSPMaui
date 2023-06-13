@@ -8,6 +8,7 @@ public partial class ChartXYNumbersModel
 
     public ChartXYNumbersModel()
     {
+
     }
 }
 

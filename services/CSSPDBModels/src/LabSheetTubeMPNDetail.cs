@@ -30,12 +30,12 @@ public partial class LabSheetTubeMPNDetail : LastUpdate
     public double? Temperature { get; set; }
     [CSSPMaxLength(10)]
     [CSSPAllowNull]
-    public string ProcessedBy { get; set; }
+    public string ProcessedBy { get; set; } = string.Empty;
     [CSSPEnumType]
     public SampleTypeEnum SampleType { get; set; }
     [CSSPMaxLength(250)]
     [CSSPAllowNull]
-    public string SiteComment { get; set; }
+    public string SiteComment { get; set; } = string.Empty;
 
     public LabSheetTubeMPNDetail() : base()
     {

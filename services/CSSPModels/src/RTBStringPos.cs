@@ -8,12 +8,13 @@ public partial class RTBStringPos
     [CSSPRange(0, -1)]
     public int EndPos { get; set; }
     [CSSPMaxLength(100)]
-    public string Text { get; set; }
+    public string Text { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
-    public string TagText { get; set; }
+    public string TagText { get; set; } = string.Empty;
 
-    public RTBStringPos() : base()
+    public RTBStringPos()
     {
+
     }
 }
 

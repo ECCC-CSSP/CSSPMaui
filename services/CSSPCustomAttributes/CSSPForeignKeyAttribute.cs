@@ -96,12 +96,12 @@ public class CSSPForeignKeyAttribute : ValidationAttribute
     /// > [!NOTE]
     /// > string representing the name of the Foreign table
     /// </summary>
-    public string TableName { get; set; }
+    public string? TableName { get; set; }
     /// <summary>
     /// > [!NOTE]
     /// > string representing the name of the Foreign field
     /// </summary>
-    public string FieldName { get; set; }
+    public string? FieldName { get; set; }
 
     /// <summary>
     /// > [!NOTE]
@@ -109,7 +109,7 @@ public class CSSPForeignKeyAttribute : ValidationAttribute
     /// </summary>
     /// <param name="value">Not used</param>
     /// <returns>Not used</returns>
-    public override bool IsValid(object value)
+    public override bool IsValid(object? value)
     {
         return true;
     }

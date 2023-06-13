@@ -3,11 +3,12 @@
 [NotMapped]
 public partial class Vector
 {
-    public Node StartNode { get; set; }
-    public Node EndNode { get; set; }
+    public Node StartNode { get; set; } = new Node();
+    public Node EndNode { get; set; } = new Node();
 
-    public Vector() : base()
+    public Vector()
     {
+
     }
 }
 

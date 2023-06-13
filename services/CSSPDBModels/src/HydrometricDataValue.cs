@@ -22,7 +22,7 @@ public partial class HydrometricDataValue : LastUpdate
     [CSSPRange(0.0D, 10000.0D)]
     public double? Level_m { get; set; }
     [CSSPAllowNull]
-    public string HourlyValues { get; set; }
+    public string HourlyValues { get; set; } = string.Empty;
 
     public HydrometricDataValue() : base()
     {

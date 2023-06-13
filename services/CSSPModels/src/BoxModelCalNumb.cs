@@ -4,7 +4,7 @@
 public partial class BoxModelCalNumb
 {
     [CSSPEnumType]
-    public BoxModelResultTypeEnum BoxModelResultType { get; set; }
+    public BoxModelResultTypeEnum BoxModelResultType { get; set; } = BoxModelResultTypeEnum.Dilution;
     [CSSPRange(0.0D, -1.0D)]
     public double CalLength_m { get; set; }
     [CSSPRange(0.0D, -1.0D)]
@@ -20,10 +20,11 @@ public partial class BoxModelCalNumb
     [CSSPMaxLength(100)]
     [CSSPEnumTypeText(EnumTypeName = "BoxModelResultTypeEnum", EnumType = "BoxModelResultType")]
     [CSSPAllowNull]
-    public string BoxModelResultTypeText { get; set; }
+    public string BoxModelResultTypeText { get; set; } = string.Empty;
 
-    public BoxModelCalNumb() : base()
+    public BoxModelCalNumb()
     {
+
     }
 }
 

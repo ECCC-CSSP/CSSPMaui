@@ -16,7 +16,7 @@ public partial class MWQMSample : LastUpdate
     public DateTime SampleDateTime_Local { get; set; }
     [CSSPMaxLength(6)]
     [CSSPAllowNull]
-    public string TimeText { get; set; }
+    public string TimeText { get; set; } = string.Empty;
     [CSSPRange(0.0D, 1000.0D)]
     public double? Depth_m { get; set; }
     [CSSPRange(0, 10000000)]
@@ -28,7 +28,7 @@ public partial class MWQMSample : LastUpdate
     [CSSPRange(0.0D, 14.0D)]
     public double? PH { get; set; }
     [CSSPMaxLength(50)]
-    public string SampleTypesText { get; set; }
+    public string SampleTypesText { get; set; } = string.Empty;
     [CSSPEnumType]
     [CSSPAllowNull]
     public SampleTypeEnum? SampleType_old { get; set; }
@@ -40,7 +40,7 @@ public partial class MWQMSample : LastUpdate
     public int? Tube_0_1 { get; set; }
     [CSSPMaxLength(10)]
     [CSSPAllowNull]
-    public string ProcessedBy { get; set; }
+    public string ProcessedBy { get; set; } = string.Empty;
     public bool UseForOpenData { get; set; }
 
     public MWQMSample() : base()

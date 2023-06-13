@@ -11,7 +11,7 @@ public partial class VPScenarioLanguage : LastUpdate
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
     [CSSPMaxLength(100)]
-    public string VPScenarioName { get; set; }
+    public string VPScenarioName { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatus { get; set; }
 

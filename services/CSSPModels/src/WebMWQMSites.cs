@@ -3,15 +3,13 @@
 [NotMapped]
 public partial class WebMWQMSites
 {
-    public TVItemModel TVItemModel { get; set; }
-    public List<TVItemModel> TVItemModelParentList { get; set; }
-    public List<MWQMSiteModel> MWQMSiteModelList { get; set; }
+    public TVItemModel TVItemModel { get; set; } = new TVItemModel();
+    public List<TVItemModel> TVItemModelParentList { get; set; } = new List<TVItemModel>();
+    public List<MWQMSiteModel> MWQMSiteModelList { get; set; } = new List<MWQMSiteModel>();
 
     public WebMWQMSites()
     {
-        TVItemModel = new TVItemModel();
-        TVItemModelParentList = new List<TVItemModel>();
-        MWQMSiteModelList = new List<MWQMSiteModel>();
+
     }
 }
 

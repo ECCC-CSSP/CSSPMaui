@@ -11,7 +11,7 @@ public partial class InfrastructureLanguage : LastUpdate
     public int InfrastructureID { get; set; }
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
-    public string Comment { get; set; }
+    public string Comment { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatus { get; set; }
 

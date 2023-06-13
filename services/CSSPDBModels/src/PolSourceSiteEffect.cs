@@ -14,9 +14,9 @@ public partial class PolSourceSiteEffect : LastUpdate
     public int MWQMSiteTVItemID { get; set; }
     [CSSPMaxLength(250)]
     [CSSPAllowNull]
-    public string PolSourceSiteEffectTermIDs { get; set; }
+    public string PolSourceSiteEffectTermIDs { get; set; } = string.Empty;
     [CSSPAllowNull]
-    public string Comments { get; set; }
+    public string Comments { get; set; } = string.Empty;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "8")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int? AnalysisDocumentTVItemID { get; set; }

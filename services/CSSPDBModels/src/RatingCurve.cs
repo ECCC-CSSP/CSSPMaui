@@ -10,7 +10,7 @@ public partial class RatingCurve : LastUpdate
     [CSSPForeignKey(TableName = "HydrometricSites", FieldName = "HydrometricSiteID")]
     public int HydrometricSiteID { get; set; }
     [CSSPMaxLength(50)]
-    public string RatingCurveNumber { get; set; }
+    public string RatingCurveNumber { get; set; } = string.Empty;
 
     public RatingCurve() : base()
     {

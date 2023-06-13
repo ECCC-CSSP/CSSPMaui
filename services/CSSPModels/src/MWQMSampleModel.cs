@@ -3,13 +3,12 @@
 [NotMapped]
 public partial class MWQMSampleModel
 {
-    public MWQMSample MWQMSample { get; set; }
-    public List<MWQMSampleLanguage> MWQMSampleLanguageList { get; set; }
+    public MWQMSample MWQMSample { get; set; } = new MWQMSample();
+    public List<MWQMSampleLanguage> MWQMSampleLanguageList { get; set; } = new List<MWQMSampleLanguage>();
 
     public MWQMSampleModel()
     {
-        MWQMSample = new MWQMSample();
-        MWQMSampleLanguageList = new List<MWQMSampleLanguage>();
+
     }
 }
 

@@ -3,14 +3,13 @@
 [NotMapped]
 public partial class SamplingPlanModel
 {
-    public SamplingPlan SamplingPlan { get; set; }
-    public List<SamplingPlanSubsectorModel> SamplingPlanSubsectorModelList { get; set; }
-    public List<SamplingPlanEmail> SamplingPlanEmailList { get; set; }
+    public SamplingPlan SamplingPlan { get; set; } = new SamplingPlan();
+    public List<SamplingPlanSubsectorModel> SamplingPlanSubsectorModelList { get; set; } = new List<SamplingPlanSubsectorModel>();
+    public List<SamplingPlanEmail> SamplingPlanEmailList { get; set; } = new List<SamplingPlanEmail>();
 
     public SamplingPlanModel()
     {
-        SamplingPlanSubsectorModelList = new List<SamplingPlanSubsectorModel>();
-        SamplingPlanEmailList = new List<SamplingPlanEmail>();
+
     }
 }
 

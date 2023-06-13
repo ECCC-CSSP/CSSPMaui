@@ -11,7 +11,7 @@ public partial class SamplingPlanEmail : LastUpdate
     public int SamplingPlanID { get; set; }
     [CSSPMaxLength(150)]
     [DataType(DataType.EmailAddress)]
-    public string Email { get; set; }
+    public string Email { get; set; } = string.Empty;
     public bool IsContractor { get; set; }
     public bool LabSheetHasValueOver500 { get; set; }
     public bool LabSheetReceived { get; set; }

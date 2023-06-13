@@ -3,12 +3,13 @@
 [NotMapped]
 public partial class ColorAndLetter
 {
-    public string hexColor { get; set; }
-    public string color { get; set; }
-    public string letter { get; set; }
+    public string hexColor { get; set; } = string.Empty;
+    public string color { get; set; } = string.Empty;
+    public string letter { get; set; } = string.Empty;
 
     public ColorAndLetter()
     {
+
     }
 }
 

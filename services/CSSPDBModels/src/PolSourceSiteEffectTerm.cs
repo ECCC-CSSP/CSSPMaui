@@ -11,9 +11,9 @@ public partial class PolSourceSiteEffectTerm : LastUpdate
     [CSSPForeignKey(TableName = "PolSourceSiteEffectTerms", FieldName = "PolSourceSiteEffectTermID")]
     public int? UnderGroupID { get; set; }
     [CSSPMaxLength(100)]
-    public string EffectTermEN { get; set; }
+    public string EffectTermEN { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
-    public string EffectTermFR { get; set; }
+    public string EffectTermFR { get; set; } = string.Empty;
 
     public PolSourceSiteEffectTerm() : base()
     {

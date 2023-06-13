@@ -12,25 +12,25 @@ public partial class PolSourceGroupingLanguage : LastUpdate
     [CSSPEnumType]
     public LanguageEnum Language { get; set; }
     [CSSPMaxLength(500)]
-    public string SourceName { get; set; }
+    public string SourceName { get; set; } = string.Empty;
     [CSSPRange(0, 1000)]
     public int SourceNameOrder { get; set; }
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatusSourceName { get; set; }
     [CSSPMaxLength(50)]
-    public string Init { get; set; }
+    public string Init { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatusInit { get; set; }
     [CSSPMaxLength(500)]
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatusDescription { get; set; }
     [CSSPMaxLength(500)]
-    public string Report { get; set; }
+    public string Report { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatusReport { get; set; }
     [CSSPMaxLength(500)]
-    public string Text { get; set; }
+    public string Text { get; set; } = string.Empty;
     [CSSPEnumType]
     public TranslationStatusEnum TranslationStatusText { get; set; }
 

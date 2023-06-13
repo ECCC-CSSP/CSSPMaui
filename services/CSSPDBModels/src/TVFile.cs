@@ -15,7 +15,7 @@ public partial class TVFile : LastUpdate
     [CSSPForeignKey(TableName = "ReportTypes", FieldName = "ReportTypeID")]
     public int? ReportTypeID { get; set; }
     [CSSPAllowNull]
-    public string Parameters { get; set; }
+    public string Parameters { get; set; } = string.Empty;
     [CSSPRange(1980, 2050)]
     public int? Year { get; set; }
     [CSSPEnumType]
@@ -27,17 +27,17 @@ public partial class TVFile : LastUpdate
     [CSSPRange(0, 100000000)]
     public int FileSize_kb { get; set; }
     [CSSPAllowNull]
-    public string FileInfo { get; set; }
+    public string FileInfo { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
     public DateTime FileCreatedDate_UTC { get; set; }
     public bool? FromWater { get; set; }
     [CSSPMaxLength(250)]
     [CSSPAllowNull]
-    public string ClientFilePath { get; set; }
+    public string ClientFilePath { get; set; } = string.Empty;
     [CSSPMaxLength(250)]
-    public string ServerFileName { get; set; }
+    public string ServerFileName { get; set; } = string.Empty;
     [CSSPMaxLength(250)]
-    public string ServerFilePath { get; set; }
+    public string ServerFilePath { get; set; } = string.Empty;
 
     public TVFile() : base()
     {
