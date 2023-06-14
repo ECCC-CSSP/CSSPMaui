@@ -8,12 +8,15 @@ public partial class CSSPSQLiteService : ICSSPSQLiteService
         {
             if (ExistingTableList.Contains(TableName))
             {
-                using (var command = dbLocal.Database.GetDbConnection().CreateCommand())
+                if (dbLocal != null)
                 {
-                    command.CommandText = $"DROP TABLE { TableName }";
-                    dbLocal.Database.OpenConnection();
-                    command.ExecuteNonQuery();
-                    dbLocal.Database.CloseConnection();
+                    using (var command = dbLocal.Database.GetDbConnection().CreateCommand())
+                    {
+                        command.CommandText = $"DROP TABLE {TableName}";
+                        dbLocal.Database.OpenConnection();
+                        command.ExecuteNonQuery();
+                        dbLocal.Database.CloseConnection();
+                    }
                 }
             }
         }

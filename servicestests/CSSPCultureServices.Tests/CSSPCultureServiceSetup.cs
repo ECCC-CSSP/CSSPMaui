@@ -2,9 +2,9 @@ namespace CSSPCultureServices.Tests;
 
 public partial class CultureServicesTests
 {
-    private IConfiguration? Configuration { get; set; }
-    private IServiceProvider? Provider { get; set; }
-    private IServiceCollection? Services { get; set; }
+    //private IConfiguration? Configuration { get; set; }
+    //private IServiceProvider? Provider { get; set; }
+    //private IServiceCollection? Services { get; set; }
     private ICSSPCultureService? CSSPCultureService { get; set; }
 
 

@@ -2,13 +2,11 @@
 
 public partial class CSSPSQLiteService : ICSSPSQLiteService
 {
-    public ErrRes errRes { get; set; }
+    public ErrRes errRes { get; set; } = new ErrRes();
     private CSSPDBLocalContext dbLocal { get; }
     private CSSPDBManageContext dbManage { get; }
     private IConfiguration Configuration { get; }
     private ICSSPCultureService CSSPCultureService { get; }
-    private IEnums enums { get; }
-    private IEnumerable<ValidationResult> ValidationResults { get; set; }
 
     public CSSPSQLiteService(IConfiguration Configuration, ICSSPCultureService CSSPCultureService, CSSPDBLocalContext dbLocal, CSSPDBManageContext dbManage)
     {

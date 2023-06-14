@@ -3,12 +3,12 @@
 [NotMapped]
 public partial class UserPreferenceModel
 {
-    public List<TVItemModel> History { get; set; }
+    public List<TVItemModel> History { get; set; } = new List<TVItemModel>();
     public int StatRunsForDetail { get; set; }
     public int AnalysisRuns { get; set; }
     public bool AnalysisFullYear { get; set; }
     [CSSPEnumType]
-    public AnalysisCalculationTypeEnum AnalysisCalculationType { get; set; }
+    public AnalysisCalculationTypeEnum AnalysisCalculationType { get; set; } = AnalysisCalculationTypeEnum.All;
     public int AnalysisHighlightSalFromAverage { get; set; }
     public int AnalysisShortRange { get; set; }
     public int AnalysisMidRange { get; set; }
@@ -29,23 +29,23 @@ public partial class UserPreferenceModel
     public bool AnalysisPerOver43DataVisible { get; set; }
     public bool AnalysisPerOver260DataVisible { get; set; }
     [CSSPEnumType]
-    public TopComponentEnum TopComponent { get; set; }
+    public TopComponentEnum TopComponent { get; set; } = TopComponentEnum.Home;
     [CSSPEnumType]
-    public ShellSubComponentEnum ShellSubComponent { get; set; }
+    public ShellSubComponentEnum ShellSubComponent { get; set; } = ShellSubComponentEnum.Country;
     [CSSPEnumType]
-    public RootSubComponentEnum RootSubComponent { get; set; }
+    public RootSubComponentEnum RootSubComponent { get; set; } = RootSubComponentEnum.Countries;
     [CSSPEnumType]
-    public CountrySubComponentEnum CountrySubComponent { get; set; }
+    public CountrySubComponentEnum CountrySubComponent { get; set; } = CountrySubComponentEnum.Provinces;
     [CSSPEnumType]
-    public ProvinceSubComponentEnum ProvinceSubComponent { get; set; }
+    public ProvinceSubComponentEnum ProvinceSubComponent { get; set; } = ProvinceSubComponentEnum.Areas;
     [CSSPEnumType]
-    public AreaSubComponentEnum AreaSubComponent { get; set; }
+    public AreaSubComponentEnum AreaSubComponent { get; set; } = AreaSubComponentEnum.Sectors;
     [CSSPEnumType]
-    public SectorSubComponentEnum SectorSubComponent { get; set; }
+    public SectorSubComponentEnum SectorSubComponent { get; set; } = SectorSubComponentEnum.Subsectors;
     [CSSPEnumType]
-    public SubsectorSubComponentEnum SubsectorSubComponent { get; set; }
+    public SubsectorSubComponentEnum SubsectorSubComponent { get; set; } = SubsectorSubComponentEnum.MWQMSites;
     [CSSPEnumType]
-    public MunicipalitySubComponentEnum MunicipalitySubComponent { get; set; }
+    public MunicipalitySubComponentEnum MunicipalitySubComponent { get; set; } = MunicipalitySubComponentEnum.Infrastructures;
     public int CurrentRootTVItemID { get; set; }
     public int CurrentCountryTVItemID { get; set; }
     public int CurrentProvinceTVItemID { get; set; }
@@ -60,105 +60,105 @@ public partial class UserPreferenceModel
     public bool LeftSideNavVisible { get; set; }
     public bool EditVisible { get; set; }
     public bool MapVisible { get; set; }
+    //[CSSPEnumType]
+    //public MapSizeEnum MapSize { get; set; }
+    public string MapMarkerColorArea { get; set; } = string.Empty;
+    public string MapMarkerColorClimateSite { get; set; } = string.Empty;
+    public string MapMarkerColorCountry { get; set; } = string.Empty;
+    public string MapMarkerColorFailed { get; set; } = string.Empty;
+    public string MapMarkerColorHydrometricSite { get; set; } = string.Empty;
+    public string MapMarkerColorInfrastructure { get; set; } = string.Empty;
+    public string MapMarkerColorLessThan10 { get; set; } = string.Empty;
+    public string MapMarkerColorLiftStation { get; set; } = string.Empty;
+    public string MapMarkerColorLineOverflow { get; set; } = string.Empty;
+    public string MapMarkerColorMeshNode { get; set; } = string.Empty;
+    public string MapMarkerColorMikeBoundaryConditionMesh { get; set; } = string.Empty;
+    public string MapMarkerColorMikeBoundaryConditionWebTide { get; set; } = string.Empty;
+    public string MapMarkerColorMikeScenario { get; set; } = string.Empty;
+    public string MapMarkerColorMikeSource { get; set; } = string.Empty;
+    public string MapMarkerColorMikeSourceIncluded { get; set; } = string.Empty;
+    public string MapMarkerColorMikeSourceIsRiver { get; set; } = string.Empty;
+    public string MapMarkerColorMikeSourceNotIncluded { get; set; } = string.Empty;
+    public string MapMarkerColorMunicipality { get; set; } = string.Empty;
+    public string MapMarkerColorMWQMRun { get; set; } = string.Empty;
+    public string MapMarkerColorMWQMSite { get; set; } = string.Empty;
+    public string MapMarkerColorNoData { get; set; } = string.Empty;
+    public string MapMarkerColorNoDepuration { get; set; } = string.Empty;
+    public string MapMarkerColorOtherInfrastructure { get; set; } = string.Empty;
+    public string MapMarkerColorOutfall { get; set; } = string.Empty;
+    public string MapMarkerColorPassed { get; set; } = string.Empty;
+    public string MapMarkerColorPolSourceSite { get; set; } = string.Empty;
+    public string MapMarkerColorProvince { get; set; } = string.Empty;
+    public string MapMarkerColorSector { get; set; } = string.Empty;
+    public string MapMarkerColorSeeOtherMunicipality { get; set; } = string.Empty;
+    public string MapMarkerColorSubsector { get; set; } = string.Empty;
+    public string MapMarkerColorTideSite { get; set; } = string.Empty;
+    public string MapMarkerColorWasteWaterTreatmentPlant { get; set; } = string.Empty;
+    public string MapMarkerColorWebTideNode { get; set; } = string.Empty;
+    public string ClassificationColorApproved { get; set; } = string.Empty;
+    public string ClassificationColorConditionallyApproved { get; set; } = string.Empty;
+    public string ClassificationColorConditionallyRestricted { get; set; } = string.Empty;
+    public string ClassificationColorProhibited { get; set; } = string.Empty;
+    public string ClassificationColorRestricted { get; set; } = string.Empty;
+    public string MapPolylineColorInfrastructureLineOverflowToOutfall { get; set; } = string.Empty;
+    public string MapPolylineColorInfrastructureLiftStationToLiftStation { get; set; } = string.Empty;
+    public string MapPolylineColorInfrastructureLiftStationToOutfall { get; set; } = string.Empty;
+    public string MapPolylineColorInfrastructureLiftStationToWWTP { get; set; } = string.Empty;
+    public string MapPolylineColorInfrastructureWWTPToOutfall { get; set; } = string.Empty;
+    public string MapPolygonColorArea { get; set; } = string.Empty;
+    public string MapPolygonColorCountry { get; set; } = string.Empty;
+    public string MapPolygonColorProvince { get; set; } = string.Empty;
+    public string MapPolygonColorSector { get; set; } = string.Empty;
+    public string MapPolygonColorSubsector { get; set; } = string.Empty;
+    public string MapColorNotFound { get; set; } = string.Empty;
     [CSSPEnumType]
-    public MapSizeEnum MapSize { get; set; }
-    public string MapMarkerColorArea { get; set; }
-    public string MapMarkerColorClimateSite { get; set; }
-    public string MapMarkerColorCountry { get; set; }
-    public string MapMarkerColorFailed { get; set; }
-    public string MapMarkerColorHydrometricSite { get; set; }
-    public string MapMarkerColorInfrastructure { get; set; }
-    public string MapMarkerColorLessThan10 { get; set; }
-    public string MapMarkerColorLiftStation { get; set; }
-    public string MapMarkerColorLineOverflow { get; set; }
-    public string MapMarkerColorMeshNode { get; set; }
-    public string MapMarkerColorMikeBoundaryConditionMesh { get; set; }
-    public string MapMarkerColorMikeBoundaryConditionWebTide { get; set; }
-    public string MapMarkerColorMikeScenario { get; set; }
-    public string MapMarkerColorMikeSource { get; set; }
-    public string MapMarkerColorMikeSourceIncluded { get; set; }
-    public string MapMarkerColorMikeSourceIsRiver { get; set; }
-    public string MapMarkerColorMikeSourceNotIncluded { get; set; }
-    public string MapMarkerColorMunicipality { get; set; }
-    public string MapMarkerColorMWQMRun { get; set; }
-    public string MapMarkerColorMWQMSite { get; set; }
-    public string MapMarkerColorNoData { get; set; }
-    public string MapMarkerColorNoDepuration { get; set; }
-    public string MapMarkerColorOtherInfrastructure { get; set; }
-    public string MapMarkerColorOutfall { get; set; }
-    public string MapMarkerColorPassed { get; set; }
-    public string MapMarkerColorPolSourceSite { get; set; }
-    public string MapMarkerColorProvince { get; set; }
-    public string MapMarkerColorSector { get; set; }
-    public string MapMarkerColorSeeOtherMunicipality { get; set; }
-    public string MapMarkerColorSubsector { get; set; }
-    public string MapMarkerColorTideSite { get; set; }
-    public string MapMarkerColorWasteWaterTreatmentPlant { get; set; }
-    public string MapMarkerColorWebTideNode { get; set; }
-    public string ClassificationColorApproved { get; set; }
-    public string ClassificationColorConditionallyApproved { get; set; }
-    public string ClassificationColorConditionallyRestricted { get; set; }
-    public string ClassificationColorProhibited { get; set; }
-    public string ClassificationColorRestricted { get; set; }
-    public string MapPolylineColorInfrastructureLineOverflowToOutfall { get; set; }
-    public string MapPolylineColorInfrastructureLiftStationToLiftStation { get; set; }
-    public string MapPolylineColorInfrastructureLiftStationToOutfall { get; set; }
-    public string MapPolylineColorInfrastructureLiftStationToWWTP { get; set; }
-    public string MapPolylineColorInfrastructureWWTPToOutfall { get; set; }
-    public string MapPolygonColorArea { get; set; }
-    public string MapPolygonColorCountry { get; set; }
-    public string MapPolygonColorProvince { get; set; }
-    public string MapPolygonColorSector { get; set; }
-    public string MapPolygonColorSubsector { get; set; }
-    public string MapColorNotFound { get; set; }
+    public AscDescEnum AreaSectorsSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum AreaSectorsSortOrder { get; set; }
+    public FilesSortPropEnum AreaFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum AreaFilesSortByProp { get; set; }
+    public AscDescEnum CountryProvincesSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum CountryProvincesSortOrder { get; set; }
+    public FilesSortPropEnum CountryFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum CountryFilesSortByProp { get; set; }
+    public FilesSortPropEnum InfrastructureFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum InfrastructureFilesSortByProp { get; set; }
+    public AscDescEnum MunicipalityContactsSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum MunicipalityContactsSortOrder { get; set; }
+    public FilesSortPropEnum MunicipalityFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum MunicipalityFilesSortByProp { get; set; }
+    public AscDescEnum MunicipalityInfrastructuresSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum MunicipalityInfrastructuresSortOrder { get; set; }
+    public AscDescEnum MunicipalityMikeScenariosSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum MunicipalityMikeScenariosSortOrder { get; set; }
+    public FilesSortPropEnum MWQMSiteFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum MWQMSiteFilesSortByProp { get; set; }
+    public FilesSortPropEnum PolSourceSiteFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum PolSourceSiteFilesSortByProp { get; set; }
+    public AscDescEnum ProvinceAreasSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum ProvinceAreasSortOrder { get; set; }
+    public FilesSortPropEnum ProvinceFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum ProvinceFilesSortByProp { get; set; }
+    public AscDescEnum ProvinceMunicipalitiesSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum ProvinceMunicipalitiesSortOrder { get; set; }
+    public AscDescEnum RootCountriesSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum RootCountriesSortOrder { get; set; }
+    public FilesSortPropEnum RootFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum RootFilesSortByProp { get; set; }
+    public FilesSortPropEnum SectorFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum SectorFilesSortByProp { get; set; }
+    public AscDescEnum SectorSubsectorsSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum SectorSubsectorsSortOrder { get; set; }
+    public FilesSortPropEnum SubsectorFilesSortByProp { get; set; } = FilesSortPropEnum.FileName;
     [CSSPEnumType]
-    public FilesSortPropEnum SubsectorFilesSortByProp { get; set; }
+    public AscDescEnum SubsectorMWQMRunsSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum SubsectorMWQMRunsSortOrder { get; set; }
+    public AscDescEnum SubsectorMWQMSitesSortOrder { get; set; } = AscDescEnum.Ascending;
     [CSSPEnumType]
-    public AscDescEnum SubsectorMWQMSitesSortOrder { get; set; }
-    [CSSPEnumType]
-    public AscDescEnum SubsectorPolSourceSitesSortOrder { get; set; }
+    public AscDescEnum SubsectorPolSourceSitesSortOrder { get; set; } = AscDescEnum.Ascending;
 
     public UserPreferenceModel()
     {
-        History = new List<TVItemModel>();
+
     }
 }
 

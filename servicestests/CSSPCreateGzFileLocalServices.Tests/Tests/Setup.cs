@@ -15,16 +15,7 @@ using System.Text.Json;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using CSSPDBServices;
 using LoggedInServices;
-using CSSPHelperModels;
-using CSSPScrambleServices;
-using CSSPDBPreferenceModels;
-using ReadGzFileServices;
-using DownloadFileServices;
-using CSSPDBFilesManagementModels;
-using CSSPDBLocalServices;
-using FilesManagementServices;
 
 namespace CreateGzFileLocalServices.Tests
 {

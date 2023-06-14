@@ -3,12 +3,12 @@
 [NotMapped]
 public partial class DrogueRunModel
 {
-    public DrogueRun DrogueRun { get; set; }
-    public List<DrogueRunPosition> DrogueRunPositionList { get; set; }
+    public DrogueRun DrogueRun { get; set; } = new DrogueRun();
+    public List<DrogueRunPosition> DrogueRunPositionList { get; set; } = new List<DrogueRunPosition>();
 
     public DrogueRunModel()
     {
-        DrogueRunPositionList = new List<DrogueRunPosition>();
+
     }
 }
 

@@ -1,7 +1,7 @@
 ﻿using CSSPCultureServices.Resources;
 using CSSPCultureServices.Services;
 using CSSPDBModels;
-using CSSPHelperModels;
+using CSSPModels;
 using ManageServices;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -32,8 +32,8 @@ namespace LoggedInServices
         public LoggedInContactInfo LoggedInContactInfo { get; set; }
 
         private IConfiguration Configuration { get; }
-        private CSSPDBContext db { get; }
-        private CSSPDBManageContext dbManage { get; }
+        private CSSPDBContext? db { get; }
+        private CSSPDBManageContext? dbManage { get; }
         private List<int> skip { get; set; } = new List<int>()
         {
             3, 1, -3, 2, 2, 0, 4, 1, -2, 2, -1, 3, -2, 0, 1, 3, 1, 2, -4, -1, 1, 2, 0, 2, 1,
@@ -50,7 +50,7 @@ namespace LoggedInServices
         #endregion Properties
 
         #region Constructors
-        public LoggedInService(IConfiguration Configuration, CSSPDBContext db = null, CSSPDBManageContext dbManage = null)
+        public LoggedInService(IConfiguration Configuration, CSSPDBContext? db = null, CSSPDBManageContext? dbManage = null)
         {
             if (Configuration == null) throw new Exception($"{ string.Format(CSSPCultureServicesRes._ShouldNotBeNullOrEmpty, "Configuration") }");
             if (db == null && dbManage == null) throw new Exception($"{ string.Format(CSSPCultureServicesRes._ShouldNotBeNullOrEmpty, "db && dbManage") }");
@@ -120,24 +120,31 @@ namespace LoggedInServices
         }
         public async Task<bool> SetLoggedInContactInfo(string LoginEmail)
         {
-            LoggedInContactInfo.LoggedInContact = (from c in db.Contacts
-                                                   where c.LoginEmail == LoginEmail
-                                                   select c).FirstOrDefault();
-
-            if (LoggedInContactInfo.LoggedInContact == null)
+            if (db != null)
             {
-                LoggedInContactInfo.TVTypeUserAuthorizationList = new List<TVTypeUserAuthorization>();
-                LoggedInContactInfo.TVItemUserAuthorizationList = new List<TVItemUserAuthorization>();
-            }
-            else
-            {
-                LoggedInContactInfo.TVTypeUserAuthorizationList = (from c in db.TVTypeUserAuthorizations
-                                                                   where c.ContactTVItemID == LoggedInContactInfo.LoggedInContact.ContactTVItemID
-                                                                   select c).ToList();
+                if (db.Contacts != null)
+                {
+                    LoggedInContactInfo.LoggedInContact = (from c in db.Contacts
+                                                           where c.LoginEmail == LoginEmail
+                                                           select c).FirstOrDefault();
 
-                LoggedInContactInfo.TVItemUserAuthorizationList = (from c in db.TVItemUserAuthorizations
-                                                                   where c.ContactTVItemID == LoggedInContactInfo.LoggedInContact.ContactTVItemID
-                                                                   select c).ToList();
+                    if (LoggedInContactInfo.LoggedInContact == null)
+                    {
+                        LoggedInContactInfo.TVTypeUserAuthorizationList = new List<TVTypeUserAuthorization>();
+                        LoggedInContactInfo.TVItemUserAuthorizationList = new List<TVItemUserAuthorization>();
+                    }
+                    else
+                    {
+                        LoggedInContactInfo.TVTypeUserAuthorizationList = (from c in db.TVTypeUserAuthorizations
+                                                                           where c.ContactTVItemID == LoggedInContactInfo.LoggedInContact.ContactTVItemID
+                                                                           select c).ToList();
+
+                        LoggedInContactInfo.TVItemUserAuthorizationList = (from c in db.TVItemUserAuthorizations
+                                                                           where c.ContactTVItemID == LoggedInContactInfo.LoggedInContact.ContactTVItemID
+                                                                           select c).ToList();
+                    }
+
+                }
             }
 
             return await Task.FromResult(true);
@@ -146,26 +153,29 @@ namespace LoggedInServices
         {
             LoggedInContactInfo = new LoggedInContactInfo();
 
-            LoggedInContactInfo.LoggedInContact = (from c in dbManage.Contacts
-                                                   orderby c.LoginEmail
-                                                   select c).FirstOrDefault();
-
-            if (LoggedInContactInfo.LoggedInContact == null)
+            if (dbManage != null)
             {
-                LoggedInContactInfo.TVTypeUserAuthorizationList = new List<TVTypeUserAuthorization>();
-                LoggedInContactInfo.TVItemUserAuthorizationList = new List<TVItemUserAuthorization>();
-            }
-            else
-            {
-                LoggedInContactInfo.TVTypeUserAuthorizationList = (from c in dbManage.TVTypeUserAuthorizations
-                                                                   where c.ContactTVItemID == LoggedInContactInfo.LoggedInContact.ContactTVItemID
-                                                                   select c).ToList();
+                LoggedInContactInfo.LoggedInContact = (from c in dbManage.Contacts
+                                                       orderby c.LoginEmail
+                                                       select c).FirstOrDefault();
 
-                LoggedInContactInfo.TVItemUserAuthorizationList = (from c in dbManage.TVItemUserAuthorizations
-                                                                   where c.ContactTVItemID == LoggedInContactInfo.LoggedInContact.ContactTVItemID
-                                                                   select c).ToList();
-            }
+                if (LoggedInContactInfo.LoggedInContact == null)
+                {
+                    LoggedInContactInfo.TVTypeUserAuthorizationList = new List<TVTypeUserAuthorization>();
+                    LoggedInContactInfo.TVItemUserAuthorizationList = new List<TVItemUserAuthorization>();
+                }
+                else
+                {
+                    LoggedInContactInfo.TVTypeUserAuthorizationList = (from c in dbManage.TVTypeUserAuthorizations
+                                                                       where c.ContactTVItemID == LoggedInContactInfo.LoggedInContact.ContactTVItemID
+                                                                       select c).ToList();
 
+                    LoggedInContactInfo.TVItemUserAuthorizationList = (from c in dbManage.TVItemUserAuthorizations
+                                                                       where c.ContactTVItemID == LoggedInContactInfo.LoggedInContact.ContactTVItemID
+                                                                       select c).ToList();
+                }
+
+            }
 
             return await Task.FromResult(true);
         }
