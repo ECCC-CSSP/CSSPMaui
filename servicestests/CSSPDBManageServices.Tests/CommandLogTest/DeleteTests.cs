@@ -28,10 +28,18 @@ public partial class CommandLogServicesTests
 
         commandLogAdd.CommandLogID = 0;
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.DeleteAsync(commandLogAdd.CommandLogID);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var delRes = actionCommandLog.Result;
+
+        Assert.NotNull(delRes);
+
+        Assert.Equal(400, ((ObjectResult)delRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)delRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)delRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "CommandLogID"), errRes.ErrList[0]);
     }
@@ -48,10 +56,17 @@ public partial class CommandLogServicesTests
 
         commandLogAdd.CommandLogID = 10000;
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.DeleteAsync(commandLogAdd.CommandLogID);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var delRes = actionCommandLog.Result;
+        
+        Assert.NotNull(delRes);
+        Assert.Equal(400, ((ObjectResult)delRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)delRes).Value);
+
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)delRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "CommandLog", "CommandLogID", commandLogAdd.CommandLogID.ToString()), errRes.ErrList[0]);
     }

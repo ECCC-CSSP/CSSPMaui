@@ -13,13 +13,23 @@ public partial class CommandLogServicesTests
 
         CommandLog commandLogAdd = await AddTestAsync(commandLog);
 
+        Assert.NotNull(CommandLogService);
+
         var actionGet = await CommandLogService.GetTodayListAsync();
-        Assert.Equal(200, ((ObjectResult)actionGet.Result).StatusCode);
-        Assert.NotNull(((OkObjectResult)actionGet.Result).Value);
-        List<CommandLog> commandLogList = (List<CommandLog>)((OkObjectResult)actionGet.Result).Value;
+        var getRes = actionGet.Result;
+
+        Assert.NotNull(getRes);
+
+        Assert.Equal(200, ((ObjectResult)getRes).StatusCode);
+        Assert.NotNull(((OkObjectResult)getRes).Value);
+
+        List<CommandLog>? commandLogList = (List<CommandLog>?)((OkObjectResult)getRes).Value;
+
         Assert.NotNull(commandLogList);
         Assert.NotEmpty(commandLogList);
         Assert.Single(commandLogList);
+
+        Assert.NotNull(dbManage);
 
         List<CommandLog> commandLogListDB = await (from c in dbManage.CommandLogs
                                                    select c).ToListAsync();
@@ -37,13 +47,23 @@ public partial class CommandLogServicesTests
 
         CommandLog commandLogAdd = await AddTestAsync(commandLog);
 
+        Assert.NotNull(CommandLogService);
+
         var actionGet = await CommandLogService.GetLastWeekListAsync();
-        Assert.Equal(200, ((ObjectResult)actionGet.Result).StatusCode);
-        Assert.NotNull(((OkObjectResult)actionGet.Result).Value);
-        List<CommandLog> commandLogList = (List<CommandLog>)((OkObjectResult)actionGet.Result).Value;
+        var getRes = actionGet.Result;
+
+        Assert.NotNull(getRes);
+
+        Assert.Equal(200, ((ObjectResult)getRes).StatusCode);
+        Assert.NotNull(((OkObjectResult)getRes).Value);
+
+        List<CommandLog>? commandLogList = (List<CommandLog>?)((OkObjectResult)actionGet.Result).Value;
+
         Assert.NotNull(commandLogList);
         Assert.NotEmpty(commandLogList);
         Assert.Single(commandLogList);
+
+        Assert.NotNull(dbManage);
 
         List<CommandLog> commandLogListDB = await (from c in dbManage.CommandLogs
                                                    select c).ToListAsync();
@@ -61,13 +81,23 @@ public partial class CommandLogServicesTests
 
         CommandLog commandLogAdd = await AddTestAsync(commandLog);
 
+        Assert.NotNull(CommandLogService);
+
         var actionGet = await CommandLogService.GetLastMonthListAsync();
-        Assert.Equal(200, ((ObjectResult)actionGet.Result).StatusCode);
-        Assert.NotNull(((OkObjectResult)actionGet.Result).Value);
-        List<CommandLog> commandLogList = (List<CommandLog>)((OkObjectResult)actionGet.Result).Value;
+        var getRes = actionGet.Result;
+
+        Assert.NotNull(getRes);
+
+        Assert.Equal(200, ((ObjectResult)getRes).StatusCode);
+        Assert.NotNull(((OkObjectResult)getRes).Value);
+
+        List<CommandLog>? commandLogList = (List<CommandLog>?)((OkObjectResult)actionGet.Result).Value;
+
         Assert.NotNull(commandLogList);
         Assert.NotEmpty(commandLogList);
         Assert.Single(commandLogList);
+
+        Assert.NotNull(dbManage);
 
         List<CommandLog> commandLogListDB = await (from c in dbManage.CommandLogs
                                                    select c).ToListAsync();
@@ -85,13 +115,23 @@ public partial class CommandLogServicesTests
 
         CommandLog commandLogAdd = await AddTestAsync(commandLog);
 
+        Assert.NotNull(CommandLogService);
+
         var actionGet = await CommandLogService.GetBetweenDatesListAsync(DateTime.UtcNow.AddDays(-1), DateTime.UtcNow.AddDays(1));
-        Assert.Equal(200, ((ObjectResult)actionGet.Result).StatusCode);
-        Assert.NotNull(((OkObjectResult)actionGet.Result).Value);
-        List<CommandLog> commandLogList = (List<CommandLog>)((OkObjectResult)actionGet.Result).Value;
+        var getRes = actionGet.Result;
+
+        Assert.NotNull(getRes);
+
+        Assert.Equal(200, ((ObjectResult)getRes).StatusCode);
+        Assert.NotNull(((OkObjectResult)getRes).Value);
+
+        List<CommandLog>? commandLogList = (List<CommandLog>?)((OkObjectResult)getRes).Value;
+
         Assert.NotNull(commandLogList);
         Assert.NotEmpty(commandLogList);
         Assert.Single(commandLogList);
+
+        Assert.NotNull(dbManage);
 
         List<CommandLog> commandLogListDB = await (from c in dbManage.CommandLogs
                                                    select c).ToListAsync();
@@ -112,10 +152,18 @@ public partial class CommandLogServicesTests
         DateTime StartDate = new DateTime(1979, 1, 1);
         DateTime EndDate = new DateTime(2020, 1, 1);
 
+        Assert.NotNull(CommandLogService);
+
         var actionGet = await CommandLogService.GetBetweenDatesListAsync(StartDate, EndDate);
-        Assert.Equal(400, ((ObjectResult)actionGet.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionGet.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionGet.Result).Value;
+        var getRes = actionGet.Result;
+
+        Assert.NotNull(getRes);
+
+        Assert.Equal(400, ((ObjectResult)getRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)getRes).Value);
+
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)getRes).Value;
+
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._YearShouldBeBiggerThan_, "StartDate", "1980"), errRes.ErrList[0]);
     }
@@ -133,10 +181,18 @@ public partial class CommandLogServicesTests
         DateTime StartDate = new DateTime(2020, 1, 1);
         DateTime EndDate = new DateTime(1979, 1, 1);
 
+        Assert.NotNull(CommandLogService);
+
         var actionGet = await CommandLogService.GetBetweenDatesListAsync(StartDate, EndDate);
-        Assert.Equal(400, ((ObjectResult)actionGet.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionGet.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionGet.Result).Value;
+        var getRes = actionGet.Result;
+
+        Assert.NotNull(getRes);
+
+        Assert.Equal(400, ((ObjectResult)getRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)getRes).Value);
+
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)getRes).Value;
+
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._YearShouldBeBiggerThan_, "EndDate", "1980"), errRes.ErrList[0]);
     }
@@ -154,10 +210,18 @@ public partial class CommandLogServicesTests
         DateTime StartDate = new DateTime(2020, 1, 1);
         DateTime EndDate = new DateTime(2019, 1, 1);
 
+        Assert.NotNull(CommandLogService);
+
         var actionGet = await CommandLogService.GetBetweenDatesListAsync(StartDate, EndDate);
-        Assert.Equal(400, ((ObjectResult)actionGet.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionGet.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionGet.Result).Value;
+        var getRes = actionGet.Result;
+
+        Assert.NotNull(getRes);
+
+        Assert.Equal(400, ((ObjectResult)getRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)getRes).Value);
+
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)getRes).Value;
+
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._YearShouldBeBiggerThan_, "StartDate", "EndDate"), errRes.ErrList[0]);
     }
@@ -172,14 +236,24 @@ public partial class CommandLogServicesTests
 
         CommandLog commandLogAdd = await AddTestAsync(commandLog);
 
+        Assert.NotNull(CommandLogService);
+
         var actionGet = await CommandLogService.GetWithCommandLogIDAsync(commandLogAdd.CommandLogID);
-        Assert.Equal(200, ((ObjectResult)actionGet.Result).StatusCode);
-        Assert.NotNull(((OkObjectResult)actionGet.Result).Value);
-        CommandLog commandLogGet = (CommandLog)((OkObjectResult)actionGet.Result).Value;
+        var getRes = actionGet.Result;
+
+        Assert.NotNull(getRes);
+
+        Assert.Equal(200, ((ObjectResult)getRes).StatusCode);
+        Assert.NotNull(((OkObjectResult)getRes).Value);
+
+        CommandLog? commandLogGet = (CommandLog?)((OkObjectResult)getRes).Value;
+
         Assert.NotNull(commandLogGet);
 
-        CommandLog commandLogDB = await (from c in dbManage.CommandLogs
-                                         select c).FirstOrDefaultAsync();
+        Assert.NotNull(dbManage);
+
+        CommandLog? commandLogDB = await (from c in dbManage.CommandLogs
+                                          select c).FirstOrDefaultAsync();
 
         Assert.NotNull(commandLogDB);
     }
@@ -196,10 +270,18 @@ public partial class CommandLogServicesTests
 
         commandLogAdd.CommandLogID = 0;
 
+        Assert.NotNull(CommandLogService);
+
         var actionGet = await CommandLogService.GetWithCommandLogIDAsync(commandLogAdd.CommandLogID);
-        Assert.Equal(400, ((ObjectResult)actionGet.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionGet.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionGet.Result).Value;
+        var getRes = actionGet.Result;
+        
+        Assert.NotNull(getRes);
+
+        Assert.Equal(400, ((ObjectResult)getRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)getRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)getRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "CommandLogID"), errRes.ErrList[0]);
     }

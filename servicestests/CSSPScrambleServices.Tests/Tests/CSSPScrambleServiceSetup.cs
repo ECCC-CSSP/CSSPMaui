@@ -10,16 +10,29 @@ public partial class CSSPScrambleServicesTests
 
     private async Task<bool> CSSPScrambleServiceSetup(string culture)
     {
-        Configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetParent(AppContext.BaseDirectory)?.FullName)
-            .AddJsonFile("appsettings_csspscrambleservicestests.json")
-            .Build();
+        DirectoryInfo? di = Directory.GetParent(AppContext.BaseDirectory);
+
+        if (di != null)
+        {
+            if (di.Exists)
+            {
+                Configuration = new ConfigurationBuilder()
+                    .SetBasePath(di.FullName)
+                    .AddJsonFile("appsettings_csspscrambleservicestests.json")
+                    .Build();
+            }
+        }
+
+        Assert.NotNull(Configuration);
 
         Services = new ServiceCollection();
 
-        Services.AddSingleton<IConfiguration>(Configuration);
-        Services.AddSingleton<ICSSPScrambleService, CSSPScrambleService>();
+        if (Configuration != null)
+        {
+            Services.AddSingleton<IConfiguration>(Configuration);
+        }
 
+        Services.AddSingleton<ICSSPScrambleService, CSSPScrambleService>();
 
         Provider = Services.BuildServiceProvider();
         Assert.NotNull(Provider);

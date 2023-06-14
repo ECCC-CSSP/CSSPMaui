@@ -31,7 +31,7 @@ namespace CreateGzFileLocalServices.Tests
         //[InlineData("fr-CA")]
         public async Task CreateGzFileLocalService_Constructor_Good_Test(string culture)
         {
-            Assert.True(await Setup(culture));
+            Assert.True(await CreateGzFileLocalServiceSetup(culture));
         }
 
         //[Theory]

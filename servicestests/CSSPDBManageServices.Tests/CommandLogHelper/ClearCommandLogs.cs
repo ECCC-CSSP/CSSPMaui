@@ -4,6 +4,8 @@ public partial class CommandLogServicesTests
 {
     private void ClearCommandLogs()
     {
+        Assert.NotNull(dbManage);
+
         List<CommandLog> commandLogToDeleteList = (from c in dbManage.CommandLogs
                                                    select c).ToList();
 

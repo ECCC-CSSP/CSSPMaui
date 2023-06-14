@@ -20,14 +20,22 @@ public partial class CommandLogServicesTests
     {
         Assert.True(await CommandLogServiceSetup(culture));
 
-        CommandLog commandLog = await FillCommandLogAsync();
+        CommandLog? commandLog = await FillCommandLogAsync();
 
         commandLog = null;
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.AddAsync(commandLog);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var addRes = actionCommandLog.Result;
+        
+        Assert.NotNull(addRes);
+        
+        Assert.Equal(400, ((ObjectResult)addRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)addRes).Value);
+
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)addRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsNullOrEmpty, "commandLog"), errRes.ErrList[0]);
     }
@@ -42,10 +50,18 @@ public partial class CommandLogServicesTests
 
         commandLog.CommandLogID = 1;
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.AddAsync(commandLog);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var addRes = actionCommandLog.Result;
+        
+        Assert.NotNull(addRes);
+        
+        Assert.Equal(400, ((ObjectResult)addRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)addRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)addRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._ShouldBeEqualTo_, "CommandLogID", "0"), errRes.ErrList[0]);
     }
@@ -60,10 +76,18 @@ public partial class CommandLogServicesTests
 
         commandLog.AppName = "";
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.AddAsync(commandLog);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var addRes = actionCommandLog.Result;
+        
+        Assert.NotNull(addRes);
+        
+        Assert.Equal(400, ((ObjectResult)addRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)addRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)addRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "AppName"), errRes.ErrList[0]);
     }
@@ -78,10 +102,18 @@ public partial class CommandLogServicesTests
 
         commandLog.AppName = "a".PadRight(201);
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.AddAsync(commandLog);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var addRes = actionCommandLog.Result;
+        
+        Assert.NotNull(addRes);
+        
+        Assert.Equal(400, ((ObjectResult)addRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)addRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)addRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._MaxLengthIs_, "AppName", "200"), errRes.ErrList[0]);
     }
@@ -96,10 +128,18 @@ public partial class CommandLogServicesTests
 
         commandLog.CommandName = "";
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.AddAsync(commandLog);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var addRes = actionCommandLog.Result;
+        
+        Assert.NotNull(addRes);
+        
+        Assert.Equal(400, ((ObjectResult)addRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)addRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)addRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "CommandName"), errRes.ErrList[0]);
     }
@@ -114,10 +154,18 @@ public partial class CommandLogServicesTests
 
         commandLog.CommandName = "a".PadRight(201);
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.AddAsync(commandLog);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var addRes = actionCommandLog.Result;
+        
+        Assert.NotNull(addRes);
+        
+        Assert.Equal(400, ((ObjectResult)addRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)addRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)addRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._MaxLengthIs_, "CommandName", "200"), errRes.ErrList[0]);
     }
@@ -132,10 +180,18 @@ public partial class CommandLogServicesTests
 
         commandLog.Error = "a".PadRight(10000001);
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.AddAsync(commandLog);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var addRes = actionCommandLog.Result;
+        
+        Assert.NotNull(addRes);
+        
+        Assert.Equal(400, ((ObjectResult)addRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)addRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)addRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._MaxLengthIs_, "Error", "10000000"), errRes.ErrList[0]);
     }
@@ -150,10 +206,18 @@ public partial class CommandLogServicesTests
 
         commandLog.Log = "a".PadRight(10000001);
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.AddAsync(commandLog);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var addRes = actionCommandLog.Result;
+        
+        Assert.NotNull(addRes);
+        
+        Assert.Equal(400, ((ObjectResult)addRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)addRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)addRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._MaxLengthIs_, "Log", "10000000"), errRes.ErrList[0]);
     }
@@ -168,10 +232,18 @@ public partial class CommandLogServicesTests
 
         commandLog.DateTimeUTC = new DateTime(1979, 1, 1);
 
+        Assert.NotNull(CommandLogService);
+
         var actionCommandLog = await CommandLogService.AddAsync(commandLog);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var addRes = actionCommandLog.Result;
+        
+        Assert.NotNull(addRes);
+        
+        Assert.Equal(400, ((ObjectResult)addRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)addRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)addRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._YearShouldBeBiggerThan_, "DateTimeUTC", "1980"), errRes.ErrList[0]);
     }

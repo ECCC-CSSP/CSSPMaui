@@ -3,14 +3,14 @@ namespace ManageServices.Tests;
 [Collection("Sequential")]
 public partial class CommandLogServicesTests
 {
-    private IConfiguration Configuration { get; set; }
-    private IServiceCollection Services { get; set; }
-    private IServiceProvider Provider { get; set; }
-    private ICSSPCultureService CSSPCultureService { get; set; }
-    private ICSSPSQLiteService CSSPSQLiteService { get; set; }
-    private ICommandLogService CommandLogService { get; set; }
-    private CSSPDBLocalContext dbLocal { get; set; }
-    private CSSPDBManageContext dbManage { get; set; }
+    private IConfiguration? Configuration { get; set; }
+    private IServiceCollection? Services { get; set; }
+    private IServiceProvider? Provider { get; set; }
+    private ICSSPCultureService? CSSPCultureService { get; set; }
+    private ICSSPSQLiteService? CSSPSQLiteService { get; set; }
+    private ICommandLogService? CommandLogService { get; set; }
+    private CSSPDBLocalContext? dbLocal { get; set; }
+    private CSSPDBManageContext? dbManage { get; set; }
 
     public CommandLogServicesTests()
     {
@@ -18,10 +18,20 @@ public partial class CommandLogServicesTests
 
     private async Task<bool> CommandLogServiceSetup(string culture)
     {
-        Configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
-            .AddJsonFile("appsettings_csspdbmanageservicestests.json")
-            .Build();
+        DirectoryInfo? di = Directory.GetParent(AppContext.BaseDirectory);
+
+        if (di != null)
+        {
+            if (di.Exists)
+            {
+                Configuration = new ConfigurationBuilder()
+                .SetBasePath(di.FullName)
+                .AddJsonFile("appsettings_csspdbmanageservicestests.json")
+                .Build();
+            }
+        }
+
+        Assert.NotNull(Configuration);
 
         Services = new ServiceCollection();
 
@@ -38,12 +48,12 @@ public partial class CommandLogServicesTests
 
         Services.AddDbContext<CSSPDBManageContext>(options =>
         {
-            options.UseSqlite($"Data Source={ Configuration["CSSPDBManage"] }");
+            options.UseSqlite($"Data Source={Configuration["CSSPDBManage"]}");
         });
 
         Services.AddDbContext<CSSPDBLocalContext>(options =>
         {
-            options.UseSqlite($"Data Source={ Configuration["CSSPDBLocal"] }");
+            options.UseSqlite($"Data Source={Configuration["CSSPDBLocal"]}");
         });
 
         Provider = Services.BuildServiceProvider();

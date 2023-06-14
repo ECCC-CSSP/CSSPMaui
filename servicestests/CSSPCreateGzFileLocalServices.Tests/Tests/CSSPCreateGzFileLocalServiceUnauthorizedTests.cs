@@ -37,38 +37,38 @@ namespace CreateGzFileLocalServices.Tests
                 WebTypeEnum.WebAllEmails,
                 WebTypeEnum.WebAllHelpDocs,
                 WebTypeEnum.WebAllMunicipalities,
+                WebTypeEnum.WebAllMWQMAnalysisReportParameters,
                 WebTypeEnum.WebAllMWQMLookupMPNs,
+                WebTypeEnum.WebAllMWQMSubsectors,
                 WebTypeEnum.WebAllPolSourceGroupings,
                 WebTypeEnum.WebAllPolSourceSiteEffectTerms,
                 WebTypeEnum.WebAllProvinces,
                 WebTypeEnum.WebAllReportTypes,
+                WebTypeEnum.WebAllSearch,
                 WebTypeEnum.WebAllTels,
                 WebTypeEnum.WebAllTideLocations,
-                WebTypeEnum.WebAllTVItemLanguages,
-                WebTypeEnum.WebAllTVItems,
+                WebTypeEnum.WebAllUseOfSites,
                 WebTypeEnum.WebArea,
-                WebTypeEnum.WebClimateDataValue,
                 WebTypeEnum.WebClimateSites,
                 WebTypeEnum.WebCountry,
                 WebTypeEnum.WebDrogueRuns,
-                WebTypeEnum.WebHydrometricDataValue,
                 WebTypeEnum.WebHydrometricSites,
-                WebTypeEnum.WebInfrastructures,
                 WebTypeEnum.WebLabSheets,
-                WebTypeEnum.WebMikeScenario,
                 WebTypeEnum.WebMikeScenarios,
-                WebTypeEnum.WebMunicipalities,
+                WebTypeEnum.WebMonitoringOtherStatsCountry,
+                WebTypeEnum.WebMonitoringOtherStatsProvince,
+                WebTypeEnum.WebMonitoringRoutineStatsCountry,
+                WebTypeEnum.WebMonitoringRoutineStatsProvince,
                 WebTypeEnum.WebMunicipality,
                 WebTypeEnum.WebMWQMRuns,
-                //WebTypeEnum.WebMWQMSamples,
+                WebTypeEnum.WebMWQMSamples1980_2020,
+                WebTypeEnum.WebMWQMSamples2021_2060,
                 WebTypeEnum.WebMWQMSites,
                 WebTypeEnum.WebPolSourceSites,
                 WebTypeEnum.WebProvince,
                 WebTypeEnum.WebRoot,
-                WebTypeEnum.WebSamplingPlan,
                 WebTypeEnum.WebSector,
                 WebTypeEnum.WebSubsector,
-                WebTypeEnum.WebTideDataValue,
                 WebTypeEnum.WebTideSites,
             };
 
@@ -76,7 +76,7 @@ namespace CreateGzFileLocalServices.Tests
             {
                 WebTypeEnum webType = webTypeToTry;
                 int TVItemID = 1; // not important for this test
-               
+
                 var actionRes = await CreateGzFileLocalService.CreateGzFileLocal(webType, TVItemID);
                 Assert.Equal(401, ((UnauthorizedResult)actionRes.Result).StatusCode);
             }

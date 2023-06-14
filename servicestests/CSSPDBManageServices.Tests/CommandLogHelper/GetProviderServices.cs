@@ -4,6 +4,9 @@ public partial class CommandLogServicesTests
 {
     private async Task GetProviderServices(string culture)
     {
+        Assert.NotNull(Provider);
+        Assert.NotNull(Configuration);
+
         CSSPCultureService = Provider.GetService<ICSSPCultureService>();
         Assert.NotNull(CSSPCultureService);
 
@@ -15,22 +18,30 @@ public partial class CommandLogServicesTests
         CSSPSQLiteService = Provider.GetService<ICSSPSQLiteService>();
         Assert.NotNull(CSSPSQLiteService);
 
-        FileInfo fiCSSPDBLocal = new FileInfo(Configuration["CSSPDBLocal"]);
+        string? CSSPDBLocalText = Configuration["CSSPDBLocal"];
+
+        Assert.NotNull(CSSPDBLocalText);
+
+        FileInfo fiCSSPDBLocal = new FileInfo(CSSPDBLocalText);
         if (!fiCSSPDBLocal.Exists)
         {
             await CSSPSQLiteService.CreateSQLiteCSSPDBLocalAsync();
         }
 
-        fiCSSPDBLocal = new FileInfo(Configuration["CSSPDBLocal"]);
+        fiCSSPDBLocal = new FileInfo(CSSPDBLocalText);
         Assert.True(fiCSSPDBLocal.Exists);
 
-        FileInfo fiCSSPDBManage = new FileInfo(Configuration["CSSPDBManage"]);
+        string? CSSPDBManageText = Configuration["CSSPDBManage"];
+
+        Assert.NotNull(CSSPDBManageText);
+
+        FileInfo fiCSSPDBManage = new FileInfo(CSSPDBManageText);
         if (!fiCSSPDBManage.Exists)
         {
             await CSSPSQLiteService.CreateSQLiteCSSPDBManageAsync();
         }
 
-        fiCSSPDBManage = new FileInfo(Configuration["CSSPDBManage"]);
+        fiCSSPDBManage = new FileInfo(CSSPDBManageText);
         Assert.True(fiCSSPDBManage.Exists);
 
         dbManage = Provider.GetService<CSSPDBManageContext>();

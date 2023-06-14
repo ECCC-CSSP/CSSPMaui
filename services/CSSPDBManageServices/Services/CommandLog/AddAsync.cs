@@ -2,7 +2,7 @@ namespace ManageServices;
 
 public partial class CommandLogService : ControllerBase, ICommandLogService
 {
-    public async Task<ActionResult<CommandLog>> AddAsync(CommandLog commandLog)
+    public async Task<ActionResult<CommandLog>> AddAsync(CommandLog? commandLog)
     {
         if (commandLog == null)
         {

@@ -49,7 +49,7 @@ namespace CreateGzFileLocalServices.Tests
         #endregion Tests Generated CRUD
 
         #region Functions private
-        private async Task<bool> Setup(string culture)
+        private async Task<bool> CSSPCreateGzFileLocalServiceSetup(string culture)
         {
             Configuration = new ConfigurationBuilder()
                .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)

@@ -35,6 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Services\CSSPCreateGzFileLocalServices\CSSPCreateGzFileLocalServices.csproj" />
     <ProjectReference Include="..\..\Services\CSSPReadGzFileServices\CSSPReadGzFileServices.csproj" />
+    <ProjectReference Include="..\..\services\CSSPScrambleServices\CSSPScrambleServices.csproj" />
   </ItemGroup>
 
   <ItemGroup>
