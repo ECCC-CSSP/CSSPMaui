@@ -5,7 +5,7 @@ public partial class MapInfoPoint : LastUpdate
     [Key]
     public int MapInfoPointID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "MapInfo", ExistPlurial = "s", ExistFieldID = "MapInfoID")]
     [CSSPForeignKey(TableName = "MapInfos", FieldName = "MapInfoID")]
     public int MapInfoID { get; set; }
@@ -18,6 +18,7 @@ public partial class MapInfoPoint : LastUpdate
 
     public MapInfoPoint() : base()
     {
+
     }
 }
 

@@ -5,7 +5,7 @@ public partial class SamplingPlanEmail : LastUpdate
     [Key]
     public int SamplingPlanEmailID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "SamplingPlan", ExistPlurial = "s", ExistFieldID = "SamplingPlanID")]
     [CSSPForeignKey(TableName = "SamplingPlans", FieldName = "SamplingPlanID")]
     public int SamplingPlanID { get; set; }
@@ -20,6 +20,7 @@ public partial class SamplingPlanEmail : LastUpdate
 
     public SamplingPlanEmail() : base()
     {
+
     }
 }
 

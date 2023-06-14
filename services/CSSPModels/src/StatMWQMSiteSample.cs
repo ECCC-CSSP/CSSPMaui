@@ -27,7 +27,7 @@ public partial class StatMWQMSiteSample
     public double? P90 { get; set; }
     public double? PercOver43 { get; set; }
     public double? PercOver260 { get; set; }
-    public string DataText { get; set; }
+    public string DataText { get; set; } = string.Empty;
     public DateTime? LastSampleDate { get; set; }
     public int? StatStartYear { get; set; }
     public int? StatEndYear { get; set; }

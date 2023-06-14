@@ -5,7 +5,7 @@ public partial class PolSourceGrouping : LastUpdate
     [Key]
     public int PolSourceGroupingID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPRange(10000, 100000)]
     public int CSSPID { get; set; }
     [CSSPMaxLength(500)]
@@ -17,6 +17,7 @@ public partial class PolSourceGrouping : LastUpdate
 
     public PolSourceGrouping() : base()
     {
+
     }
 }
 

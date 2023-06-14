@@ -5,7 +5,7 @@ public partial class TideSite : LastUpdate
     [Key]
     public int TideSiteID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "22")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int TideSiteTVItemID { get; set; }
@@ -21,6 +21,7 @@ public partial class TideSite : LastUpdate
 
     public TideSite() : base()
     {
+
     }
 }
 

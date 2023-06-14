@@ -13,7 +13,7 @@ public partial class ManageFileService : ControllerBase, IManageFileService
 
         if (string.IsNullOrEmpty(Configuration["CSSPDBManage"])) throw new Exception($"{ string.Format(CSSPCultureServicesRes.CouldNotFindParameter_InConfigFilesOfService_, "CSSPDBManage", "CSSPLogService") }");
 
-        DbManage = dbManage ?? null;
+        DbManage = dbManage;
     }
 }
 

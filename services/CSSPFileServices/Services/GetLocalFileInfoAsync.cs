@@ -4,7 +4,7 @@ public partial class CSSPFileService : ControllerBase, ICSSPFileService
 {
     public async Task<ActionResult<LocalFileInfo>> GetLocalFileInfoAsync(int ParentTVItemID, string FileName)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(int ParentTVItemID, string FileName) - ParentTVItemID: { ParentTVItemID }  FileName: { FileName }";
+        string FunctionName = $"async Task<ActionResult<LocalFileInfo>> GetLocalFileInfoAsync(int ParentTVItemID, string FileName) - ParentTVItemID: { ParentTVItemID }  FileName: { FileName }";
         CSSPLogService.FunctionLog(FunctionName);
 
         if (!await CSSPLogService.CheckLogin(FunctionName)) return await Task.FromResult(Unauthorized(CSSPLogService.ErrRes));

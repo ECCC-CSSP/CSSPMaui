@@ -71,6 +71,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSPLocalLoggedInServices",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSPLocalLoggedInServices.Tests", "..\ServicesTests\CSSPLocalLoggedInServices.Tests\CSSPLocalLoggedInServices.Tests.csproj", "{9DCEB315-FBE2-4000-A339-9B431AF137AB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSPFileServices.Tests", "..\ServicesTests\CSSPFileServices.Tests\CSSPFileServices.Tests.csproj", "{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSPFileServices", "..\Services\CSSPFileServices\CSSPFileServices.csproj", "{4ABB5756-45D5-47A8-980A-7892083BE96D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -491,6 +495,30 @@ Global
 		{9DCEB315-FBE2-4000-A339-9B431AF137AB}.Release|x64.Build.0 = Release|Any CPU
 		{9DCEB315-FBE2-4000-A339-9B431AF137AB}.Release|x86.ActiveCfg = Release|Any CPU
 		{9DCEB315-FBE2-4000-A339-9B431AF137AB}.Release|x86.Build.0 = Release|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Debug|x64.Build.0 = Debug|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Debug|x86.Build.0 = Debug|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Release|x64.ActiveCfg = Release|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Release|x64.Build.0 = Release|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Release|x86.ActiveCfg = Release|Any CPU
+		{8299A9EB-5DB8-4940-909D-D7DD4AC18FF3}.Release|x86.Build.0 = Release|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Debug|x64.Build.0 = Debug|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Debug|x86.Build.0 = Debug|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Release|x64.ActiveCfg = Release|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Release|x64.Build.0 = Release|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Release|x86.ActiveCfg = Release|Any CPU
+		{4ABB5756-45D5-47A8-980A-7892083BE96D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

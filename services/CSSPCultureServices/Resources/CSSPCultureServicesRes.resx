@@ -1137,4 +1137,7 @@
   <data name="CanOnlyBeRunFromComputer_wmon01dtchlebl2" xml:space="preserve">
     <value>Can only be run from computer wmon01dtchlebl2</value>
   </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Bad Request</value>
+  </data>
 </root>

@@ -11,28 +11,36 @@ public partial class ManageFileService : ControllerBase, IManageFileService
 
         if (ErrResult.ErrList.Count > 0) return await Task.FromResult(BadRequest(ErrResult));
 
-        ManageFile manageFile = (from c in DbManage.ManageFiles
-                                 where c.ManageFileID == ManageFileID
-                                 select c).FirstOrDefault();
-
-        if (manageFile == null)
+        ManageFile? manageFile = null;
+        if (DbManage != null)
         {
-            ErrResult.ErrList.Add(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "ManageFile", "ManageFileID", ManageFileID.ToString()));
-        }
+            manageFile = (from c in DbManage.ManageFiles
+                          where c.ManageFileID == ManageFileID
+                          select c).FirstOrDefault();
 
-        if (ErrResult.ErrList.Count > 0) return await Task.FromResult(BadRequest(ErrResult));
+            if (manageFile == null)
+            {
+                ErrResult.ErrList.Add(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "ManageFile", "ManageFileID", ManageFileID.ToString()));
 
-        try
-        {
-            DbManage.ManageFiles.Remove(manageFile);
-            DbManage.SaveChanges();
-        }
-        catch (DbUpdateException ex)
-        {
-            ErrResult.ErrList.Add(ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
-        }
+                return await Task.FromResult(BadRequest(ErrResult));
+            }
+            else
+            {
+                try
+                {
+                    DbManage.ManageFiles.Remove(manageFile);
+                    DbManage.SaveChanges();
+                }
+                catch (DbUpdateException ex)
+                {
+                    ErrResult.ErrList.Add(ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
+                }
 
-        if (ErrResult.ErrList.Count > 0) return await Task.FromResult(BadRequest(ErrResult));
+                if (ErrResult.ErrList.Count > 0) return await Task.FromResult(BadRequest(ErrResult));
+
+                return await Task.FromResult(Ok(manageFile));
+            }
+        }
 
         return await Task.FromResult(Ok(manageFile));
     }

@@ -7,9 +7,10 @@ public partial class ManageFileService : ControllerBase, IManageFileService
         if (manageFile == null)
         {
             ErrResult.ErrList.Add(string.Format(CSSPCultureServicesRes._IsNullOrEmpty, "manageFile"));
+
+            return await Task.FromResult(BadRequest(ErrResult));
         }
 
-        if (ErrResult.ErrList.Count > 0) return await Task.FromResult(BadRequest(ErrResult));
 
         if (manageFile.ManageFileID == 0)
         {
@@ -60,45 +61,51 @@ public partial class ManageFileService : ControllerBase, IManageFileService
             ErrResult.ErrList.Add(string.Format(CSSPCultureServicesRes._YearShouldBeBiggerThan_, "AzureCreationTimeUTC", "1980"));
         }
 
-        ManageFile manageFileExist = (from c in DbManage.ManageFiles
-                                      where c.AzureFileName == manageFile.AzureFileName
-                                      && c.AzureStorage == manageFile.AzureStorage
-                                      && c.ManageFileID != manageFile.ManageFileID
-                                      select c).FirstOrDefault();
-
-        if (manageFileExist != null)
+        ManageFile? manageFileExist = null;
+        if (DbManage != null)
         {
-            ErrResult.ErrList.Add(string.Format(CSSPCultureServicesRes._AlreadyExistsWithDifferent_, "ManageFile", "ManageFileID"));
+            manageFileExist = (from c in DbManage.ManageFiles
+                               where c.AzureFileName == manageFile.AzureFileName
+                               && c.AzureStorage == manageFile.AzureStorage
+                               && c.ManageFileID != manageFile.ManageFileID
+                               select c).FirstOrDefault();
+
+            if (manageFileExist != null)
+            {
+                ErrResult.ErrList.Add(string.Format(CSSPCultureServicesRes._AlreadyExistsWithDifferent_, "ManageFile", "ManageFileID"));
+
+                return await Task.FromResult(BadRequest(ErrResult));
+            }
         }
 
-        if (ErrResult.ErrList.Count > 0) return await Task.FromResult(BadRequest(ErrResult));
-
-        ManageFile manageFileModify = new ManageFile();
-
-        manageFileModify = (from c in DbManage.ManageFiles
-                            where c.ManageFileID == manageFile.ManageFileID
-                            select c).FirstOrDefault();
-
-        if (manageFileModify == null)
+        ManageFile? manageFileModify = null;
+        if (DbManage != null) 
         {
-            ErrResult.ErrList.Add(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "ManageFile", "ManageFileID", manageFile.ManageFileID.ToString()));
-        }
+            manageFileModify = (from c in DbManage.ManageFiles
+                                where c.ManageFileID == manageFile.ManageFileID
+                                select c).FirstOrDefault();
 
-        if (ErrResult.ErrList.Count > 0) return await Task.FromResult(BadRequest(ErrResult));
+            if (manageFileModify == null)
+            {
+                ErrResult.ErrList.Add(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "ManageFile", "ManageFileID", manageFile.ManageFileID.ToString()));
 
-        manageFileModify.AzureCreationTimeUTC = manageFile.AzureCreationTimeUTC;
-        manageFileModify.AzureETag = manageFile.AzureETag;
-        manageFileModify.AzureFileName = manageFile.AzureFileName;
-        manageFileModify.AzureStorage = manageFile.AzureStorage;
-        manageFileModify.LoadedOnce = true;
+                return await Task.FromResult(BadRequest(ErrResult));
+            }
 
-        try
-        {
-            DbManage.SaveChanges();
-        }
-        catch (DbUpdateException ex)
-        {
-            ErrResult.ErrList.Add(ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
+            manageFileModify.AzureCreationTimeUTC = manageFile.AzureCreationTimeUTC;
+            manageFileModify.AzureETag = manageFile.AzureETag;
+            manageFileModify.AzureFileName = manageFile.AzureFileName;
+            manageFileModify.AzureStorage = manageFile.AzureStorage;
+            manageFileModify.LoadedOnce = true;
+
+            try
+            {
+                DbManage.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                ErrResult.ErrList.Add(ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
+            }
         }
 
         if (ErrResult.ErrList.Count > 0) return await Task.FromResult(BadRequest(ErrResult));

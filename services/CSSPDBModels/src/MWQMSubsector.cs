@@ -5,7 +5,7 @@ public partial class MWQMSubsector : LastUpdate
     [Key]
     public int MWQMSubsectorID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "20")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MWQMSubsectorTVItemID { get; set; }
@@ -17,6 +17,7 @@ public partial class MWQMSubsector : LastUpdate
 
     public MWQMSubsector() : base()
     {
+
     }
 }
 

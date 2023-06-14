@@ -5,7 +5,7 @@ public partial class ContactShortcut : LastUpdate
     [Key]
     public int ContactShortcutID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "Contact", ExistPlurial = "s", ExistFieldID = "ContactID")]
     [CSSPForeignKey(TableName = "Contacts", FieldName = "ContactID")]
     public int ContactID { get; set; }
@@ -16,6 +16,7 @@ public partial class ContactShortcut : LastUpdate
 
     public ContactShortcut() : base()
     {
+
     }
 }
 

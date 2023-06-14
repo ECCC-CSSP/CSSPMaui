@@ -5,15 +5,15 @@ public partial class MikeSourceStartEnd : LastUpdate
     [Key]
     public int MikeSourceStartEndID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "MikeSource", ExistPlurial = "s", ExistFieldID = "MikeSourceID")]
     [CSSPForeignKey(TableName = "MikeSources", FieldName = "MikeSourceID")]
     public int MikeSourceID { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime StartDateAndTime_Local { get; set; }
+    public DateTime StartDateAndTime_Local { get; set; } = DateTime.MinValue;
     [CSSPAfter(Year = 1980)]
     [CSSPBigger(OtherField = "StartDateAndTime_Local")]
-    public DateTime EndDateAndTime_Local { get; set; }
+    public DateTime EndDateAndTime_Local { get; set; } = DateTime.MinValue;
     [CSSPRange(0.0D, 1000000.0D)]
     public double SourceFlowStart_m3_day { get; set; }
     [CSSPRange(0.0D, 1000000.0D)]
@@ -33,6 +33,7 @@ public partial class MikeSourceStartEnd : LastUpdate
 
     public MikeSourceStartEnd() : base()
     {
+
     }
 }
 

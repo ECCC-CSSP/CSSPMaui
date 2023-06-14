@@ -5,12 +5,12 @@ public partial class PolSourceObservation : LastUpdate
     [Key]
     public int PolSourceObservationID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "PolSourceSite", ExistPlurial = "s", ExistFieldID = "PolSourceSiteID")]
     [CSSPForeignKey(TableName = "PolSourceSites", FieldName = "PolSourceSiteID")]
     public int PolSourceSiteID { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime ObservationDate_Local { get; set; }
+    public DateTime ObservationDate_Local { get; set; } = DateTime.MinValue;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "5")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int ContactTVItemID { get; set; }
@@ -19,6 +19,7 @@ public partial class PolSourceObservation : LastUpdate
 
     public PolSourceObservation() : base()
     {
+
     }
 }
 

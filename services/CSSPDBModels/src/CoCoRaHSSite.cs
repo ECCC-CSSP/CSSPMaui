@@ -5,7 +5,7 @@ public partial class CoCoRaHSSite : LastUpdate
     [Key]
     public int CoCoRaHSSiteID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPMaxLength(100)]
     public string StationNumber { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
@@ -17,6 +17,7 @@ public partial class CoCoRaHSSite : LastUpdate
 
     public CoCoRaHSSite() : base()
     {
+
     }
 }
 

@@ -5,7 +5,7 @@ public partial class MikeScenario : LastUpdate
     [Key]
     public int MikeScenarioID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "13")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MikeScenarioTVItemID { get; set; }
@@ -13,15 +13,15 @@ public partial class MikeScenario : LastUpdate
     [CSSPForeignKey(TableName = "MikeScenarios", FieldName = "MikeScenarioID")]
     public int? ParentMikeScenarioID { get; set; }
     [CSSPEnumType]
-    public ScenarioStatusEnum ScenarioStatus { get; set; }
+    public ScenarioStatusEnum ScenarioStatus { get; set; } = ScenarioStatusEnum.Cancelled;
     [CSSPAllowNull]
     public string ErrorInfo { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
-    public DateTime MikeScenarioStartDateTime_Local { get; set; }
+    public DateTime MikeScenarioStartDateTime_Local { get; set; } = DateTime.MinValue;
     [CSSPAfter(Year = 1980)]
-    public DateTime MikeScenarioEndDateTime_Local { get; set; }
+    public DateTime MikeScenarioEndDateTime_Local { get; set; } = DateTime.MinValue;
     [CSSPAfter(Year = 1980)]
-    public DateTime? MikeScenarioStartExecutionDateTime_Local { get; set; }
+    public DateTime? MikeScenarioStartExecutionDateTime_Local { get; set; } = null;
     [CSSPRange(1.0D, 100000.0D)]
     public double? MikeScenarioExecutionTime_min { get; set; }
     [CSSPRange(0.0D, 100.0D)]
@@ -68,6 +68,7 @@ public partial class MikeScenario : LastUpdate
 
     public MikeScenario() : base()
     {
+
     }
 }
 

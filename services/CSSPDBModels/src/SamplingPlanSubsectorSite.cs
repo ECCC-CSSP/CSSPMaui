@@ -5,7 +5,7 @@ public partial class SamplingPlanSubsectorSite : LastUpdate
     [Key]
     public int SamplingPlanSubsectorSiteID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "SamplingPlanSubsector", ExistPlurial = "s", ExistFieldID = "SamplingPlanSubsectorID")]
     [CSSPForeignKey(TableName = "SamplingPlanSubsectors", FieldName = "SamplingPlanSubsectorID")]
     public int SamplingPlanSubsectorID { get; set; }
@@ -16,6 +16,7 @@ public partial class SamplingPlanSubsectorSite : LastUpdate
 
     public SamplingPlanSubsectorSite() : base()
     {
+
     }
 }
 

@@ -18,7 +18,7 @@ public partial class AspNetUser
     public bool PhoneNumberConfirmed { get; set; }
     public bool TwoFactorEnabled { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime? LockoutEndDateUtc { get; set; }
+    public DateTime? LockoutEndDateUtc { get; set; } = null;
     public bool LockoutEnabled { get; set; }
     [CSSPRange(0, 10000)]
     public int AccessFailedCount { get; set; }
@@ -34,10 +34,11 @@ public partial class AspNetUser
     [CSSPAllowNull]
     public string ConcurrencyStamp { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
-    public DateTime? LockoutEnd { get; set; }
+    public DateTime? LockoutEnd { get; set; } = null;
 
     public AspNetUser()
     {
+
     }
 }
 

@@ -7,9 +7,9 @@ public partial class CommandLogService : ControllerBase, ICommandLogService
         if (commandLog == null)
         {
             errRes.ErrList.Add(string.Format(CSSPCultureServicesRes._IsNullOrEmpty, "commandLog"));
-        }
 
-        if (errRes.ErrList.Count > 0) return await Task.FromResult(BadRequest(errRes));
+            return await Task.FromResult(BadRequest(errRes));
+        }
 
         if (commandLog.CommandLogID == 0)
         {
@@ -67,31 +67,35 @@ public partial class CommandLogService : ControllerBase, ICommandLogService
 
         if (errRes.ErrList.Count > 0) return await Task.FromResult(BadRequest(errRes));
 
-        CommandLog commandLogModify = new CommandLog();
+        CommandLog? commandLogModify = null;
 
-        commandLogModify = (from c in dbManage.CommandLogs
-                            where c.CommandLogID == commandLog.CommandLogID
-                            select c).FirstOrDefault();
-
-        if (commandLogModify == null)
+        if (dbManage != null)
         {
-            errRes.ErrList.Add(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "CommandLog", "CommandLogID", commandLog.CommandLogID.ToString()));
-            return await Task.FromResult(BadRequest(errRes));
-        }
+            commandLogModify = (from c in dbManage.CommandLogs
+                                where c.CommandLogID == commandLog.CommandLogID
+                                select c).FirstOrDefault();
 
-        commandLogModify.AppName = commandLog.AppName;
-        commandLogModify.CommandName = commandLog.CommandName;
-        commandLogModify.DateTimeUTC = DateTime.UtcNow;
-        commandLogModify.Error = commandLog.Error;
-        commandLogModify.Log = commandLog.Log;
+            if (commandLogModify == null)
+            {
+                errRes.ErrList.Add(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "CommandLog", "CommandLogID", commandLog.CommandLogID.ToString()));
+                return await Task.FromResult(BadRequest(errRes));
+            }
 
-        try
-        {
-            dbManage.SaveChanges();
-        }
-        catch (DbUpdateException ex)
-        {
-            errRes.ErrList.Add(ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
+            commandLogModify.AppName = commandLog.AppName;
+            commandLogModify.CommandName = commandLog.CommandName;
+            commandLogModify.DateTimeUTC = DateTime.UtcNow;
+            commandLogModify.Error = commandLog.Error;
+            commandLogModify.Log = commandLog.Log;
+
+            try
+            {
+                dbManage.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                errRes.ErrList.Add(ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
+            }
+
         }
 
         if (errRes.ErrList.Count > 0) return await Task.FromResult(BadRequest(errRes));

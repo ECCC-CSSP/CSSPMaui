@@ -5,7 +5,7 @@ public partial class MWQMSample : LastUpdate
     [Key]
     public int MWQMSampleID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "16")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MWQMSiteTVItemID { get; set; }
@@ -13,7 +13,7 @@ public partial class MWQMSample : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MWQMRunTVItemID { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime SampleDateTime_Local { get; set; }
+    public DateTime SampleDateTime_Local { get; set; } = DateTime.MinValue;
     [CSSPMaxLength(6)]
     [CSSPAllowNull]
     public string TimeText { get; set; } = string.Empty;
@@ -31,7 +31,7 @@ public partial class MWQMSample : LastUpdate
     public string SampleTypesText { get; set; } = string.Empty;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public SampleTypeEnum? SampleType_old { get; set; }
+    public SampleTypeEnum? SampleType_old { get; set; } = null;
     [CSSPRange(0, 5)]
     public int? Tube_10 { get; set; }
     [CSSPRange(0, 5)]
@@ -45,6 +45,7 @@ public partial class MWQMSample : LastUpdate
 
     public MWQMSample() : base()
     {
+
     }
 }
 

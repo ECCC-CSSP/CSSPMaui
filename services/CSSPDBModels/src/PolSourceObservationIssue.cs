@@ -5,7 +5,7 @@ public partial class PolSourceObservationIssue : LastUpdate
     [Key]
     public int PolSourceObservationIssueID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "PolSourceObservation", ExistPlurial = "s", ExistFieldID = "PolSourceObservationID")]
     [CSSPForeignKey(TableName = "PolSourceObservations", FieldName = "PolSourceObservationID")]
     public int PolSourceObservationID { get; set; }
@@ -18,6 +18,7 @@ public partial class PolSourceObservationIssue : LastUpdate
 
     public PolSourceObservationIssue() : base()
     {
+
     }
 }
 

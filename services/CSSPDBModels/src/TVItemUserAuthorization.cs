@@ -5,7 +5,7 @@ public partial class TVItemUserAuthorization : LastUpdate
     [Key]
     public int TVItemUserAuthorizationID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "5")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int ContactTVItemID { get; set; }
@@ -22,10 +22,11 @@ public partial class TVItemUserAuthorization : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int? TVItemID4 { get; set; }
     [CSSPEnumType]
-    public TVAuthEnum TVAuth { get; set; }
+    public TVAuthEnum TVAuth { get; set; } = TVAuthEnum.Read;
 
     public TVItemUserAuthorization() : base()
     {
+
     }
 }
 

@@ -5,7 +5,7 @@ public partial class ClimateSite : LastUpdate
     [Key]
     public int ClimateSiteID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "4")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int ClimateSiteTVItemID { get; set; }
@@ -33,23 +33,24 @@ public partial class ClimateSite : LastUpdate
     [CSSPAllowNull]
     public string File_desc { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
-    public DateTime? HourlyStartDate_Local { get; set; }
+    public DateTime? HourlyStartDate_Local { get; set; } = null;
     [CSSPAfter(Year = 1980)]
-    public DateTime? HourlyEndDate_Local { get; set; }
+    public DateTime? HourlyEndDate_Local { get; set; } = null;
     public bool? HourlyNow { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime? DailyStartDate_Local { get; set; }
+    public DateTime? DailyStartDate_Local { get; set; } = null;
     [CSSPAfter(Year = 1980)]
-    public DateTime? DailyEndDate_Local { get; set; }
+    public DateTime? DailyEndDate_Local { get; set; } = null;
     public bool? DailyNow { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime? MonthlyStartDate_Local { get; set; }
+    public DateTime? MonthlyStartDate_Local { get; set; } = null;
     [CSSPAfter(Year = 1980)]
-    public DateTime? MonthlyEndDate_Local { get; set; }
+    public DateTime? MonthlyEndDate_Local { get; set; } = null;
     public bool? MonthlyNow { get; set; }
 
     public ClimateSite() : base()
     {
+
     }
 }
 

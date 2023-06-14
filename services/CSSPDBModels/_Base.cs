@@ -9,7 +9,7 @@ public partial class LastUpdate //: CSSPError
     /// </summary>
     /// <param name="LastUpdateDate_UTC">Every table within the database contains a field called LastUpdateDate_UTC which holds the last time the row of information was changed</param>
     [CSSPAfter(Year = 1980)]
-    public DateTime LastUpdateDate_UTC { get; set; }
+    public DateTime LastUpdateDate_UTC { get; set; } = DateTime.MinValue;
     /// <summary>
     /// > [!NOTE]
     /// > <para>**Other custom attributes**</para>

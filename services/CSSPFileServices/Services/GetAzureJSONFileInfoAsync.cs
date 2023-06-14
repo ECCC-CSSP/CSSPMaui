@@ -4,7 +4,7 @@ public partial class CSSPFileService : ControllerBase, ICSSPFileService
 {
     public async Task<ActionResult<LocalFileInfo>> GetAzureJSONFileInfoAsync(string FileName)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(string FileName) - FileName: { FileName }";
+        string FunctionName = $"async Task<ActionResult<LocalFileInfo>> GetAzureJSONFileInfoAsync(string FileName) - FileName: { FileName }";
         CSSPLogService.FunctionLog(FunctionName);
 
         if (!await CSSPLogService.CheckLogin(FunctionName)) return await Task.FromResult(Unauthorized(CSSPLogService.ErrRes));

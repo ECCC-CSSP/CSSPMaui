@@ -5,7 +5,7 @@ public partial class MWQMLookupMPN : LastUpdate
     [Key]
     public int MWQMLookupMPNID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPRange(0, 5)]
     public int Tubes10 { get; set; }
     [CSSPRange(0, 5)]
@@ -17,6 +17,7 @@ public partial class MWQMLookupMPN : LastUpdate
 
     public MWQMLookupMPN() : base()
     {
+
     }
 }
 

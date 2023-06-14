@@ -11,6 +11,7 @@ public partial class AspNetUserRole
 
     public AspNetUserRole()
     {
+
     }
 }
 

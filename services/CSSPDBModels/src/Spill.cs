@@ -5,7 +5,7 @@ public partial class Spill : LastUpdate
     [Key]
     public int SpillID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "15")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MunicipalityTVItemID { get; set; }
@@ -22,6 +22,7 @@ public partial class Spill : LastUpdate
 
     public Spill() : base()
     {
+
     }
 }
 

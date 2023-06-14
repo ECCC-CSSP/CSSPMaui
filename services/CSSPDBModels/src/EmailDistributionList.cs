@@ -5,7 +5,7 @@ public partial class EmailDistributionList : LastUpdate
     [Key]
     public int EmailDistributionListID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "6")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int ParentTVItemID { get; set; }
@@ -14,6 +14,7 @@ public partial class EmailDistributionList : LastUpdate
 
     public EmailDistributionList() : base()
     {
+
     }
 }
 

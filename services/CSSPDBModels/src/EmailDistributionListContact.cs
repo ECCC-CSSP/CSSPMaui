@@ -5,7 +5,7 @@ public partial class EmailDistributionListContact : LastUpdate
     [Key]
     public int EmailDistributionListContactID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "EmailDistributionList", ExistPlurial = "s", ExistFieldID = "EmailDistributionListID")]
     [CSSPForeignKey(TableName = "EmailDistributionLists", FieldName = "EmailDistributionListID")]
     public int EmailDistributionListID { get; set; }
@@ -23,6 +23,7 @@ public partial class EmailDistributionListContact : LastUpdate
 
     public EmailDistributionListContact() : base()
     {
+
     }
 }
 

@@ -646,6 +646,15 @@ namespace CSSPCultureServices.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bad Request.
+        /// </summary>
+        public static string BadRequest {
+            get {
+                return ResourceManager.GetString("BadRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can only be run from computer wmon01dtchlebl2.
         /// </summary>
         public static string CanOnlyBeRunFromComputer_wmon01dtchlebl2 {

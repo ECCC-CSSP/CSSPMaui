@@ -4,7 +4,7 @@ public partial class CSSPFileService : ControllerBase, ICSSPFileService
 {
     public async Task<ActionResult<bool>> CreateTempPNGAsync(HttpRequest request)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(HttpRequest request)";
+        string FunctionName = $"async Task<ActionResult<bool>> CreateTempPNGAsync(HttpRequest request)";
         CSSPLogService.FunctionLog(FunctionName);
 
         if (!await CSSPLogService.CheckLogin(FunctionName)) return await Task.FromResult(Unauthorized(CSSPLogService.ErrRes));
@@ -15,9 +15,9 @@ public partial class CSSPFileService : ControllerBase, ICSSPFileService
 
             if (file.Length > 0)
             {
-                FileInfo fi = new FileInfo($"{ Configuration["CSSPTempFilesPath"] }{file.FileName}");
+                FileInfo fi = new FileInfo($"{Configuration["CSSPTempFilesPath"]}{file.FileName}");
 
-                CSSPLogService.AppendLog($"{ CSSPCultureServicesRes.Creating } { fi.FullName }");
+                CSSPLogService.AppendLog($"{CSSPCultureServicesRes.Creating} {fi.FullName}");
 
                 using (FileStream stream = new FileStream(fi.FullName, FileMode.Create))
                 {
@@ -33,7 +33,7 @@ public partial class CSSPFileService : ControllerBase, ICSSPFileService
         }
         catch (Exception ex)
         {
-            string ErrorText = ex.Message + (ex.InnerException == null ? "" : " InnerExcecption: " + ex.InnerException.Message);
+            string ErrorText = ex.Message + (ex.InnerException == null ? "" : " InnerException: " + ex.InnerException.Message);
 
             return await CSSPLogService.EndFunctionReturnBadRequest(FunctionName, string.Format(CSSPCultureServicesRes.CouldNotCreateTemp_FileError_, ErrorText));
         }

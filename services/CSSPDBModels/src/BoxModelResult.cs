@@ -5,12 +5,12 @@ public partial class BoxModelResult : LastUpdate
     [Key]
     public int BoxModelResultID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "BoxModel", ExistPlurial = "s", ExistFieldID = "BoxModelID")]
     [CSSPForeignKey(TableName = "BoxModels", FieldName = "BoxModelID")]
     public int BoxModelID { get; set; }
     [CSSPEnumType]
-    public BoxModelResultTypeEnum BoxModelResultType { get; set; }
+    public BoxModelResultTypeEnum BoxModelResultType { get; set; } = BoxModelResultTypeEnum.Dilution;
     [CSSPRange(0.0D, -1.0D)]
     public double Volume_m3 { get; set; }
     [CSSPRange(0.0D, -1.0D)]
@@ -38,6 +38,7 @@ public partial class BoxModelResult : LastUpdate
 
     public BoxModelResult() : base()
     {
+
     }
 }
 

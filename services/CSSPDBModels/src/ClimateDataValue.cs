@@ -5,15 +5,15 @@ public partial class ClimateDataValue : LastUpdate
     [Key]
     public int ClimateDataValueID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "ClimateSite", ExistPlurial = "s", ExistFieldID = "ClimateSiteID")]
     [CSSPForeignKey(TableName = "ClimateSites", FieldName = "ClimateSiteID")]
     public int ClimateSiteID { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime DateTime_Local { get; set; }
+    public DateTime DateTime_Local { get; set; } = DateTime.MinValue;
     public bool Keep { get; set; }
     [CSSPEnumType]
-    public StorageDataTypeEnum StorageDataType { get; set; }
+    public StorageDataTypeEnum StorageDataType { get; set; } = StorageDataTypeEnum.Archived;
     public bool HasBeenRead { get; set; }
     [CSSPRange(0.0D, 10000.0D)]
     public double? Snow_cm { get; set; }
@@ -42,6 +42,7 @@ public partial class ClimateDataValue : LastUpdate
 
     public ClimateDataValue() : base()
     {
+
     }
 }
 

@@ -5,29 +5,30 @@ public partial class CoCoRaHSValue : LastUpdate
     [Key]
     public int CoCoRaHSValueID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "CoCoRaHSSite", ExistPlurial = "s", ExistFieldID = "CoCoRaHSSiteID")]
     [CSSPForeignKey(TableName = "CoCoRaHSSites", FieldName = "CoCoRaHSSiteID")]
     public int CoCoRaHSSiteID { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime ObservationDateAndTime { get; set; }
+    public DateTime ObservationDateAndTime { get; set; } = DateTime.MinValue;
     [CSSPRange(0.0D, 10000.0D)]
     [CSSPAllowNull]
-    public Nullable<double> TotalPrecipAmt { get; set; }
+    public double? TotalPrecipAmt { get; set; } = null;
     [CSSPRange(0.0D, 10000.0D)]
     [CSSPAllowNull]
-    public Nullable<double> NewSnowDepth { get; set; }
+    public double? NewSnowDepth { get; set; } = null;
     [CSSPRange(0.0D, 10000.0D)]
     [CSSPAllowNull]
-    public Nullable<double> NewSnowSWE { get; set; }
+    public double? NewSnowSWE { get; set; } = null;
     [CSSPRange(0.0D, 10000.0D)]
     [CSSPAllowNull]
-    public Nullable<double> TotalSnowDepth { get; set; }
+    public double? TotalSnowDepth { get; set; } = null;
     [CSSPRange(0.0D, 10000.0D)]
     [CSSPAllowNull]
-    public Nullable<double> TotalSnowSWE { get; set; }
+    public double? TotalSnowSWE { get; set; } = null;
 
     public CoCoRaHSValue() : base()
     {
+
     }
 }

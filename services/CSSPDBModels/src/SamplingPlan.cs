@@ -5,18 +5,18 @@ public partial class SamplingPlan : LastUpdate
     [Key]
     public int SamplingPlanID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     public bool IsActive { get; set; }
     [CSSPMaxLength(200)]
     public string SamplingPlanName { get; set; } = string.Empty;
     [CSSPMaxLength(100)]
     public string ForGroupName { get; set; } = string.Empty;
     [CSSPEnumType]
-    public SampleTypeEnum SampleType { get; set; }
+    public SampleTypeEnum SampleType { get; set; } = SampleTypeEnum.Routine;
     [CSSPEnumType]
-    public SamplingPlanTypeEnum SamplingPlanType { get; set; }
+    public SamplingPlanTypeEnum SamplingPlanType { get; set; } = SamplingPlanTypeEnum.Subsector;
     [CSSPEnumType]
-    public LabSheetTypeEnum LabSheetType { get; set; }
+    public LabSheetTypeEnum LabSheetType { get; set; } = LabSheetTypeEnum.A1;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "18")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int ProvinceTVItemID { get; set; }
@@ -39,18 +39,19 @@ public partial class SamplingPlan : LastUpdate
     public int? SamplingPlanFileTVItemID { get; set; }
     [CSSPEnumType]
     [CSSPAllowNull]
-    public AnalyzeMethodEnum? AnalyzeMethodDefault { get; set; }
+    public AnalyzeMethodEnum? AnalyzeMethodDefault { get; set; } = AnalyzeMethodEnum.MPN;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public SampleMatrixEnum? SampleMatrixDefault { get; set; }
+    public SampleMatrixEnum? SampleMatrixDefault { get; set; } = SampleMatrixEnum.Water;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public LaboratoryEnum? LaboratoryDefault { get; set; }
+    public LaboratoryEnum? LaboratoryDefault { get; set; } = LaboratoryEnum.PEIAnalyticalLaboratory;
     [CSSPMaxLength(250)]
     public string BackupDirectory { get; set; } = string.Empty;
 
     public SamplingPlan() : base()
     {
+
     }
 }
 

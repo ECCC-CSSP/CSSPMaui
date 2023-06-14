@@ -5,7 +5,7 @@ public partial class TideLocation : LastUpdate
     [Key]
     public int TideLocationID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPRange(0, 10000)]
     public int Zone { get; set; }
     [CSSPMaxLength(100)]
@@ -21,6 +21,7 @@ public partial class TideLocation : LastUpdate
 
     public TideLocation() : base()
     {
+
     }
 }
 

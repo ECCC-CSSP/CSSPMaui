@@ -5,12 +5,12 @@ public partial class VPScenario : LastUpdate
     [Key]
     public int VPScenarioID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "10")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int InfrastructureTVItemID { get; set; }
     [CSSPEnumType]
-    public ScenarioStatusEnum VPScenarioStatus { get; set; }
+    public ScenarioStatusEnum VPScenarioStatus { get; set; } = ScenarioStatusEnum.Cancelled;
     public bool UseAsBestEstimate { get; set; }
     [CSSPRange(0.0D, 1000.0D)]
     public double? EffluentFlow_m3_s { get; set; }
@@ -47,6 +47,7 @@ public partial class VPScenario : LastUpdate
 
     public VPScenario() : base()
     {
+
     }
 }
 

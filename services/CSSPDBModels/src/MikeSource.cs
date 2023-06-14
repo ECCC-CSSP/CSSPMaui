@@ -5,7 +5,7 @@ public partial class MikeSource : LastUpdate
     [Key]
     public int MikeSourceID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "14")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MikeSourceTVItemID { get; set; }
@@ -25,6 +25,7 @@ public partial class MikeSource : LastUpdate
 
     public MikeSource() : base()
     {
+
     }
 }
 

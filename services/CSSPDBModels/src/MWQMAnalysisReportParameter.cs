@@ -5,7 +5,7 @@ public partial class MWQMAnalysisReportParameter : LastUpdate
     [Key]
     public int MWQMAnalysisReportParameterID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "20")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int SubsectorTVItemID { get; set; }
@@ -15,12 +15,12 @@ public partial class MWQMAnalysisReportParameter : LastUpdate
     [CSSPRange(1980, 2050)]
     public int? AnalysisReportYear { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime StartDate { get; set; }
+    public DateTime StartDate { get; set; } = DateTime.MinValue;
     [CSSPAfter(Year = 1980)]
     [CSSPBigger(OtherField = "StartDate")]
-    public DateTime EndDate { get; set; }
+    public DateTime EndDate { get; set; } = DateTime.MinValue;
     [CSSPEnumType]
-    public AnalysisCalculationTypeEnum AnalysisCalculationType { get; set; }
+    public AnalysisCalculationTypeEnum AnalysisCalculationType { get; set; } = AnalysisCalculationTypeEnum.All;
     [CSSPRange(1, 1000)]
     public int NumberOfRuns { get; set; }
     public bool FullYear { get; set; }
@@ -55,10 +55,11 @@ public partial class MWQMAnalysisReportParameter : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int? ExcelTVFileTVItemID { get; set; }
     [CSSPEnumType]
-    public AnalysisReportExportCommandEnum Command { get; set; }
+    public AnalysisReportExportCommandEnum Command { get; set; } = AnalysisReportExportCommandEnum.Report;
 
     public MWQMAnalysisReportParameter() : base()
     {
+
     }
 }
 

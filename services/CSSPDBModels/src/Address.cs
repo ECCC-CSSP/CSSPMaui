@@ -5,12 +5,12 @@ public partial class Address : LastUpdate
     [Key]
     public int AddressID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "2")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int AddressTVItemID { get; set; }
     [CSSPEnumType]
-    public AddressTypeEnum AddressType { get; set; }
+    public AddressTypeEnum AddressType { get; set; } = AddressTypeEnum.Civic;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "6")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int CountryTVItemID { get; set; }
@@ -28,7 +28,7 @@ public partial class Address : LastUpdate
     public string StreetNumber { get; set; } = string.Empty;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public StreetTypeEnum? StreetType { get; set; }
+    public StreetTypeEnum? StreetType { get; set; } = null;
     [CSSPMaxLength(11)]
     [CSSPMinLength(6)]
     [CSSPAllowNull]
@@ -40,6 +40,7 @@ public partial class Address : LastUpdate
 
     public Address() : base()
     {
+
     }
 }
 

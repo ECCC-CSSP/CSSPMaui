@@ -5,7 +5,7 @@ public partial class Contact : LastUpdate
     [Key]
     public int ContactID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     //[CSSPExist(ExistTypeName = "AspNetUser", ExistPlurial = "s", ExistFieldID = "Id")]
     [CSSPMaxLength(450)]
     //[CSSPForeignKey(TableName = "AspNetUsers", FieldName = "Id")]
@@ -33,7 +33,7 @@ public partial class Contact : LastUpdate
     public string WebName { get; set; } = string.Empty;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public ContactTitleEnum? ContactTitle { get; set; }
+    public ContactTitleEnum? ContactTitle { get; set; } = null;
     public bool IsAdmin { get; set; }
     public bool EmailValidated { get; set; }
     public bool Disabled { get; set; }
@@ -61,6 +61,7 @@ public partial class Contact : LastUpdate
 
     public Contact() : base()
     {
+
     }
 }
 

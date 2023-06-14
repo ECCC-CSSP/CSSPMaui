@@ -5,7 +5,7 @@ public partial class RainExceedanceClimateSite : LastUpdate
     [Key]
     public int RainExceedanceClimateSiteID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "75")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int RainExceedanceTVItemID { get; set; }
@@ -15,6 +15,7 @@ public partial class RainExceedanceClimateSite : LastUpdate
 
     public RainExceedanceClimateSite() : base()
     {
+
     }
 }
 

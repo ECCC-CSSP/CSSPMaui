@@ -5,7 +5,7 @@ public partial class RatingCurveValue : LastUpdate
     [Key]
     public int RatingCurveValueID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "RatingCurve", ExistPlurial = "s", ExistFieldID = "RatingCurveID")]
     [CSSPForeignKey(TableName = "RatingCurves", FieldName = "RatingCurveID")]
     public int RatingCurveID { get; set; }
@@ -16,6 +16,7 @@ public partial class RatingCurveValue : LastUpdate
 
     public RatingCurveValue() : base()
     {
+
     }
 }
 

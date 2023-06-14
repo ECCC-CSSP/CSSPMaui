@@ -5,7 +5,7 @@ public partial class UseOfSite : LastUpdate
     [Key]
     public int UseOfSiteID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "4,9,22")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int SiteTVItemID { get; set; }
@@ -13,7 +13,7 @@ public partial class UseOfSite : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int SubsectorTVItemID { get; set; }
     [CSSPEnumType]
-    public TVTypeEnum TVType { get; set; }
+    public TVTypeEnum TVType { get; set; } = TVTypeEnum.Address;
     [CSSPRange(0, 1000)]
     public int Ordinal { get; set; }
     [CSSPRange(1980, 2050)]
@@ -35,6 +35,7 @@ public partial class UseOfSite : LastUpdate
 
     public UseOfSite() : base()
     {
+
     }
 }
 

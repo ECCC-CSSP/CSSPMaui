@@ -5,7 +5,7 @@ public partial class LabSheetTubeMPNDetail : LastUpdate
     [Key]
     public int LabSheetTubeMPNDetailID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "LabSheetDetail", ExistPlurial = "s", ExistFieldID = "LabSheetDetailID")]
     [CSSPForeignKey(TableName = "LabSheetDetails", FieldName = "LabSheetDetailID")]
     public int LabSheetDetailID { get; set; }
@@ -15,7 +15,7 @@ public partial class LabSheetTubeMPNDetail : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int MWQMSiteTVItemID { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime? SampleDateTime { get; set; }
+    public DateTime? SampleDateTime { get; set; } = null;
     [CSSPRange(1, 10000000)]
     public int? MPN { get; set; }
     [CSSPRange(0, 5)]
@@ -32,13 +32,14 @@ public partial class LabSheetTubeMPNDetail : LastUpdate
     [CSSPAllowNull]
     public string ProcessedBy { get; set; } = string.Empty;
     [CSSPEnumType]
-    public SampleTypeEnum SampleType { get; set; }
+    public SampleTypeEnum SampleType { get; set; } = SampleTypeEnum.Routine;
     [CSSPMaxLength(250)]
     [CSSPAllowNull]
     public string SiteComment { get; set; } = string.Empty;
 
     public LabSheetTubeMPNDetail() : base()
     {
+
     }
 }
 

@@ -5,7 +5,7 @@ public partial class ReportSection : LastUpdate
     [Key]
     public int ReportSectionID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "ReportType", ExistPlurial = "s", ExistFieldID = "ReportTypeID")]
     [CSSPForeignKey(TableName = "ReportTypes", FieldName = "ReportTypeID")]
     public int ReportTypeID { get; set; }
@@ -14,7 +14,7 @@ public partial class ReportSection : LastUpdate
     public int? TVItemID { get; set; }
     [CSSPEnumType]
     [CSSPAllowNull]
-    public LanguageEnum? Language { get; set; }
+    public LanguageEnum? Language { get; set; } = LanguageEnum.en;
     [CSSPRange(0, 1000)]
     public int Ordinal { get; set; }
     public bool IsStatic { get; set; }
@@ -36,6 +36,7 @@ public partial class ReportSection : LastUpdate
 
     public ReportSection() : base()
     {
+
     }
 }
 

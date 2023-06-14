@@ -5,7 +5,7 @@ public partial class HydrometricSite : LastUpdate
     [Key]
     public int HydrometricSiteID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "9")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int HydrometricSiteTVItemID { get; set; }
@@ -25,10 +25,10 @@ public partial class HydrometricSite : LastUpdate
     [CSSPRange(0.0D, 10000.0D)]
     public double? Elevation_m { get; set; }
     [CSSPAfter(Year = 1849)]
-    public DateTime? StartDate_Local { get; set; }
+    public DateTime? StartDate_Local { get; set; } = null;
     [CSSPAfter(Year = 1849)]
     [CSSPBigger(OtherField = "StartDate_Local")]
-    public DateTime? EndDate_Local { get; set; }
+    public DateTime? EndDate_Local { get; set; } = null;
     [CSSPRange(-10.0D, 0.0D)]
     public double? TimeOffset_hour { get; set; }
     [CSSPRange(0.0D, 1000000.0D)]
@@ -44,6 +44,7 @@ public partial class HydrometricSite : LastUpdate
 
     public HydrometricSite() : base()
     {
+
     }
 }
 

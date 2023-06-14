@@ -5,7 +5,7 @@ public partial class VPAmbient : LastUpdate
     [Key]
     public int VPAmbientID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "VPScenario", ExistPlurial = "s", ExistFieldID = "VPScenarioID")]
     [CSSPForeignKey(TableName = "VPScenarios", FieldName = "VPScenarioID")]
     public int VPScenarioID { get; set; }
@@ -34,6 +34,7 @@ public partial class VPAmbient : LastUpdate
 
     public VPAmbient() : base()
     {
+
     }
 }
 

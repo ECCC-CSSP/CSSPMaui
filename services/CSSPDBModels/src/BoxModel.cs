@@ -5,7 +5,7 @@ public partial class BoxModel : LastUpdate
     [Key]
     public int BoxModelID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "10")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int InfrastructureTVItemID { get; set; }
@@ -32,6 +32,7 @@ public partial class BoxModel : LastUpdate
 
     public BoxModel() : base()
     {
+
     }
 }
 

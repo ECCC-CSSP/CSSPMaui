@@ -5,7 +5,7 @@ public partial class PolSourceSite : LastUpdate
     [Key]
     public int PolSourceSiteID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "17")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int PolSourceSiteTVItemID { get; set; }
@@ -21,13 +21,14 @@ public partial class PolSourceSite : LastUpdate
     public bool IsPointSource { get; set; }
     [CSSPEnumType]
     [CSSPAllowNull]
-    public PolSourceInactiveReasonEnum? InactiveReason { get; set; }
+    public PolSourceInactiveReasonEnum? InactiveReason { get; set; } = null;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "2")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int? CivicAddressTVItemID { get; set; }
 
     public PolSourceSite() : base()
     {
+
     }
 }
 

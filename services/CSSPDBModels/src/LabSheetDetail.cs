@@ -5,7 +5,7 @@ public partial class LabSheetDetail : LastUpdate
     [Key]
     public int LabSheetDetailID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "LabSheet", ExistPlurial = "s", ExistFieldID = "LabSheetID")]
     [CSSPForeignKey(TableName = "LabSheets", FieldName = "LabSheetID")]
     public int LabSheetID { get; set; }
@@ -18,7 +18,7 @@ public partial class LabSheetDetail : LastUpdate
     [CSSPRange(1, 5)]
     public int Version { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime RunDate { get; set; }
+    public DateTime RunDate { get; set; } = DateTime.MinValue;
     [CSSPMaxLength(7)]
     [CSSPMinLength(1)]
     public string Tides { get; set; } = string.Empty;
@@ -28,17 +28,17 @@ public partial class LabSheetDetail : LastUpdate
     [CSSPRange(1, 3)]
     public int? WaterBathCount { get; set; }
     [CSSPAfter(Year = 1980)]
-    public DateTime? IncubationBath1StartTime { get; set; }
+    public DateTime? IncubationBath1StartTime { get; set; } = null;
     [CSSPAfter(Year = 1980)]
-    public DateTime? IncubationBath2StartTime { get; set; }
+    public DateTime? IncubationBath2StartTime { get; set; } = null;
     [CSSPAfter(Year = 1980)]
-    public DateTime? IncubationBath3StartTime { get; set; }
+    public DateTime? IncubationBath3StartTime { get; set; } = null;
     [CSSPAfter(Year = 1980)]
-    public DateTime? IncubationBath1EndTime { get; set; }
+    public DateTime? IncubationBath1EndTime { get; set; } = null;
     [CSSPAfter(Year = 1980)]
-    public DateTime? IncubationBath2EndTime { get; set; }
+    public DateTime? IncubationBath2EndTime { get; set; } = null;
     [CSSPAfter(Year = 1980)]
-    public DateTime? IncubationBath3EndTime { get; set; }
+    public DateTime? IncubationBath3EndTime { get; set; } = null;
     [CSSPRange(0, 10000)]
     public int? IncubationBath1TimeCalculated_minutes { get; set; }
     [CSSPRange(0, 10000)]
@@ -155,17 +155,17 @@ public partial class LabSheetDetail : LastUpdate
     [CSSPAllowNull]
     public string SalinitiesReadBy { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
-    public DateTime? SalinitiesReadDate { get; set; }
+    public DateTime? SalinitiesReadDate { get; set; } = null;
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
     public string ResultsReadBy { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
-    public DateTime? ResultsReadDate { get; set; }
+    public DateTime? ResultsReadDate { get; set; } = null;
     [CSSPMaxLength(20)]
     [CSSPAllowNull]
     public string ResultsRecordedBy { get; set; } = string.Empty;
     [CSSPAfter(Year = 1980)]
-    public DateTime? ResultsRecordedDate { get; set; }
+    public DateTime? ResultsRecordedDate { get; set; } = null;
     [CSSPRange(0.0D, 100.0D)]
     public double? DailyDuplicateRLog { get; set; }
     [CSSPRange(0.0D, 100.0D)]
@@ -180,6 +180,7 @@ public partial class LabSheetDetail : LastUpdate
 
     public LabSheetDetail() : base()
     {
+
     }
 }
 

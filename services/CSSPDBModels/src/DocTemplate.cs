@@ -5,11 +5,11 @@ public partial class DocTemplate : LastUpdate
     [Key]
     public int DocTemplateID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPEnumType]
-    public LanguageEnum Language { get; set; }
+    public LanguageEnum Language { get; set; } = LanguageEnum.en;
     [CSSPEnumType]
-    public TVTypeEnum TVType { get; set; }
+    public TVTypeEnum TVType { get; set; } = TVTypeEnum.Address;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "8")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int TVFileTVItemID { get; set; }
@@ -18,6 +18,7 @@ public partial class DocTemplate : LastUpdate
 
     public DocTemplate() : base()
     {
+
     }
 }
 

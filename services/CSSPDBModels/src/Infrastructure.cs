@@ -5,7 +5,7 @@ public partial class Infrastructure : LastUpdate
     [Key]
     public int InfrastructureID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "10")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int InfrastructureTVItemID { get; set; }
@@ -25,10 +25,10 @@ public partial class Infrastructure : LastUpdate
     public string InfrastructureCategory { get; set; } = string.Empty;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public InfrastructureTypeEnum? InfrastructureType { get; set; }
+    public InfrastructureTypeEnum? InfrastructureType { get; set; } = null;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public FacilityTypeEnum? FacilityType { get; set; }
+    public FacilityTypeEnum? FacilityType { get; set; } = null;
     public bool? HasBackupPower { get; set; }
     public bool? IsMechanicallyAerated { get; set; }
     [CSSPRange(0, 10)]
@@ -37,31 +37,31 @@ public partial class Infrastructure : LastUpdate
     public int? NumberOfAeratedCells { get; set; }
     [CSSPEnumType]
     [CSSPAllowNull]
-    public AerationTypeEnum? AerationType { get; set; }
+    public AerationTypeEnum? AerationType { get; set; } = null;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public PreliminaryTreatmentTypeEnum? PreliminaryTreatmentType { get; set; }
+    public PreliminaryTreatmentTypeEnum? PreliminaryTreatmentType { get; set; } = null;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public PrimaryTreatmentTypeEnum? PrimaryTreatmentType { get; set; }
+    public PrimaryTreatmentTypeEnum? PrimaryTreatmentType { get; set; } = null;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public SecondaryTreatmentTypeEnum? SecondaryTreatmentType { get; set; }
+    public SecondaryTreatmentTypeEnum? SecondaryTreatmentType { get; set; } = null;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public TertiaryTreatmentTypeEnum? TertiaryTreatmentType { get; set; }
+    public TertiaryTreatmentTypeEnum? TertiaryTreatmentType { get; set; } = null;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public TreatmentTypeEnum? TreatmentType { get; set; }
+    public TreatmentTypeEnum? TreatmentType { get; set; } = null;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public DisinfectionTypeEnum? DisinfectionType { get; set; }
+    public DisinfectionTypeEnum? DisinfectionType { get; set; } = null;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public CollectionSystemTypeEnum? CollectionSystemType { get; set; }
+    public CollectionSystemTypeEnum? CollectionSystemType { get; set; } = null;
     [CSSPEnumType]
     [CSSPAllowNull]
-    public AlarmSystemTypeEnum? AlarmSystemType { get; set; }
+    public AlarmSystemTypeEnum? AlarmSystemType { get; set; } = null;
     [CSSPRange(0.0D, 1000000.0D)]
     public double? DesignFlow_m3_day { get; set; }
     [CSSPRange(0.0D, 1000000.0D)]
@@ -73,7 +73,7 @@ public partial class Infrastructure : LastUpdate
     public bool? CanOverflow { get; set; }
     [CSSPEnumType]
     [CSSPAllowNull]
-    public ValveTypeEnum? ValveType { get; set; }
+    public ValveTypeEnum? ValveType { get; set; } = null;
     [CSSPRange(0.0D, 100.0D)]
     public double? PercFlowOfTotal { get; set; }
     [CSSPRange(-10.0D, 0.0D)]
@@ -117,6 +117,7 @@ public partial class Infrastructure : LastUpdate
 
     public Infrastructure() : base()
     {
+
     }
 }
 

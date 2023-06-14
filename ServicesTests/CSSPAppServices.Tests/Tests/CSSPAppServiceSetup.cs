@@ -5,36 +5,40 @@ namespace CSSPAppServices.Tests;
 [Collection("Sequential")]
 public partial class CSSPAppServicesTests
 {
-    private IConfiguration? Configuration { get; set; }
-    private IServiceCollection? Services { get; set; }
-    private IServiceProvider? Provider { get; set; }
-    private ICSSPAppService? CSSPAppService { get; set; }
+    private IConfiguration? Configuration { get; set; } = null;
+    private IServiceCollection? Services { get; set; } = null;
+    private IServiceProvider? Provider { get; set; } = null;
+    private ICSSPAppService? CSSPAppService { get; set; } = null;
 
     private async Task<bool> CSSPAppServiceSetup(string culture)
     {
-        Configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetParent(AppContext.BaseDirectory)?.FullName)
-            .AddJsonFile("appsettings_csspappservicestests.json")
-            .Build();
+        DirectoryInfo? di = Directory.GetParent(AppContext.BaseDirectory);
 
-        Services = new ServiceCollection();
+        if (di.Exists)
+        {
+            if (string.IsNullOrEmpty(di.FullName))
+            {
+                Assert.False(true, "FullName is empty");
+            }
 
-        Services.AddSingleton<IConfiguration>(Configuration);
-        Services.AddSingleton<ICSSPAppService, CSSPAppService>();
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(di.FullName)
+                .AddJsonFile("appsettings_csspappservicestests.json")
+                .Build();
+
+            Services = new ServiceCollection();
+
+            Services.AddSingleton<IConfiguration>(Configuration);
+            Services.AddSingleton<ICSSPAppService, CSSPAppService>();
 
 
-        Provider = Services.BuildServiceProvider();
-        Assert.NotNull(Provider);
+            Provider = Services.BuildServiceProvider();
+            Assert.NotNull(Provider);
 
-        //try
-        //{
             CSSPAppService = Provider.GetService<ICSSPAppService>();
             Assert.NotNull(CSSPAppService);
-        //}
-        //catch (Exception ex)
-        //{
-        //    var exc = ex.Message;
-        //}
+
+        }
 
         return await Task.FromResult(true);
     }

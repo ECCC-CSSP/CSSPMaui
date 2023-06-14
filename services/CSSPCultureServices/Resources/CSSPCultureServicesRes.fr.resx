@@ -1131,4 +1131,7 @@
   <data name="CanOnlyBeRunFromComputer_wmon01dtchlebl2" xml:space="preserve">
     <value>Ne peut &#x1E;être executer a partir de l'ordinateur wmon01dtchlebl2</value>
   </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Bad Request (fr)</value>
+  </data>
 </root>

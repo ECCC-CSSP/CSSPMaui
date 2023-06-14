@@ -5,7 +5,7 @@ public partial class TVItemLink : LastUpdate
     [Key]
     public int TVItemLinkID { get; set; }
     [CSSPEnumType]
-    public DBCommandEnum DBCommand { get; set; }
+    public DBCommandEnum DBCommand { get; set; } = DBCommandEnum.Original;
     [CSSPExist(ExistTypeName = "TVItem", ExistPlurial = "s", ExistFieldID = "TVItemID", AllowableTVTypeList = "1,2,3,4,5,6,7,8,9,10,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,30,31,38,39,40,41,42,52,53")]
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int FromTVItemID { get; set; }
@@ -13,14 +13,14 @@ public partial class TVItemLink : LastUpdate
     [CSSPForeignKey(TableName = "TVItems", FieldName = "TVItemID")]
     public int ToTVItemID { get; set; }
     [CSSPEnumType]
-    public TVTypeEnum FromTVType { get; set; }
+    public TVTypeEnum FromTVType { get; set; } = TVTypeEnum.Address;
     [CSSPEnumType]
-    public TVTypeEnum ToTVType { get; set; }
+    public TVTypeEnum ToTVType { get; set; } = TVTypeEnum.Address;
     [CSSPAfter(Year = 1980)]
-    public DateTime? StartDateTime_Local { get; set; }
+    public DateTime? StartDateTime_Local { get; set; } = null;
     [CSSPAfter(Year = 1980)]
     [CSSPBigger(OtherField = "StartDateTime_Local")]
-    public DateTime? EndDateTime_Local { get; set; }
+    public DateTime? EndDateTime_Local { get; set; } = null;
     [CSSPRange(0, 100)]
     public int Ordinal { get; set; }
     [CSSPRange(0, 100)]
@@ -33,6 +33,7 @@ public partial class TVItemLink : LastUpdate
 
     public TVItemLink() : base()
     {
+
     }
 }
 

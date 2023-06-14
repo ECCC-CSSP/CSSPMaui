@@ -7,32 +7,41 @@ public partial class CommandLogService : ControllerBase, ICommandLogService
         if (CommandLogID == 0)
         {
             errRes.ErrList.Add(string.Format(CSSPCultureServicesRes._IsRequired, "CommandLogID"));
+
+            return await Task.FromResult(BadRequest(errRes));
         }
 
-        if (errRes.ErrList.Count > 0) return await Task.FromResult(BadRequest(errRes));
-
-        CommandLog commandLog = (from c in dbManage.CommandLogs
-                                 where c.CommandLogID == CommandLogID
-                                 select c).FirstOrDefault();
-
-        if (commandLog == null)
+        CommandLog? commandLog = null;
+        if (dbManage != null)
         {
-            errRes.ErrList.Add(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "CommandLog", "CommandLogID", CommandLogID.ToString()));
-        }
+            commandLog = (from c in dbManage.CommandLogs
+                          where c.CommandLogID == CommandLogID
+                          select c).FirstOrDefault();
 
-        if (errRes.ErrList.Count > 0) return await Task.FromResult(BadRequest(errRes));
+            if (commandLog == null)
+            {
+                errRes.ErrList.Add(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "CommandLog", "CommandLogID", CommandLogID.ToString()));
 
-        try
-        {
-            dbManage.CommandLogs.Remove(commandLog);
-            dbManage.SaveChanges();
-        }
-        catch (DbUpdateException ex)
-        {
-            errRes.ErrList.Add(ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
-        }
+                return await Task.FromResult(BadRequest(errRes));
+            }
+            else
+            {
+                try
+                {
+                    dbManage.CommandLogs.Remove(commandLog);
+                    dbManage.SaveChanges();
+                }
+                catch (DbUpdateException ex)
+                {
+                    errRes.ErrList.Add(ex.Message + (ex.InnerException != null ? " Inner: " + ex.InnerException.Message : ""));
+                }
 
-        if (errRes.ErrList.Count > 0) return await Task.FromResult(BadRequest(errRes));
+                if (errRes.ErrList.Count > 0) return await Task.FromResult(BadRequest(errRes));
+
+                return await Task.FromResult(Ok(commandLog));
+
+            }
+        }
 
         return await Task.FromResult(Ok(commandLog));
     }
