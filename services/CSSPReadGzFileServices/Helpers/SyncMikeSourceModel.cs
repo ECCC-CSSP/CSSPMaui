@@ -16,7 +16,7 @@
                 }
                 foreach (MikeSourceStartEnd mikeSourceStartEndLocal in mikeSourceModelLocal.MikeSourceStartEndList)
                 {
-                    MikeSourceStartEnd mikeSourceStartEndOriginal = mikeSourceModelOriginal.MikeSourceStartEndList.Where(c => c.MikeSourceStartEndID == mikeSourceStartEndLocal.MikeSourceStartEndID).FirstOrDefault();
+                    MikeSourceStartEnd? mikeSourceStartEndOriginal = mikeSourceModelOriginal.MikeSourceStartEndList.Where(c => c.MikeSourceStartEndID == mikeSourceStartEndLocal.MikeSourceStartEndID).FirstOrDefault();
                     if (mikeSourceStartEndOriginal == null)
                     {
                         mikeSourceModelOriginal.MikeSourceStartEndList.Add(mikeSourceStartEndLocal);

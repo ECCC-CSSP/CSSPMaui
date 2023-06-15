@@ -18,7 +18,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (MWQMSiteStartEndDate mwqmSiteStartEndDate in mwqmSiteModelLocal.MWQMSiteStartEndDateList)
             {
-                MWQMSiteStartEndDate mwqmSiteStartEndDateOriginal = mwqmSiteModelLocal.MWQMSiteStartEndDateList.Where(c => c.MWQMSiteStartEndDateID == mwqmSiteStartEndDate.MWQMSiteStartEndDateID).FirstOrDefault();
+                MWQMSiteStartEndDate? mwqmSiteStartEndDateOriginal = mwqmSiteModelLocal.MWQMSiteStartEndDateList.Where(c => c.MWQMSiteStartEndDateID == mwqmSiteStartEndDate.MWQMSiteStartEndDateID).FirstOrDefault();
                 if (mwqmSiteStartEndDateOriginal == null)
                 {
                     mwqmSiteModelLocal.MWQMSiteStartEndDateList.Add(mwqmSiteStartEndDate);
@@ -38,7 +38,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (TVFileModel tvFileModel in TVFileModelList)
             {
-                TVFileModel tvFileModelOriginal = mwqmSiteModelLocal.TVFileModelList.Where(c => c.TVFile.TVFileID == tvFileModel.TVFile.TVFileID).FirstOrDefault();
+                TVFileModel? tvFileModelOriginal = mwqmSiteModelLocal.TVFileModelList.Where(c => c.TVFile.TVFileID == tvFileModel.TVFile.TVFileID).FirstOrDefault();
                 if (tvFileModelOriginal == null)
                 {
                     mwqmSiteModelLocal.TVFileModelList.Add(tvFileModel);

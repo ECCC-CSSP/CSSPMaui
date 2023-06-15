@@ -16,7 +16,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             }
             foreach (ClimateDataValue climateDataValueLocal in climateSiteModelLocal.ClimateDataValueList)
             {
-                ClimateDataValue climateDataValueOriginal = climateSiteModelOriginal.ClimateDataValueList.Where(c => c.ClimateDataValueID == climateDataValueLocal.ClimateDataValueID).FirstOrDefault();
+                ClimateDataValue? climateDataValueOriginal = climateSiteModelOriginal.ClimateDataValueList.Where(c => c.ClimateDataValueID == climateDataValueLocal.ClimateDataValueID).FirstOrDefault();
                 if (climateDataValueOriginal == null)
                 {
                     climateSiteModelOriginal.ClimateDataValueList.Add(climateDataValueLocal);

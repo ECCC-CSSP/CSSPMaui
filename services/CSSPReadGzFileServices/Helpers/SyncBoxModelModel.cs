@@ -16,7 +16,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             }
             foreach (BoxModelResult boxModelResultLocal in boxModelModelLocal.BoxModelResultList)
             {
-                BoxModelResult boxModelResultOriginal = boxModelModelOriginal.BoxModelResultList.Where(c => c.BoxModelResultID == boxModelResultLocal.BoxModelResultID).FirstOrDefault();
+                BoxModelResult? boxModelResultOriginal = boxModelModelOriginal.BoxModelResultList.Where(c => c.BoxModelResultID == boxModelResultLocal.BoxModelResultID).FirstOrDefault();
                 if (boxModelResultOriginal == null)
                 {
                     boxModelModelOriginal.BoxModelResultList.Add(boxModelResultLocal);

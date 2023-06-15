@@ -13,7 +13,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (SamplingPlanSubsectorModel samplingPlanSubsectorModelLocal in samplingPlanModelLocal.SamplingPlanSubsectorModelList)
             {
-                SamplingPlanSubsectorModel samplingPlanSubsectorModelOriginal = samplingPlanModelOriginal.SamplingPlanSubsectorModelList.Where(c => c.SamplingPlanSubsector.SamplingPlanSubsectorID == samplingPlanSubsectorModelLocal.SamplingPlanSubsector.SamplingPlanSubsectorID).FirstOrDefault();
+                SamplingPlanSubsectorModel? samplingPlanSubsectorModelOriginal = samplingPlanModelOriginal.SamplingPlanSubsectorModelList.Where(c => c.SamplingPlanSubsector.SamplingPlanSubsectorID == samplingPlanSubsectorModelLocal.SamplingPlanSubsector.SamplingPlanSubsectorID).FirstOrDefault();
 
                 if (samplingPlanSubsectorModelOriginal == null)
                 {
@@ -27,7 +27,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (SamplingPlanEmail samplingPlanEmailLocal in samplingPlanModelLocal.SamplingPlanEmailList)
             {
-                SamplingPlanEmail samplingPlanEmailOriginal = samplingPlanModelOriginal.SamplingPlanEmailList.Where(c => c.SamplingPlanEmailID == samplingPlanEmailLocal.SamplingPlanEmailID).FirstOrDefault();
+                SamplingPlanEmail? samplingPlanEmailOriginal = samplingPlanModelOriginal.SamplingPlanEmailList.Where(c => c.SamplingPlanEmailID == samplingPlanEmailLocal.SamplingPlanEmailID).FirstOrDefault();
 
                 if (samplingPlanEmailOriginal == null)
                 {

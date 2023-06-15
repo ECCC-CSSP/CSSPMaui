@@ -16,7 +16,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             }
             foreach (HydrometricDataValue hydrometricDataValueLocal in hydrometricSiteModelLocal.HydrometricDataValueList)
             {
-                HydrometricDataValue hydrometricDataValueOriginal = hydrometricSiteModelOriginal.HydrometricDataValueList.Where(c => c.HydrometricDataValueID == hydrometricDataValueLocal.HydrometricDataValueID).FirstOrDefault();
+                HydrometricDataValue? hydrometricDataValueOriginal = hydrometricSiteModelOriginal.HydrometricDataValueList.Where(c => c.HydrometricDataValueID == hydrometricDataValueLocal.HydrometricDataValueID).FirstOrDefault();
                 if (hydrometricDataValueOriginal == null)
                 {
                     hydrometricSiteModelOriginal.HydrometricDataValueList.Add(hydrometricDataValueLocal);
@@ -28,7 +28,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             }
             foreach (RatingCurveModel ratingCurveModelLocal in hydrometricSiteModelLocal.RatingCurveModelList)
             {
-                RatingCurveModel ratingCurveModelOriginal = hydrometricSiteModelOriginal.RatingCurveModelList.Where(c => c.RatingCurve.RatingCurveID == ratingCurveModelLocal.RatingCurve.RatingCurveID).FirstOrDefault();
+                RatingCurveModel? ratingCurveModelOriginal = hydrometricSiteModelOriginal.RatingCurveModelList.Where(c => c.RatingCurve.RatingCurveID == ratingCurveModelLocal.RatingCurve.RatingCurveID).FirstOrDefault();
                 if (ratingCurveModelOriginal == null)
                 {
                     hydrometricSiteModelOriginal.RatingCurveModelList.Add(ratingCurveModelLocal);

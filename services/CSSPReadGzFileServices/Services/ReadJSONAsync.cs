@@ -4,7 +4,7 @@ public partial class CSSPReadGzFileService : ControllerBase, ICSSPReadGzFileServ
 {
     public async Task<ActionResult<T>> ReadJSONAsync<T>(WebTypeEnum webType, int TVItemID = 0)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(WebTypeEnum: { webType }, TVItemID: { TVItemID })";
+        string FunctionName = $"async Task<ActionResult<T>> ReadJSONAsync<T>(WebTypeEnum: {webType}, TVItemID: {TVItemID})";
         CSSPLogService.FunctionLog(FunctionName);
 
         if (!await CSSPLogService.CheckLogin(FunctionName)) return await Task.FromResult(Unauthorized(CSSPLogService.ErrRes));
@@ -17,6 +17,8 @@ public partial class CSSPReadGzFileService : ControllerBase, ICSSPReadGzFileServ
 
         FileInfo fiGZ = new FileInfo(Configuration["CSSPJSONPath"] + string.Format(fileName, TVItemID));
 
+        string? AzureStoreCSSPJSONPathText = Configuration["AzureStoreCSSPJSONPath"];
+
         if (TVItemID > -1)
         {
             if (fiGZ.Exists)
@@ -26,14 +28,23 @@ public partial class CSSPReadGzFileService : ControllerBase, ICSSPReadGzFileServ
 
             if (gzExistLocaly)
             {
-                ManageFile manageFile = null;
+                ManageFile? manageFile = null;
 
-                var actionCSSPFile = await ManageFileService.GetWithAzureStorageAndAzureFileNameAsync(Configuration["AzureStoreCSSPJSONPath"], fiGZ.Name);
-                manageFile = (ManageFile)((OkObjectResult)actionCSSPFile.Result).Value;
 
-                if (manageFile != null && manageFile.LoadedOnce)
+                if (AzureStoreCSSPJSONPathText != null)
                 {
-                    JustRead = true;
+                    var actionCSSPFile = await ManageFileService.GetWithAzureStorageAndAzureFileNameAsync(AzureStoreCSSPJSONPathText, fiGZ.Name);
+                    var getRes = actionCSSPFile.Result;
+
+                    if (getRes != null)
+                    {
+                        manageFile = (ManageFile?)((OkObjectResult)getRes).Value;
+
+                        if (manageFile != null && manageFile.LoadedOnce)
+                        {
+                            JustRead = true;
+                        }
+                    }
                 }
             }
 
@@ -46,80 +57,105 @@ public partial class CSSPReadGzFileService : ControllerBase, ICSSPReadGzFileServ
 
                 if (HasInternetConnection)
                 {
-                    ShareClient shareClient = new ShareClient(CSSPScrambleService.Descramble(CSSPLocalLoggedInService.LoggedInContactInfo.LoggedInContact.AzureStoreHash), Configuration["AzureStoreCSSPJsonPath"]);
-                    ShareDirectoryClient directory = shareClient.GetRootDirectoryClient();
-                    ShareFileClient shareFileClient = directory.GetFileClient(fileName);
-
-                    Response<bool> response = await shareFileClient.ExistsAsync();
-                    if (!response.Value)
+                    if (CSSPLocalLoggedInService.LoggedInContactInfo.LoggedInContact != null)
                     {
-                        CSSPLogService.AppendError(string.Format(CSSPCultureServicesRes.CouldNotFind_, $"{ Configuration["AzureStoreCSSPJsonPath"] }\\{ fiGZ.Name }"));
-                        return await Task.FromResult(BadRequest(CSSPLogService.ErrRes));
-                    }
+                        ShareClient shareClient = new ShareClient(CSSPScrambleService.Descramble(CSSPLocalLoggedInService.LoggedInContactInfo.LoggedInContact.AzureStoreHash), Configuration["AzureStoreCSSPJsonPath"]);
+                        ShareDirectoryClient directory = shareClient.GetRootDirectoryClient();
+                        ShareFileClient shareFileClient = directory.GetFileClient(fileName);
 
-                    ShareFileProperties shareFileProperties = null;
-
-                    try
-                    {
-                        shareFileProperties = shareFileClient.GetProperties();
-                    }
-                    catch (RequestFailedException)
-                    {
-                        CSSPLogService.AppendError(string.Format(CSSPCultureDesktopRes.CouldNotGetPropertiesFromAzureStore_AndFile_, Configuration["AzureStoreCSSPJsonPath"], fiGZ.Name));
-                        return await Task.FromResult(BadRequest(CSSPLogService.ErrRes));
-                    }
-
-                    string eTag = shareFileProperties.ETag.ToString().Replace("\"", "");
-
-                    if (gzExistLocaly)
-                    {
-                        ManageFile manageFile = null;
-
-                        var actionCSSPFile = await ManageFileService.GetWithAzureStorageAndAzureFileNameAsync(Configuration["AzureStoreCSSPJSONPath"], fiGZ.Name);
-                        manageFile = (ManageFile)((OkObjectResult)actionCSSPFile.Result).Value;
-
-                        if (manageFile == null)
+                        Response<bool> response = await shareFileClient.ExistsAsync();
+                        if (!response.Value)
                         {
-                            gzLocalIsUpToDate = false;
+                            CSSPLogService.AppendError(string.Format(CSSPCultureServicesRes.CouldNotFind_, $"{AzureStoreCSSPJSONPathText}\\{fiGZ.Name}"));
+                            return await Task.FromResult(BadRequest(CSSPLogService.ErrRes));
                         }
-                        else
+
+                        ShareFileProperties? shareFileProperties = null;
+
+                        try
                         {
-                            if (!manageFile.LoadedOnce)
+                            shareFileProperties = shareFileClient.GetProperties();
+                        }
+                        catch (RequestFailedException)
+                        {
+                            CSSPLogService.AppendError(string.Format(CSSPCultureDesktopRes.CouldNotGetPropertiesFromAzureStore_AndFile_, AzureStoreCSSPJSONPathText, fiGZ.Name));
+                            return await Task.FromResult(BadRequest(CSSPLogService.ErrRes));
+                        }
+
+                        string eTag = shareFileProperties.ETag.ToString().Replace("\"", "");
+
+                        if (gzExistLocaly)
+                        {
+                            ManageFile? manageFile = null;
+
+                            if (AzureStoreCSSPJSONPathText != null)
                             {
-                                manageFile.LoadedOnce = true;
+                                var actionCSSPFile = await ManageFileService.GetWithAzureStorageAndAzureFileNameAsync(AzureStoreCSSPJSONPathText, fiGZ.Name);
+                                var getRes = actionCSSPFile.Result;
 
-                                var actionCSSPFileAdded = await ManageFileService.ModifyAsync(manageFile);
-                                if (((ObjectResult)actionCSSPFileAdded.Result).StatusCode == 200)
+                                if (getRes != null)
                                 {
-                                    manageFile = (ManageFile)((OkObjectResult)actionCSSPFileAdded.Result).Value;
-                                }
-                                else if (((ObjectResult)actionCSSPFileAdded.Result).StatusCode == 401)
-                                {
-                                    return await CSSPLogService.EndFunctionReturnUnauthorized(FunctionName, CSSPCultureServicesRes.YouDoNotHaveAuthorization);
-                                }
-                                else
-                                {
-                                    return await CSSPLogService.EndFunctionReturnBadRequest(FunctionName, ((BadRequestObjectResult)actionCSSPFileAdded.Result).Value.ToString());
-                                }
+                                    manageFile = (ManageFile?)((OkObjectResult)getRes).Value;
 
-                            }
+                                    if (manageFile == null)
+                                    {
+                                        gzLocalIsUpToDate = false;
+                                    }
+                                    else
+                                    {
+                                        if (!manageFile.LoadedOnce)
+                                        {
+                                            manageFile.LoadedOnce = true;
 
-                            if (eTag == manageFile.AzureETag)
-                            {
-                                gzLocalIsUpToDate = true;
+                                            var actionCSSPFileAdded = await ManageFileService.ModifyAsync(manageFile);
+                                            var addRes = actionCSSPFileAdded.Result;
+                                            if (addRes != null)
+                                            {
+                                                if (((ObjectResult)addRes).StatusCode == 200)
+                                                {
+                                                    manageFile = (ManageFile?)((OkObjectResult)addRes).Value;
+                                                }
+                                                else if (((ObjectResult)addRes).StatusCode == 401)
+                                                {
+                                                    return await CSSPLogService.EndFunctionReturnUnauthorized(FunctionName, CSSPCultureServicesRes.YouDoNotHaveAuthorization);
+                                                }
+                                                else
+                                                {
+                                                    var val = ((BadRequestObjectResult)addRes).Value;
+                                                    if (val != null)
+                                                    {
+                                                        return await CSSPLogService.EndFunctionReturnBadRequest(FunctionName, "" + val);
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        if (manageFile != null)
+                                        {
+                                            if (eTag == manageFile.AzureETag)
+                                            {
+                                                gzLocalIsUpToDate = true;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
-                    }
 
-                    if (!gzLocalIsUpToDate)
-                    {
-                        var actionRes = await CSSPFileService.LocalizeAzureJSONFileAsync(fileName);
-
-                        if (((ObjectResult)actionRes.Result).StatusCode != 200)
+                        if (!gzLocalIsUpToDate)
                         {
-                            CSSPLogService.EndFunctionLog(FunctionName);
+                            var actionRes = await CSSPFileService.LocalizeAzureJSONFileAsync(fileName);
+                            var locRes = actionRes.Result;
 
-                            return await Task.FromResult(actionRes.Result);
+                            if (locRes != null)
+                            {
+                                if (((ObjectResult)locRes).StatusCode != 200)
+                                {
+                                    CSSPLogService.EndFunctionLog(FunctionName);
+
+                                    return await Task.FromResult(locRes);
+                                }
+                            }
                         }
                     }
                 }
@@ -131,10 +167,10 @@ public partial class CSSPReadGzFileService : ControllerBase, ICSSPReadGzFileServ
                 {
                     using (StreamReader sr = new StreamReader(gzStream))
                     {
-                        FileInfo fiGZLocal = new FileInfo($"{ Configuration["CSSPJSONPathLocal"] }{ fiGZ.Name }");
+                        FileInfo fiGZLocal = new FileInfo($"{Configuration["CSSPJSONPathLocal"]}{fiGZ.Name}");
 
-                        T FromAzureStore = JsonSerializer.Deserialize<T>(sr.ReadToEnd());
-                        T FromLocal = JsonSerializer.Deserialize<T>("{}");
+                        T? FromAzureStore = JsonSerializer.Deserialize<T>(sr.ReadToEnd());
+                        T? FromLocal = JsonSerializer.Deserialize<T>("{}");
 
                         if (fiGZLocal.Exists)
                         {
@@ -287,9 +323,9 @@ public partial class CSSPReadGzFileService : ControllerBase, ICSSPReadGzFileServ
         }
         else
         {
-            FileInfo fiGZLocal = new FileInfo($"{ Configuration["CSSPJSONPathLocal"] }{ fiGZ.Name }");
+            FileInfo fiGZLocal = new FileInfo($"{Configuration["CSSPJSONPathLocal"]}{fiGZ.Name}");
 
-            T FromLocal = JsonSerializer.Deserialize<T>("{}");
+            T? FromLocal = JsonSerializer.Deserialize<T>("{}");
 
             if (fiGZLocal.Exists)
             {

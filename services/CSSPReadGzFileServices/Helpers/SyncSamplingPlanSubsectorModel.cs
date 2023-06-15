@@ -13,7 +13,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (SamplingPlanSubsectorSite samplingPlanSubsectorSiteLocal in samplingPlanSubsectorModelLocal.SamplingPlanSubsectorSiteList)
             {
-                SamplingPlanSubsectorSite samplingPlanSubsectorSiteOriginal = samplingPlanSubsectorModelOriginal.SamplingPlanSubsectorSiteList.Where(c => c.SamplingPlanSubsectorSiteID == samplingPlanSubsectorSiteLocal.SamplingPlanSubsectorSiteID).FirstOrDefault();
+                SamplingPlanSubsectorSite? samplingPlanSubsectorSiteOriginal = samplingPlanSubsectorModelOriginal.SamplingPlanSubsectorSiteList.Where(c => c.SamplingPlanSubsectorSiteID == samplingPlanSubsectorSiteLocal.SamplingPlanSubsectorSiteID).FirstOrDefault();
                 if (samplingPlanSubsectorSiteOriginal == null)
                 {
                     samplingPlanSubsectorModelOriginal.SamplingPlanSubsectorSiteList.Add(samplingPlanSubsectorSiteLocal);

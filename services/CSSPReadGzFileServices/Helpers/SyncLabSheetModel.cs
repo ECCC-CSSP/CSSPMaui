@@ -16,7 +16,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             }
             foreach (LabSheetTubeMPNDetail labSheetTubeMPNDetailLocal in labSheetModelLocal.LabSheetTubeMPNDetailList)
             {
-                LabSheetTubeMPNDetail labSheetTubeMPNDetailOriginal = labSheetModelOriginal.LabSheetTubeMPNDetailList.Where(c => c.LabSheetTubeMPNDetailID == labSheetTubeMPNDetailLocal.LabSheetTubeMPNDetailID).FirstOrDefault();
+                LabSheetTubeMPNDetail? labSheetTubeMPNDetailOriginal = labSheetModelOriginal.LabSheetTubeMPNDetailList.Where(c => c.LabSheetTubeMPNDetailID == labSheetTubeMPNDetailLocal.LabSheetTubeMPNDetailID).FirstOrDefault();
                 if (labSheetTubeMPNDetailOriginal == null)
                 {
                     labSheetModelOriginal.LabSheetTubeMPNDetailList.Add(labSheetTubeMPNDetailLocal);

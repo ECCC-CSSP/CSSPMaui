@@ -2,9 +2,9 @@
 
 public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 {
-    private async Task<bool> MergeJsonWebAllUseOfSitesAsync(WebAllUseOfSites webAllUseOfSites, WebAllUseOfSites webAllUseOfSitesLocal)
+    private async Task<bool> MergeJsonWebAllUseOfSitesAsync(WebAllUseOfSites? webAllUseOfSites, WebAllUseOfSites? webAllUseOfSitesLocal)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(WebAllUseOfSites webAllUseOfSites, WebAllUseOfSites webAllUseOfSitesLocal)";
+        string FunctionName = $"async Task<bool> MergeJsonWebAllUseOfSitesAsync(WebAllUseOfSites? webAllUseOfSites, WebAllUseOfSites? webAllUseOfSitesLocal)";
         CSSPLogService.FunctionLog(FunctionName);
 
         MergeJsonWebSubsectorUseOfSiteList(webAllUseOfSites, webAllUseOfSitesLocal);
@@ -13,25 +13,30 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
         return await Task.FromResult(true);
     }
-    private void MergeJsonWebSubsectorUseOfSiteList(WebAllUseOfSites webAllUseOfSites, WebAllUseOfSites webAllUseOfSitesLocal)
+    private void MergeJsonWebSubsectorUseOfSiteList(WebAllUseOfSites? webAllUseOfSites, WebAllUseOfSites? webAllUseOfSitesLocal)
     {
-        List<UseOfSite> UseOfSiteLocalList = (from c in webAllUseOfSitesLocal.UseOfSiteList
-                                              where c.SubsectorTVItemID != 0
-                                              && c.DBCommand != DBCommandEnum.Original
-                                              select c).ToList();
-
-        foreach (UseOfSite useOfSiteLocal in UseOfSiteLocalList)
+        if (webAllUseOfSitesLocal != null)
         {
-            UseOfSite useOfSiteOriginal = webAllUseOfSites.UseOfSiteList.Where(c => c.SubsectorTVItemID == useOfSiteLocal.SubsectorTVItemID).FirstOrDefault();
-            if (useOfSiteOriginal == null)
+            List<UseOfSite> UseOfSiteLocalList = (from c in webAllUseOfSitesLocal.UseOfSiteList
+                                                  where c.SubsectorTVItemID != 0
+                                                  && c.DBCommand != DBCommandEnum.Original
+                                                  select c).ToList();
+
+            foreach (UseOfSite useOfSiteLocal in UseOfSiteLocalList)
             {
-                webAllUseOfSites.UseOfSiteList.Add(useOfSiteLocal);
-            }
-            else
-            {
-                useOfSiteOriginal = useOfSiteLocal;
+                if (webAllUseOfSites != null)
+                {
+                    UseOfSite? useOfSiteOriginal = webAllUseOfSites.UseOfSiteList.Where(c => c.SubsectorTVItemID == useOfSiteLocal.SubsectorTVItemID).FirstOrDefault();
+                    if (useOfSiteOriginal == null)
+                    {
+                        webAllUseOfSites.UseOfSiteList.Add(useOfSiteLocal);
+                    }
+                    else
+                    {
+                        useOfSiteOriginal = useOfSiteLocal;
+                    }
+                }
             }
         }
     }
 }
-

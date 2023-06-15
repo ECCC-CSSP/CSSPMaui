@@ -12,7 +12,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             }
             foreach (RatingCurveValue ratingCurveValueLocal in ratingCurveModelLocal.RatingCurveValueList)
             {
-                RatingCurveValue ratingCurveValueOriginal = ratingCurveModelOriginal.RatingCurveValueList.Where(c => c.RatingCurveValueID == ratingCurveValueLocal.RatingCurveValueID).FirstOrDefault();
+                RatingCurveValue? ratingCurveValueOriginal = ratingCurveModelOriginal.RatingCurveValueList.Where(c => c.RatingCurveValueID == ratingCurveValueLocal.RatingCurveValueID).FirstOrDefault();
                 if (ratingCurveValueOriginal == null)
                 {
                     ratingCurveModelOriginal.RatingCurveValueList.Add(ratingCurveValueLocal);

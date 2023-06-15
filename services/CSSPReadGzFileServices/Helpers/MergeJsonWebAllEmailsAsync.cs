@@ -2,9 +2,9 @@
 
 public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 {
-    private async Task<bool> MergeJsonWebAllEmailsAsync(WebAllEmails webAllEmails, WebAllEmails webAllEmailsLocal)
+    private async Task<bool> MergeJsonWebAllEmailsAsync(WebAllEmails? webAllEmails, WebAllEmails? webAllEmailsLocal)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(WebAllEmails WebAllEmails, WebAllEmails WebAllEmailsLocal)";
+        string FunctionName = $"async Task<bool> MergeJsonWebAllEmailsAsync(WebAllEmails? webAllEmails, WebAllEmails? webAllEmailsLocal)";
         CSSPLogService.FunctionLog(FunctionName);
 
         MergeJsonWebAllEmailsEmailModelList(webAllEmails, webAllEmailsLocal);
@@ -14,22 +14,28 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
         return await Task.FromResult(true);
     }
 
-    private void MergeJsonWebAllEmailsEmailModelList(WebAllEmails webAllEmails, WebAllEmails webAllEmailsLocal)
+    private void MergeJsonWebAllEmailsEmailModelList(WebAllEmails? webAllEmails, WebAllEmails? webAllEmailsLocal)
     {
-        List<Email> emailLocalList = (from c in webAllEmailsLocal.EmailList
-                                      where c.DBCommand != DBCommandEnum.Original
-                                      select c).ToList();
-
-        foreach (Email emailLocal in emailLocalList)
+        if (webAllEmailsLocal != null)
         {
-            Email emailOriginal = webAllEmails.EmailList.Where(c => c.EmailID == emailLocal.EmailID).FirstOrDefault();
-            if (emailOriginal == null)
+            List<Email> emailLocalList = (from c in webAllEmailsLocal.EmailList
+                                          where c.DBCommand != DBCommandEnum.Original
+                                          select c).ToList();
+
+            foreach (Email emailLocal in emailLocalList)
             {
-                webAllEmails.EmailList.Add(emailLocal);
-            }
-            else
-            {
-                emailOriginal = emailLocal;
+                if (webAllEmails != null)
+                {
+                    Email? emailOriginal = webAllEmails.EmailList.Where(c => c.EmailID == emailLocal.EmailID).FirstOrDefault();
+                    if (emailOriginal == null)
+                    {
+                        webAllEmails.EmailList.Add(emailLocal);
+                    }
+                    else
+                    {
+                        emailOriginal = emailLocal;
+                    }
+                }
             }
         }
     }

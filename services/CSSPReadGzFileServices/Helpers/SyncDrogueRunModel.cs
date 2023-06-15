@@ -13,7 +13,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (DrogueRunPosition drogueRunPositionLocal in drogueRunModelLocal.DrogueRunPositionList)
             {
-                DrogueRunPosition drogueRunPositionOriginal = drogueRunModelOriginal.DrogueRunPositionList.Where(c => c.DrogueRunPositionID == drogueRunPositionLocal.DrogueRunPositionID).FirstOrDefault();
+                DrogueRunPosition? drogueRunPositionOriginal = drogueRunModelOriginal.DrogueRunPositionList.Where(c => c.DrogueRunPositionID == drogueRunPositionLocal.DrogueRunPositionID).FirstOrDefault();
 
                 if (drogueRunPositionOriginal == null)
                 {

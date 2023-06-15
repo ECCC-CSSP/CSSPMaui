@@ -28,7 +28,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (TVFileModel tvFileModelInfrastructureLocal in TVFileModelInfrastructureLocalList)
             {
-                TVFileModel tvFileModelInfrastructureOriginal = infrastructureModelOriginal.TVFileModelList.Where(c => c.TVFile.TVFileID == tvFileModelInfrastructureLocal.TVFile.TVFileID).FirstOrDefault();
+                TVFileModel? tvFileModelInfrastructureOriginal = infrastructureModelOriginal.TVFileModelList.Where(c => c.TVFile.TVFileID == tvFileModelInfrastructureLocal.TVFile.TVFileID).FirstOrDefault();
                 if (tvFileModelInfrastructureOriginal == null)
                 {
                     infrastructureModelOriginal.TVFileModelList.Add(tvFileModelInfrastructureLocal);
@@ -42,7 +42,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             {
                 foreach (BoxModelModel boxModelModelLocal in infrastructureModelLocal.BoxModelModelList)
                 {
-                    BoxModelModel boxModelModelOriginal = infrastructureModelOriginal.BoxModelModelList.Where(c => c.BoxModel.BoxModelID == boxModelModelLocal.BoxModel.BoxModelID).FirstOrDefault();
+                    BoxModelModel? boxModelModelOriginal = infrastructureModelOriginal.BoxModelModelList.Where(c => c.BoxModel.BoxModelID == boxModelModelLocal.BoxModel.BoxModelID).FirstOrDefault();
                     if (boxModelModelOriginal == null)
                     {
                         infrastructureModelOriginal.BoxModelModelList.Add(boxModelModelLocal);
@@ -57,7 +57,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             {
                 foreach (VPScenarioModel boxModelModelLocal in infrastructureModelLocal.VPScenarioModelList)
                 {
-                    VPScenarioModel boxModelModelOriginal = infrastructureModelOriginal.VPScenarioModelList.Where(c => c.VPScenario.VPScenarioID == boxModelModelLocal.VPScenario.VPScenarioID).FirstOrDefault();
+                    VPScenarioModel? boxModelModelOriginal = infrastructureModelOriginal.VPScenarioModelList.Where(c => c.VPScenario.VPScenarioID == boxModelModelLocal.VPScenario.VPScenarioID).FirstOrDefault();
                     if (boxModelModelOriginal == null)
                     {
                         infrastructureModelOriginal.VPScenarioModelList.Add(boxModelModelLocal);

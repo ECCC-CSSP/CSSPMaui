@@ -13,7 +13,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (PolSourceObservationIssue polSourceObservationIssueLocal in polSourceObservationModelLocal.PolSourceObservationIssueList)
             {
-                PolSourceObservationIssue polSourceObservationIssueOriginal = polSourceObservationModelOriginal.PolSourceObservationIssueList.Where(c => c.PolSourceObservationIssueID == polSourceObservationIssueLocal.PolSourceObservationIssueID).FirstOrDefault();
+                PolSourceObservationIssue? polSourceObservationIssueOriginal = polSourceObservationModelOriginal.PolSourceObservationIssueList.Where(c => c.PolSourceObservationIssueID == polSourceObservationIssueLocal.PolSourceObservationIssueID).FirstOrDefault();
                 if (polSourceObservationIssueOriginal == null)
                 {
                     polSourceObservationModelOriginal.PolSourceObservationIssueList.Add(polSourceObservationIssueLocal);

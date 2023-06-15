@@ -25,7 +25,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (TVFileModel tvFileModelLocal in TVFileModelLocalList)
             {
-                TVFileModel tvFileModelOriginal = polSourceSiteModelLocal.TVFileModelList.Where(c => c.TVFile.TVFileID == tvFileModelLocal.TVFile.TVFileID).FirstOrDefault();
+                TVFileModel? tvFileModelOriginal = polSourceSiteModelLocal.TVFileModelList.Where(c => c.TVFile.TVFileID == tvFileModelLocal.TVFile.TVFileID).FirstOrDefault();
                 if (tvFileModelOriginal == null)
                 {
                     polSourceSiteModelLocal.TVFileModelList.Add(tvFileModelLocal);
@@ -38,7 +38,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (PolSourceObservationModel polSourceObservationModelLocal in polSourceSiteModelLocal.PolSourceObservationModelList)
             {
-                PolSourceObservationModel polSourceObservationModelOriginal = polSourceSiteModelLocal.PolSourceObservationModelList.Where(c => c.PolSourceObservation.PolSourceObservationID == polSourceObservationModelLocal.PolSourceObservation.PolSourceObservationID).FirstOrDefault();
+                PolSourceObservationModel? polSourceObservationModelOriginal = polSourceSiteModelLocal.PolSourceObservationModelList.Where(c => c.PolSourceObservation.PolSourceObservationID == polSourceObservationModelLocal.PolSourceObservation.PolSourceObservationID).FirstOrDefault();
                 if (polSourceObservationModelOriginal == null)
                 {
                     polSourceSiteModelLocal.PolSourceObservationModelList.Add(polSourceObservationModelLocal);
@@ -51,7 +51,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (PolSourceSiteEffect polSourceSiteEffectLocal in polSourceSiteModelLocal.PolSourceSiteEffectList)
             {
-                PolSourceSiteEffect polSourceSiteEffectOriginal = polSourceSiteModelLocal.PolSourceSiteEffectList.Where(c => c.PolSourceSiteEffectID == polSourceSiteEffectLocal.PolSourceSiteEffectID).FirstOrDefault();
+                PolSourceSiteEffect? polSourceSiteEffectOriginal = polSourceSiteModelLocal.PolSourceSiteEffectList.Where(c => c.PolSourceSiteEffectID == polSourceSiteEffectLocal.PolSourceSiteEffectID).FirstOrDefault();
                 if (polSourceSiteEffectOriginal == null)
                 {
                     polSourceSiteModelLocal.PolSourceSiteEffectList.Add(polSourceSiteEffectLocal);

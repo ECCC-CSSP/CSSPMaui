@@ -18,7 +18,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (RainExceedanceClimateSite rainExceedanceClimateSiteLocal in rainExceedanceModelLocal.RainExceedanceClimateSiteList)
             {
-                RainExceedanceClimateSite rainExceedanceClimateSiteOriginal = rainExceedanceModelOriginal.RainExceedanceClimateSiteList.Where(c => c.RainExceedanceClimateSiteID == rainExceedanceClimateSiteLocal.RainExceedanceClimateSiteID).FirstOrDefault();
+                RainExceedanceClimateSite? rainExceedanceClimateSiteOriginal = rainExceedanceModelOriginal.RainExceedanceClimateSiteList.Where(c => c.RainExceedanceClimateSiteID == rainExceedanceClimateSiteLocal.RainExceedanceClimateSiteID).FirstOrDefault();
                 if (rainExceedanceClimateSiteOriginal == null)
                 {
                     rainExceedanceModelOriginal.RainExceedanceClimateSiteList.Add(rainExceedanceClimateSiteLocal);

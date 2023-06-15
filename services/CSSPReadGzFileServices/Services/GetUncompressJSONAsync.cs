@@ -2,9 +2,9 @@
 
 public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 {
-    public async Task<T> GetUncompressJSONAsync<T>(WebTypeEnum webType, int TVItemID = 0)
+    public async Task<T?> GetUncompressJSONAsync<T>(WebTypeEnum webType, int TVItemID = 0)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(WebTypeEnum: { webType }, TVItemID: { TVItemID })";
+        string FunctionName = $"async Task<T> GetUncompressJSONAsync<T>(WebTypeEnum: { webType }, TVItemID: { TVItemID })";
         CSSPLogService.FunctionLog(FunctionName);
 
         // might need to implement the check for unauthorized
@@ -19,7 +19,14 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             return await Task.FromResult(JsonSerializer.Deserialize<T>("{}"));
         }
 
-        return (T)((OkObjectResult)actionRes.Result).Value;
+        var getRes = actionRes.Result;
+        if (getRes != null)
+        {
+            return (T?)((OkObjectResult)getRes).Value;
+
+        }
+       
+        return default(T);
     }
 }
 

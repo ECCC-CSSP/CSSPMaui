@@ -13,6 +13,11 @@ public partial class CSSPFileService : ControllerBase, ICSSPFileService
         ShareFileProperties shareFileProperties;
         try
         {
+            if (CSSPLocalLoggedInService.LoggedInContactInfo.LoggedInContact == null)
+            {
+                throw new Exception("CSSPLocalLoggedInService.LoggedInContactInfo.LoggedInContact == null");
+            }
+
             ShareClient shareClient = new ShareClient(CSSPScrambleService.Descramble(CSSPLocalLoggedInService.LoggedInContactInfo.LoggedInContact.AzureStoreHash), Configuration["AzureStoreCSSPFilesPath"]);
             ShareDirectoryClient shareDirectoryClient = shareClient.GetDirectoryClient($"{ParentTVItemID}");
             shareFileClient = shareDirectoryClient.GetFileClient(FileName);

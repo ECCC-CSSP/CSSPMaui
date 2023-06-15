@@ -16,7 +16,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             }
             foreach (VPAmbient vpAmbientLocal in vpScenarioModelLocal.VPAmbientList)
             {
-                VPAmbient vpAmbientOriginal = vpScenarioModelOriginal.VPAmbientList.Where(c => c.VPAmbientID == vpAmbientLocal.VPAmbientID).FirstOrDefault();
+                VPAmbient? vpAmbientOriginal = vpScenarioModelOriginal.VPAmbientList.Where(c => c.VPAmbientID == vpAmbientLocal.VPAmbientID).FirstOrDefault();
                 if (vpAmbientOriginal == null)
                 {
                     vpScenarioModelOriginal.VPAmbientList.Add(vpAmbientLocal);
@@ -28,7 +28,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             }
             foreach (VPResult vpResultLocal in vpScenarioModelLocal.VPResultList)
             {
-                VPResult vpResultOriginal = vpScenarioModelOriginal.VPResultList.Where(c => c.VPResultID == vpResultLocal.VPResultID).FirstOrDefault();
+                VPResult? vpResultOriginal = vpScenarioModelOriginal.VPResultList.Where(c => c.VPResultID == vpResultLocal.VPResultID).FirstOrDefault();
                 if (vpResultOriginal == null)
                 {
                     vpScenarioModelOriginal.VPResultList.Add(vpResultLocal);

@@ -2,9 +2,9 @@
 
 public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 {
-    private async Task<bool> MergeJsonWebTideSitesAsync(WebTideSites webTideSites, WebTideSites webTideSitesLocal)
+    private async Task<bool> MergeJsonWebTideSitesAsync(WebTideSites? webTideSites, WebTideSites? webTideSitesLocal)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(WebTideSites WebTideSites, WebTideSites WebTideSitesLocal)";
+        string FunctionName = $"async Task<bool> MergeJsonWebTideSitesAsync(WebTideSites? webTideSites, WebTideSites? webTideSitesLocal)";
         CSSPLogService.FunctionLog(FunctionName);
 
         MergeJsonWebTideSitesTVItemModel(webTideSites, webTideSitesLocal);
@@ -17,51 +17,68 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
         return await Task.FromResult(true);
     }
-    private void MergeJsonWebTideSitesTVItemModel(WebTideSites webTideSites, WebTideSites webTideSitesLocal)
+    private void MergeJsonWebTideSitesTVItemModel(WebTideSites? webTideSites, WebTideSites? webTideSitesLocal)
     {
-        if (webTideSitesLocal.TVItemModel.TVItem.TVItemID != 0
-            && (webTideSitesLocal.TVItemModel.TVItem.DBCommand != DBCommandEnum.Original
-            || webTideSitesLocal.TVItemModel.TVItemLanguageList[0].DBCommand != DBCommandEnum.Original
-            || webTideSitesLocal.TVItemModel.TVItemLanguageList[1].DBCommand != DBCommandEnum.Original))
+        if (webTideSitesLocal != null)
         {
-            SyncTVItemModel(webTideSites.TVItemModel, webTideSitesLocal.TVItemModel);
-        }
-    }
-    private void MergeJsonWebTideSitesTVItemModelParentList(WebTideSites webTideSites, WebTideSites webTideSitesLocal)
-    {
-        if ((from c in webTideSitesLocal.TVItemModelParentList
-             where c.TVItem.TVItemID != 0
-             && (c.TVItem.DBCommand != DBCommandEnum.Original
-             || c.TVItemLanguageList[0].DBCommand != DBCommandEnum.Original
-             || c.TVItemLanguageList[1].DBCommand != DBCommandEnum.Original)
-             select c).Any())
-        {
-            SyncTVItemModelParentList(webTideSites.TVItemModelParentList, webTideSitesLocal.TVItemModelParentList);
-        }
-    }
-    private void MergeJsonWebTideSitesTideSiteModelList(WebTideSites webTideSites, WebTideSites webTideSitesLocal)
-    {
-
-        List<TideSiteModel> TideSiteModelLocalList = (from c in webTideSitesLocal.TideSiteModelList
-                                                      where c.TVItemModel.TVItem.TVItemID != 0
-                                                      select c).ToList();
-
-        foreach (TideSiteModel tideSiteModelLocal in TideSiteModelLocalList)
-        {
-            TideSiteModel tideSiteModelOriginal = webTideSites.TideSiteModelList.Where(c => c.TVItemModel.TVItem.TVItemID == tideSiteModelLocal.TVItemModel.TVItem.TVItemID).FirstOrDefault();
-
-            if (tideSiteModelLocal.TVItemModel.TVItem.TVItemID != 0
-                && (tideSiteModelLocal.TVItemModel.TVItem.DBCommand != DBCommandEnum.Original
-                || tideSiteModelLocal.TVItemModel.TVItemLanguageList[0].DBCommand != DBCommandEnum.Original
-                || tideSiteModelLocal.TVItemModel.TVItemLanguageList[1].DBCommand != DBCommandEnum.Original))
+            if (webTideSitesLocal.TVItemModel.TVItem.TVItemID != 0
+                && (webTideSitesLocal.TVItemModel.TVItem.DBCommand != DBCommandEnum.Original
+                || webTideSitesLocal.TVItemModel.TVItemLanguageList[0].DBCommand != DBCommandEnum.Original
+                || webTideSitesLocal.TVItemModel.TVItemLanguageList[1].DBCommand != DBCommandEnum.Original))
             {
-                if (tideSiteModelOriginal == null)
+                if (webTideSites != null)
                 {
-                    webTideSites.TideSiteModelList.Add(tideSiteModelLocal);
+                    SyncTVItemModel(webTideSites.TVItemModel, webTideSitesLocal.TVItemModel);
                 }
-                else
+            }
+        }
+    }
+    private void MergeJsonWebTideSitesTVItemModelParentList(WebTideSites? webTideSites, WebTideSites? webTideSitesLocal)
+    {
+        if (webTideSitesLocal != null)
+        {
+            if ((from c in webTideSitesLocal.TVItemModelParentList
+                 where c.TVItem.TVItemID != 0
+                 && (c.TVItem.DBCommand != DBCommandEnum.Original
+                 || c.TVItemLanguageList[0].DBCommand != DBCommandEnum.Original
+                 || c.TVItemLanguageList[1].DBCommand != DBCommandEnum.Original)
+                 select c).Any())
+            {
+                if (webTideSites != null)
                 {
-                    SyncTideSiteModel(tideSiteModelOriginal, tideSiteModelLocal);
+                    SyncTVItemModelParentList(webTideSites.TVItemModelParentList, webTideSitesLocal.TVItemModelParentList);
+                }
+            }
+        }
+    }
+    private void MergeJsonWebTideSitesTideSiteModelList(WebTideSites? webTideSites, WebTideSites? webTideSitesLocal)
+    {
+        if (webTideSitesLocal != null)
+        {
+            List<TideSiteModel> TideSiteModelLocalList = (from c in webTideSitesLocal.TideSiteModelList
+                                                          where c.TVItemModel.TVItem.TVItemID != 0
+                                                          select c).ToList();
+
+            foreach (TideSiteModel tideSiteModelLocal in TideSiteModelLocalList)
+            {
+                if (webTideSites != null)
+                {
+                    TideSiteModel? tideSiteModelOriginal = webTideSites.TideSiteModelList.Where(c => c.TVItemModel.TVItem.TVItemID == tideSiteModelLocal.TVItemModel.TVItem.TVItemID).FirstOrDefault();
+
+                    if (tideSiteModelLocal.TVItemModel.TVItem.TVItemID != 0
+                        && (tideSiteModelLocal.TVItemModel.TVItem.DBCommand != DBCommandEnum.Original
+                        || tideSiteModelLocal.TVItemModel.TVItemLanguageList[0].DBCommand != DBCommandEnum.Original
+                        || tideSiteModelLocal.TVItemModel.TVItemLanguageList[1].DBCommand != DBCommandEnum.Original))
+                    {
+                        if (tideSiteModelOriginal == null)
+                        {
+                            webTideSites.TideSiteModelList.Add(tideSiteModelLocal);
+                        }
+                        else
+                        {
+                            SyncTideSiteModel(tideSiteModelOriginal, tideSiteModelLocal);
+                        }
+                    }
                 }
             }
         }

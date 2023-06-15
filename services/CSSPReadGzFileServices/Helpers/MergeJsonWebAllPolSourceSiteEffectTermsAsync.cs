@@ -2,9 +2,9 @@
 
 public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 {
-    private async Task<bool> MergeJsonWebAllPolSourceSiteEffectTermsAsync(WebAllPolSourceSiteEffectTerms webAllPolSourceSiteEffectTerms, WebAllPolSourceSiteEffectTerms webAllPolSourceSiteEffectTermsLocal)
+    private async Task<bool> MergeJsonWebAllPolSourceSiteEffectTermsAsync(WebAllPolSourceSiteEffectTerms? webAllPolSourceSiteEffectTerms, WebAllPolSourceSiteEffectTerms? webAllPolSourceSiteEffectTermsLocal)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(WebAllPolSourceSiteEffectTerms WebAllPolSourceSiteEffectTerms, WebAllPolSourceSiteEffectTerms WebAllPolSourceSiteEffectTermsLocal)";
+        string FunctionName = $"async Task<bool> MergeJsonWebAllPolSourceSiteEffectTermsAsync(WebAllPolSourceSiteEffectTerms? webAllPolSourceSiteEffectTerms, WebAllPolSourceSiteEffectTerms? webAllPolSourceSiteEffectTermsLocal)";
         CSSPLogService.FunctionLog(FunctionName);
 
         MergeJsonWebAllPolSourceSiteEffectsTermsPolSourceSiteEffectTermList(webAllPolSourceSiteEffectTerms, webAllPolSourceSiteEffectTermsLocal);
@@ -14,24 +14,29 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
         return await Task.FromResult(true);
     }
 
-    private void MergeJsonWebAllPolSourceSiteEffectsTermsPolSourceSiteEffectTermList(WebAllPolSourceSiteEffectTerms webAllPolSourceSiteEffectTerms, WebAllPolSourceSiteEffectTerms webAllPolSourceSiteEffectTermsLocal)
+    private void MergeJsonWebAllPolSourceSiteEffectsTermsPolSourceSiteEffectTermList(WebAllPolSourceSiteEffectTerms? webAllPolSourceSiteEffectTerms, WebAllPolSourceSiteEffectTerms? webAllPolSourceSiteEffectTermsLocal)
     {
-        List<PolSourceSiteEffectTerm> polSourceSiteEffectTermLocalList = (from c in webAllPolSourceSiteEffectTermsLocal.PolSourceSiteEffectTermList
-                                                                          where c.DBCommand != DBCommandEnum.Original
-                                                                          select c).ToList();
-
-        foreach (PolSourceSiteEffectTerm polSourceSiteEffectTermLocal in polSourceSiteEffectTermLocalList)
+        if (webAllPolSourceSiteEffectTermsLocal != null)
         {
-            PolSourceSiteEffectTerm polSourceSiteEffectTermOriginal = webAllPolSourceSiteEffectTerms.PolSourceSiteEffectTermList.Where(c => c.PolSourceSiteEffectTermID == polSourceSiteEffectTermLocal.PolSourceSiteEffectTermID).FirstOrDefault();
-            if (polSourceSiteEffectTermOriginal == null)
+            List<PolSourceSiteEffectTerm> polSourceSiteEffectTermLocalList = (from c in webAllPolSourceSiteEffectTermsLocal.PolSourceSiteEffectTermList
+                                                                              where c.DBCommand != DBCommandEnum.Original
+                                                                              select c).ToList();
+
+            foreach (PolSourceSiteEffectTerm polSourceSiteEffectTermLocal in polSourceSiteEffectTermLocalList)
             {
-                webAllPolSourceSiteEffectTerms.PolSourceSiteEffectTermList.Add(polSourceSiteEffectTermLocal);
-            }
-            else
-            {
-                SyncPolSourceSiteEffectTerm(polSourceSiteEffectTermOriginal, polSourceSiteEffectTermLocal);
+                if (webAllPolSourceSiteEffectTerms != null)
+                {
+                    PolSourceSiteEffectTerm? polSourceSiteEffectTermOriginal = webAllPolSourceSiteEffectTerms.PolSourceSiteEffectTermList.Where(c => c.PolSourceSiteEffectTermID == polSourceSiteEffectTermLocal.PolSourceSiteEffectTermID).FirstOrDefault();
+                    if (polSourceSiteEffectTermOriginal == null)
+                    {
+                        webAllPolSourceSiteEffectTerms.PolSourceSiteEffectTermList.Add(polSourceSiteEffectTermLocal);
+                    }
+                    else
+                    {
+                        SyncPolSourceSiteEffectTerm(polSourceSiteEffectTermOriginal, polSourceSiteEffectTermLocal);
+                    }
+                }
             }
         }
     }
 }
-

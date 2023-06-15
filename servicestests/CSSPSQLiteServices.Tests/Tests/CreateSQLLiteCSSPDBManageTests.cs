@@ -9,24 +9,29 @@ public partial class CSSPSQLiteServiceTests
     {
         Assert.True(await CSSPSQLiteServiceSetup(culture));
 
-        FileInfo fi = new FileInfo(Configuration["CSSPDBManage"]);
-        if (fi.Exists)
+        string? CSSPDBManageText = Configuration["CSSPDBManage"];
+
+        if (CSSPDBManageText == null)
         {
-            try
+            FileInfo fi = new FileInfo(CSSPDBManageText);
+            if (fi.Exists)
             {
-                fi.Delete();
+                try
+                {
+                    fi.Delete();
+                }
+                catch (Exception ex)
+                {
+                    Assert.True(false, ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                Assert.True(false, ex.Message);
-            }
+
+            bool retBool = await CSSPSQLiteService.CreateSQLiteCSSPDBManageAsync();
+            Assert.True(retBool);
+
+            fi = new FileInfo(CSSPDBManageText);
+            Assert.True(fi.Exists);
         }
-
-        bool retBool = await CSSPSQLiteService.CreateSQLiteCSSPDBManageAsync();
-        Assert.True(retBool);
-
-        fi = new FileInfo(Configuration["CSSPDBManage"]);
-        Assert.True(fi.Exists);
     }
 }
 

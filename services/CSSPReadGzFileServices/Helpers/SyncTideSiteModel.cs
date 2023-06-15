@@ -16,7 +16,7 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
             }
             foreach (TideDataValue tideDataValueLocal in tideSiteModelLocal.TideDataValueList)
             {
-                TideDataValue tideDataValueOriginal = tideSiteModelOriginal.TideDataValueList.Where(c => c.TideDataValueID == tideDataValueLocal.TideDataValueID).FirstOrDefault();
+                TideDataValue? tideDataValueOriginal = tideSiteModelOriginal.TideDataValueList.Where(c => c.TideDataValueID == tideDataValueLocal.TideDataValueID).FirstOrDefault();
                 if (tideDataValueOriginal == null)
                 {
                     tideSiteModelOriginal.TideDataValueList.Add(tideDataValueLocal);

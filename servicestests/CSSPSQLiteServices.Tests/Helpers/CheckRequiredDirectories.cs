@@ -4,36 +4,43 @@ public partial class CSSPSQLiteServiceTests
 {
     private void CheckRequiredDirectories()
     {
-        List<string> dirList = new List<string>()
-            {
-                Configuration["CSSPDBLocal"],
-                Configuration["CSSPDBManage"],
-            };
+        string? CSSPDBLocalText = Configuration["CSSPDBLocal"];
+        string? CSSPDBManageText = Configuration["CSSPDBManage"];
 
-        // create all directories
-        foreach (string FileName in dirList)
+        if (CSSPDBLocalText != null && CSSPDBManageText != null)
         {
-            FileInfo fi = new FileInfo(FileName);
-            DirectoryInfo di = new DirectoryInfo(fi.DirectoryName);
-            if (!di.Exists)
+            List<string> dirList = new List<string>() { CSSPDBLocalText, CSSPDBManageText, };
+
+            // create all directories
+            foreach (string FileName in dirList)
             {
-                try
+                FileInfo fi = new FileInfo(FileName);
+                if (fi != null && fi.DirectoryName != null)
                 {
-                    di.Create();
-                }
-                catch (Exception ex)
-                {
-                    Assert.True(false, ex.Message);
+                    DirectoryInfo di = new DirectoryInfo(fi.DirectoryName);
+                    if (!di.Exists)
+                    {
+                        try
+                        {
+                            di.Create();
+                        }
+                        catch (Exception ex)
+                        {
+                            Assert.True(false, ex.Message);
+                        }
+                    }
                 }
             }
-        }
 
-        foreach (string FileName in dirList)
-        {
-            FileInfo fi = new FileInfo(FileName);
-            DirectoryInfo di = new DirectoryInfo(fi.DirectoryName);
-            Assert.True(di.Exists);
-
+            foreach (string FileName in dirList)
+            {
+                FileInfo fi = new FileInfo(FileName);
+                if (fi != null && fi.DirectoryName != null)
+                {
+                    DirectoryInfo di = new DirectoryInfo(fi.DirectoryName);
+                    Assert.True(di.Exists);
+                }
+            }
         }
     }
 }

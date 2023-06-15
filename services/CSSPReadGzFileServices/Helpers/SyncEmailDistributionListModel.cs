@@ -18,15 +18,24 @@ public partial class CSSPReadGzFileService : ICSSPReadGzFileService
 
             foreach (EmailDistributionListContactModel emailDistributionListContactModelLocal in emailDistributionListModelLocal.EmailDistributionListContactModelList)
             {
-                EmailDistributionListContactModel emailDistributionListContactModelOriginal = emailDistributionListModelOriginal.EmailDistributionListContactModelList.Where(c => c.EmailDistributionListContact.EmailDistributionListContactID == emailDistributionListContactModelLocal.EmailDistributionListContact.EmailDistributionListContactID).FirstOrDefault();
+                if (emailDistributionListContactModelLocal != null)
+                {
+                    if (emailDistributionListContactModelLocal.EmailDistributionListContact != null)
+                    {
+                        EmailDistributionListContactModel? emailDistributionListContactModelOriginal = emailDistributionListModelOriginal.EmailDistributionListContactModelList.Where(c => c.EmailDistributionListContact.EmailDistributionListContactID == emailDistributionListContactModelLocal.EmailDistributionListContact.EmailDistributionListContactID).FirstOrDefault();
 
-                if (emailDistributionListContactModelLocal.EmailDistributionListContact != null)
-                {
-                    emailDistributionListContactModelOriginal.EmailDistributionListContact = emailDistributionListContactModelLocal.EmailDistributionListContact;
-                }
-                if (emailDistributionListContactModelLocal.EmailDistributionListContactLanguageList != null)
-                {
-                    emailDistributionListContactModelOriginal.EmailDistributionListContactLanguageList = emailDistributionListContactModelLocal.EmailDistributionListContactLanguageList;
+                        if (emailDistributionListContactModelOriginal != null)
+                        {
+                            if (emailDistributionListContactModelLocal.EmailDistributionListContact != null)
+                            {
+                                emailDistributionListContactModelOriginal.EmailDistributionListContact = emailDistributionListContactModelLocal.EmailDistributionListContact;
+                            }
+                            if (emailDistributionListContactModelLocal.EmailDistributionListContactLanguageList != null)
+                            {
+                                emailDistributionListContactModelOriginal.EmailDistributionListContactLanguageList = emailDistributionListContactModelLocal.EmailDistributionListContactLanguageList;
+                            }
+                        }
+                    }
                 }
             }
         }
