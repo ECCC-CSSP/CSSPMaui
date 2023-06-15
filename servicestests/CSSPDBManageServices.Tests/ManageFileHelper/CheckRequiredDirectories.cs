@@ -4,6 +4,8 @@ public partial class ManageFileServicesTests
 {
     private void CheckRequiredDirectories()
     {
+        Assert.NotNull(Configuration);
+
         string? CSSPDBLocalText = Configuration["CSSPDBLocal"];
         string? CSSPDBManageText = Configuration["CSSPDBManage"];
 

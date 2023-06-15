@@ -3,21 +3,25 @@
 [Collection("Sequential")]
 public partial class CSSPAzureLoginServiceTests
 {
-    private IConfiguration Configuration { get; set; }
-    private IServiceProvider Provider { get; set; }
-    private IServiceCollection Services { get; set; }
-    private ICSSPCultureService CSSPCultureService { get; set; }
-    private ICSSPScrambleService CSSPScrambleService { get; set; }
-    private ICSSPLogService CSSPLogService { get; set; }
-    private ICSSPLocalLoggedInService CSSPLocalLoggedInService { get; set; }
-    private ICSSPSQLiteService CSSPSQLiteService { get; set; }
-    private ICSSPAzureLoginService CSSPAzureLoginService { get; set; }
-    private CSSPDBManageContext dbManage { get; set; }
+    private IConfiguration? Configuration { get; set; }
+    private IServiceProvider? Provider { get; set; }
+    private IServiceCollection? Services { get; set; }
+    private ICSSPCultureService? CSSPCultureService { get; set; }
+    private ICSSPScrambleService? CSSPScrambleService { get; set; }
+    private ICSSPLogService? CSSPLogService { get; set; }
+    private ICSSPLocalLoggedInService? CSSPLocalLoggedInService { get; set; }
+    private ICSSPSQLiteService? CSSPSQLiteService { get; set; }
+    private ICSSPAzureLoginService? CSSPAzureLoginService { get; set; }
+    private CSSPDBManageContext? dbManage { get; set; }
 
     private async Task<bool> CSSPAzureLoginServiceSetup(string culture)
     {
+        DirectoryInfo? di = Directory.GetParent(AppContext.BaseDirectory);
+
+        Assert.NotNull(di);
+
         Configuration = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+           .SetBasePath(di.FullName)
            .AddJsonFile("appsettings_CSSPAzureLoginServicestests.json")
            .AddUserSecrets("CSSPAzureLoginServices_Tests")
            .Build();

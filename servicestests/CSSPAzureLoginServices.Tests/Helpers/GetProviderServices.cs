@@ -4,6 +4,9 @@ public partial class CSSPAzureLoginServiceTests
 {
     private async Task GetProviderServices()
     {
+        Assert.NotNull(Configuration);
+        Assert.NotNull(Provider);
+
         CSSPCultureService = Provider.GetService<ICSSPCultureService>();
         Assert.NotNull(CSSPCultureService);
 
@@ -19,13 +22,17 @@ public partial class CSSPAzureLoginServiceTests
         CSSPSQLiteService = Provider.GetService<ICSSPSQLiteService>();
         Assert.NotNull(CSSPSQLiteService);
 
-        FileInfo fiCSSPDBManage = new FileInfo(Configuration["CSSPDBManage"]);
+        string? CSSPDBManageText = Configuration["CSSPDBManage"];
+
+        Assert.NotNull(CSSPDBManageText);
+
+        FileInfo fiCSSPDBManage = new FileInfo(CSSPDBManageText);
         if (!fiCSSPDBManage.Exists)
         {
             await CSSPSQLiteService.CreateSQLiteCSSPDBManageAsync();
         }
 
-        fiCSSPDBManage = new FileInfo(Configuration["CSSPDBManage"]);
+        fiCSSPDBManage = new FileInfo(CSSPDBManageText);
         Assert.True(fiCSSPDBManage.Exists); 
 
         CSSPAzureLoginService = Provider.GetService<ICSSPAzureLoginService>();

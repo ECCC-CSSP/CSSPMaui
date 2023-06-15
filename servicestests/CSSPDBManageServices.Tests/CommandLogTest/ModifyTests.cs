@@ -156,6 +156,8 @@ public partial class CommandLogServicesTests
         
         ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
         
+        Assert.NotNull(errRes);
+
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "CommandName"), errRes.ErrList[0]);
     }
     [Theory]

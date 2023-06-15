@@ -6,8 +6,8 @@ public partial class CSSPAzureLoginService : ICSSPAzureLoginService
     private ICSSPLogService CSSPLogService { get; }
     private ICSSPLocalLoggedInService CSSPLocalLoggedInService { get; }
     private CSSPDBManageContext dbManage { get; }
-    private LoginModel loginModel { get; set; }
-    private string culture { get; set; }
+    private LoginModel loginModel { get; set; } = new LoginModel();
+    private string culture { get; set; } = "";
 
     public CSSPAzureLoginService(IConfiguration Configuration, ICSSPCultureService CSSPCultureService,
         ICSSPLogService CSSPLogService, ICSSPLocalLoggedInService CSSPLocalLoggedInService, CSSPDBManageContext dbManage)

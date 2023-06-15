@@ -4,14 +4,24 @@ public partial class ManageFileServicesTests
 {
     private async Task<ManageFile> ModifyTestAsync(ManageFile manageFile)
     {
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLogModify = await ManageFileService.ModifyAsync(manageFile);
-        Assert.Equal(200, ((ObjectResult)actionCommandLogModify.Result).StatusCode);
-        Assert.NotNull(((OkObjectResult)actionCommandLogModify.Result).Value);
-        ManageFile manageFileModify = (ManageFile)((OkObjectResult)actionCommandLogModify.Result).Value;
+        var modRes = actionCommandLogModify.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(200, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((OkObjectResult)modRes).Value);
+        
+        ManageFile? manageFileModify = (ManageFile?)((OkObjectResult)modRes).Value;
+        
         Assert.NotNull(manageFileModify);
         Assert.Equal(1, manageFileModify.ManageFileID);
 
-        ManageFile manageFileModifyDB = (from c in dbManage.ManageFiles
+        Assert.NotNull(dbManage);
+        
+        ManageFile? manageFileModifyDB = (from c in dbManage.ManageFiles
                                          where c.ManageFileID == manageFileModify.ManageFileID
                                          select c).FirstOrDefault();
 

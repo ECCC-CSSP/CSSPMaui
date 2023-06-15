@@ -6,7 +6,7 @@ public partial class CSSPAzureLoginService : ICSSPAzureLoginService
     {
         using (HttpClient httpClient = new HttpClient())
         {
-            Contact contact = new Contact();
+            Contact? contact = new Contact();
 
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             httpClient.DefaultRequestHeaders.Accept.Add(contentType);

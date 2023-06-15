@@ -4,6 +4,8 @@ public partial class ManageFileServicesTests
 {
     private void ClearManageFiles()
     {
+        Assert.NotNull(dbManage);
+
         List<ManageFile> manageFileToDeleteList = (from c in dbManage.ManageFiles
                                                    select c).ToList();
 

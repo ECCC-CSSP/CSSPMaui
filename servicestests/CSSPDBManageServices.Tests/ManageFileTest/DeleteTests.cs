@@ -29,10 +29,18 @@ public partial class ManageFileServicesTests
 
         manageFileAdd.ManageFileID = 0;
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.DeleteAsync(manageFileAdd.ManageFileID);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var delRes = actionCommandLog.Result;
+        
+        Assert.NotNull(delRes);
+        
+        Assert.Equal(400, ((ObjectResult)delRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)delRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)delRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "ManageFileID"), errRes.ErrList[0]);
     }
@@ -49,10 +57,18 @@ public partial class ManageFileServicesTests
 
         manageFileAdd.ManageFileID = 10000;
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.DeleteAsync(manageFileAdd.ManageFileID);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var delRes = actionCommandLog.Result;
+        
+        Assert.NotNull(delRes);
+        
+        Assert.Equal(400, ((ObjectResult)delRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)delRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)delRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "ManageFile", "ManageFileID", manageFileAdd.ManageFileID.ToString()), errRes.ErrList[0]);
     }

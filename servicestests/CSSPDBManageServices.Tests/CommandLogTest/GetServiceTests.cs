@@ -57,7 +57,7 @@ public partial class CommandLogServicesTests
         Assert.Equal(200, ((ObjectResult)getRes).StatusCode);
         Assert.NotNull(((OkObjectResult)getRes).Value);
 
-        List<CommandLog>? commandLogList = (List<CommandLog>?)((OkObjectResult)actionGet.Result).Value;
+        List<CommandLog>? commandLogList = (List<CommandLog>?)((OkObjectResult)getRes).Value;
 
         Assert.NotNull(commandLogList);
         Assert.NotEmpty(commandLogList);
@@ -91,7 +91,7 @@ public partial class CommandLogServicesTests
         Assert.Equal(200, ((ObjectResult)getRes).StatusCode);
         Assert.NotNull(((OkObjectResult)getRes).Value);
 
-        List<CommandLog>? commandLogList = (List<CommandLog>?)((OkObjectResult)actionGet.Result).Value;
+        List<CommandLog>? commandLogList = (List<CommandLog>?)((OkObjectResult)getRes).Value;
 
         Assert.NotNull(commandLogList);
         Assert.NotEmpty(commandLogList);

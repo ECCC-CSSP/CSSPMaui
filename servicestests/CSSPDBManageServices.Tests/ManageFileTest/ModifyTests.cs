@@ -25,14 +25,22 @@ public partial class ManageFileServicesTests
 
         ManageFile manageFile = await FillManageFileAsync();
 
-        ManageFile manageFileAdd = await AddTestAsync(manageFile);
+        ManageFile? manageFileAdd = await AddTestAsync(manageFile);
 
         manageFileAdd = null;
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsNullOrEmpty, "manageFile"), errRes.ErrList[0]);
     }
@@ -49,10 +57,18 @@ public partial class ManageFileServicesTests
 
         manageFileAdd.ManageFileID = 0;
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "ManageFileID"), errRes.ErrList[0]);
     }
@@ -69,10 +85,18 @@ public partial class ManageFileServicesTests
 
         manageFileAdd.AzureStorage = "";
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "AzureStorage"), errRes.ErrList[0]);
     }
@@ -89,10 +113,18 @@ public partial class ManageFileServicesTests
 
         manageFileAdd.AzureStorage = "a".PadRight(101);
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._MaxLengthIs_, "AzureStorage", "100"), errRes.ErrList[0]);
     }
@@ -109,10 +141,18 @@ public partial class ManageFileServicesTests
 
         manageFileAdd.AzureFileName = "";
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "AzureFileName"), errRes.ErrList[0]);
     }
@@ -129,10 +169,18 @@ public partial class ManageFileServicesTests
 
         manageFileAdd.AzureFileName = "a".PadRight(201);
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._MaxLengthIs_, "AzureFileName", "200"), errRes.ErrList[0]);
     }
@@ -149,10 +197,18 @@ public partial class ManageFileServicesTests
 
         manageFileAdd.AzureETag = "";
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._IsRequired, "AzureETag"), errRes.ErrList[0]);
     }
@@ -169,10 +225,18 @@ public partial class ManageFileServicesTests
 
         manageFileAdd.AzureCreationTimeUTC = new DateTime(1979, 1, 1);
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._YearShouldBeBiggerThan_, "AzureCreationTimeUTC", "1980"), errRes.ErrList[0]);
     }
@@ -194,10 +258,19 @@ public partial class ManageFileServicesTests
 
         manageFileAdd2.AzureStorage = manageFileAdd.AzureStorage;
 
+        Assert.NotNull(ManageFileService);
+        
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd2);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes._AlreadyExistsWithDifferent_, "ManageFile", "ManageFileID"), errRes.ErrList[0]);
     }
@@ -215,10 +288,18 @@ public partial class ManageFileServicesTests
         manageFileAdd.AzureStorage = "unique";
         manageFileAdd.ManageFileID = 10000;
 
+        Assert.NotNull(ManageFileService);
+
         var actionCommandLog = await ManageFileService.ModifyAsync(manageFileAdd);
-        Assert.Equal(400, ((ObjectResult)actionCommandLog.Result).StatusCode);
-        Assert.NotNull(((BadRequestObjectResult)actionCommandLog.Result).Value);
-        ErrRes errRes = (ErrRes)((BadRequestObjectResult)actionCommandLog.Result).Value;
+        var modRes = actionCommandLog.Result;
+        
+        Assert.NotNull(modRes);
+        
+        Assert.Equal(400, ((ObjectResult)modRes).StatusCode);
+        Assert.NotNull(((BadRequestObjectResult)modRes).Value);
+        
+        ErrRes? errRes = (ErrRes?)((BadRequestObjectResult)modRes).Value;
+        
         Assert.NotNull(errRes);
         Assert.Equal(string.Format(CSSPCultureServicesRes.CouldNotFind_With_Equal_, "ManageFile", "ManageFileID", manageFileAdd.ManageFileID.ToString()), errRes.ErrList[0]);
     }

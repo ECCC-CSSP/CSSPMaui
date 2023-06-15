@@ -2,7 +2,7 @@ namespace ManageServices;
 
 public partial class ManageFileService : ControllerBase, IManageFileService
 {
-    public async Task<ActionResult<ManageFile>> ModifyAsync(ManageFile manageFile)
+    public async Task<ActionResult<ManageFile>> ModifyAsync(ManageFile? manageFile)
     {
         if (manageFile == null)
         {
