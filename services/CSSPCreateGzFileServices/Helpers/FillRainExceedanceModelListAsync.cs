@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillRainExceedanceModelListAsync(List<RainExceedanceModel> RainExceedanceModelList, TVItem TVItem)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<RainExceedanceModel> RainExceedanceModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }";
+        string FunctionName = $"async Task<bool> FillRainExceedanceModelListAsync(List<RainExceedanceModel> RainExceedanceModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<TVItem> TVItemList = await GetTVItemChildrenListWithTVItemIDAsync(TVItem, TVTypeEnum.RainExceedance);
@@ -34,7 +34,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
             RainExceedanceModelList.Add(new RainExceedanceModel()
             {
                 TVItemModel = tvItemModel,
-                RainExceedance = RainExceedanceList.Where(c => c.RainExceedanceTVItemID == tvItem.TVItemID).FirstOrDefault(),
+                RainExceedance = RainExceedanceList.Where(c => c.RainExceedanceTVItemID == tvItem.TVItemID).FirstOrDefault() ?? new RainExceedance(),
                 RainExceedanceClimateSiteList = RainExceedanceClimateSiteList.Where(c => c.RainExceedanceTVItemID == tvItem.TVItemID).ToList(),
             });
         }

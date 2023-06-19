@@ -4,10 +4,10 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> CreateWebAllProvincesGzFileAsync()
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }()";
+        string FunctionName = $"async Task<bool> CreateWebAllProvincesGzFileAsync()";
         CSSPLogService.FunctionLog(FunctionName);
 
-        TVItem TVItemRoot = await GetTVItemRootAsync();
+        TVItem? TVItemRoot = await GetTVItemRootAsync();
 
         if (TVItemRoot == null || TVItemRoot.TVType != TVTypeEnum.Root)
         {

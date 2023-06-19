@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     public async Task<ActionResult<bool>> CreateGzFileAsync(WebTypeEnum webType, int TVItemID)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(WebTypeEnum: { webType }, TVItemID: { TVItemID })";
+        string FunctionName = $"async Task<ActionResult<bool>> CreateGzFileAsync(WebTypeEnum: { webType }, TVItemID: { TVItemID })";
         CSSPLogService.FunctionLog(FunctionName);
 
         if (!await CSSPLogService.CheckLogin(FunctionName)) return await Task.FromResult(Unauthorized(CSSPLogService.ErrRes));

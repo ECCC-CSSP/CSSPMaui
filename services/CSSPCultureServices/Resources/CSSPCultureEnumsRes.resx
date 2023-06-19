@@ -1209,92 +1209,92 @@
   <data name="ReportFileTypeEnumWord" xml:space="preserve">
     <value>Word</value>
   </data>
-  <data name="ReportFormatingDate" xml:space="preserve">
-    <value>ReportFormatingDate</value>
+  <data name="ReportFormattingDate" xml:space="preserve">
+    <value>ReportFormattingDate</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateDayOnly" xml:space="preserve">
-    <value>ReportFormatingDateDayOnly</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateDayOnly" xml:space="preserve">
+    <value>ReportFormattingDateDayOnly</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateHourOnly" xml:space="preserve">
-    <value>ReportFormatingDateHourOnly</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateHourOnly" xml:space="preserve">
+    <value>ReportFormattingDateHourOnly</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateMinuteOnly" xml:space="preserve">
-    <value>ReportFormatingDateMinuteOnly</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateMinuteOnly" xml:space="preserve">
+    <value>ReportFormattingDateMinuteOnly</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateMonthDecimalOnly" xml:space="preserve">
-    <value>ReportFormatingDateMonthDecimalOnly</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateMonthDecimalOnly" xml:space="preserve">
+    <value>ReportFormattingDateMonthDecimalOnly</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateMonthFullTextOnly" xml:space="preserve">
-    <value>ReportFormatingDateMonthFullTextOnly</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateMonthFullTextOnly" xml:space="preserve">
+    <value>ReportFormattingDateMonthFullTextOnly</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateMonthShortTextOnly" xml:space="preserve">
-    <value>ReportFormatingDateMonthShortTextOnly</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateMonthShortTextOnly" xml:space="preserve">
+    <value>ReportFormattingDateMonthShortTextOnly</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateYearMonthDecimalDay" xml:space="preserve">
-    <value>ReportFormatingDateYearMonthDecimalDay</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateYearMonthDecimalDay" xml:space="preserve">
+    <value>ReportFormattingDateYearMonthDecimalDay</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateYearMonthDecimalDayHourMinute" xml:space="preserve">
-    <value>ReportFormatingDateYearMonthDecimalDayHourMinute</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateYearMonthDecimalDayHourMinute" xml:space="preserve">
+    <value>ReportFormattingDateYearMonthDecimalDayHourMinute</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateYearMonthFullTextDay" xml:space="preserve">
-    <value>ReportFormatingDateYearMonthFullTextDay</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateYearMonthFullTextDay" xml:space="preserve">
+    <value>ReportFormattingDateYearMonthFullTextDay</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateYearMonthFullTextDayHourMinute" xml:space="preserve">
-    <value>ReportFormatingDateYearMonthFullTextDayHourMinute</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateYearMonthFullTextDayHourMinute" xml:space="preserve">
+    <value>ReportFormattingDateYearMonthFullTextDayHourMinute</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateYearMonthShortTextDay" xml:space="preserve">
-    <value>ReportFormatingDateYearMonthShortTextDay</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateYearMonthShortTextDay" xml:space="preserve">
+    <value>ReportFormattingDateYearMonthShortTextDay</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateYearMonthShortTextDayHourMinute" xml:space="preserve">
-    <value>ReportFormatingDateYearMonthShortTextDayHourMinute</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateYearMonthShortTextDayHourMinute" xml:space="preserve">
+    <value>ReportFormattingDateYearMonthShortTextDayHourMinute</value>
   </data>
-  <data name="ReportFormatingDateEnumReportFormatingDateYearOnly" xml:space="preserve">
-    <value>ReportFormatingDateYearOnly</value>
+  <data name="ReportFormattingDateEnumReportFormattingDateYearOnly" xml:space="preserve">
+    <value>ReportFormattingDateYearOnly</value>
   </data>
-  <data name="ReportFormatingNumber" xml:space="preserve">
-    <value>ReportFormatingNumber</value>
+  <data name="ReportFormattingNumber" xml:space="preserve">
+    <value>ReportFormattingNumber</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumber0Decimal" xml:space="preserve">
-    <value>ReportFormatingNumber0Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumber0Decimal" xml:space="preserve">
+    <value>ReportFormattingNumber0Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumber1Decimal" xml:space="preserve">
-    <value>ReportFormatingNumber1Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumber1Decimal" xml:space="preserve">
+    <value>ReportFormattingNumber1Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumber2Decimal" xml:space="preserve">
-    <value>ReportFormatingNumber2Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumber2Decimal" xml:space="preserve">
+    <value>ReportFormattingNumber2Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumber3Decimal" xml:space="preserve">
-    <value>ReportFormatingNumber3Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumber3Decimal" xml:space="preserve">
+    <value>ReportFormattingNumber3Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumber4Decimal" xml:space="preserve">
-    <value>ReportFormatingNumber4Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumber4Decimal" xml:space="preserve">
+    <value>ReportFormattingNumber4Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumber5Decimal" xml:space="preserve">
-    <value>ReportFormatingNumber5Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumber5Decimal" xml:space="preserve">
+    <value>ReportFormattingNumber5Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumber6Decimal" xml:space="preserve">
-    <value>ReportFormatingNumber6Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumber6Decimal" xml:space="preserve">
+    <value>ReportFormattingNumber6Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumberScientific0Decimal" xml:space="preserve">
-    <value>ReportFormatingNumberScientific0Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumberScientific0Decimal" xml:space="preserve">
+    <value>ReportFormattingNumberScientific0Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumberScientific1Decimal" xml:space="preserve">
-    <value>ReportFormatingNumberScientific1Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumberScientific1Decimal" xml:space="preserve">
+    <value>ReportFormattingNumberScientific1Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumberScientific2Decimal" xml:space="preserve">
-    <value>ReportFormatingNumberScientific2Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumberScientific2Decimal" xml:space="preserve">
+    <value>ReportFormattingNumberScientific2Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumberScientific3Decimal" xml:space="preserve">
-    <value>ReportFormatingNumberScientific3Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumberScientific3Decimal" xml:space="preserve">
+    <value>ReportFormattingNumberScientific3Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumberScientific4Decimal" xml:space="preserve">
-    <value>ReportFormatingNumberScientific4Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumberScientific4Decimal" xml:space="preserve">
+    <value>ReportFormattingNumberScientific4Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumberScientific5Decimal" xml:space="preserve">
-    <value>ReportFormatingNumberScientific5Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumberScientific5Decimal" xml:space="preserve">
+    <value>ReportFormattingNumberScientific5Decimal</value>
   </data>
-  <data name="ReportFormatingNumberEnumReportFormatingNumberScientific6Decimal" xml:space="preserve">
-    <value>ReportFormatingNumberScientific6Decimal</value>
+  <data name="ReportFormattingNumberEnumReportFormattingNumberScientific6Decimal" xml:space="preserve">
+    <value>ReportFormattingNumberScientific6Decimal</value>
   </data>
   <data name="ReportSorting" xml:space="preserve">
     <value>ReportSorting</value>

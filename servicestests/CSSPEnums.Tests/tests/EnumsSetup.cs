@@ -10,10 +10,10 @@ namespace CSSPEnums.Tests;
 
 public partial class EnumsTest
 {
-    private IEnums enums { get; set; }
-    private ICSSPCultureService CSSPCultureService { get; set; }
-    public IServiceProvider Provider { get; set; }
-    public IServiceCollection Services { get; set; }
+    private IEnums? enums { get; set; }
+    private ICSSPCultureService? CSSPCultureService { get; set; }
+    public IServiceProvider? Provider { get; set; }
+    public IServiceCollection? Services { get; set; }
 
     private async Task<bool> EnumsSetup(string culture)
     {

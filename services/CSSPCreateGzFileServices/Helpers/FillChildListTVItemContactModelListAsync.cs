@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillChildListTVItemContactModelListAsync(List<ContactModel> ContactModelList, TVItem TVItem)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<ContactModel> ContactModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }";
+        string FunctionName = $"async Task<bool> FillChildListTVItemContactModelListAsync(List<ContactModel> ContactModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<Contact> MunicipalityContactList = await GetMunicipalityContactListUnderMunicipalityAsync(TVItem);

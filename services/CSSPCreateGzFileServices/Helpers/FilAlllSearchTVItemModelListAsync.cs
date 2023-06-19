@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillAllSearchTVItemModelListAsync(List<TVItemModel> TVItemSearchList)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<TVItemModel> TVItemSearchList)";
+        string FunctionName = $"async Task<bool> FillAllSearchTVItemModelListAsync(List<TVItemModel> TVItemSearchList)";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<TVItem> TVItemList = await GetSearchableTVItemAsync();

@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillClimateSiteModelListAsync(List<ClimateSiteModel> ClimateSiteModelList, TVItem TVItem)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<ClimateSiteModel> ClimateSiteModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }";
+        string FunctionName = $"async Task<bool> FillClimateSiteModelListAsync(List<ClimateSiteModel> ClimateSiteModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<TVItem> TVItemList = await GetTVItemChildrenListWithTVItemIDAsync(TVItem, TVTypeEnum.ClimateSite);
@@ -45,8 +45,12 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
             }
 
             climateSiteModel.TVItemModel = TVItemModel;
-            climateSiteModel.ClimateSite = ClimateSiteList.Where(c => c.ClimateSiteTVItemID == tvItem.TVItemID).FirstOrDefault();
-            climateSiteModel.ClimateDataValueList = ClimateDataValueList.Where(c => c.ClimateSiteID == climateSiteModel.ClimateSite.ClimateSiteID).ToList();
+            climateSiteModel.ClimateSite = ClimateSiteList.Where(c => c.ClimateSiteTVItemID == tvItem.TVItemID).FirstOrDefault() ?? new ClimateSite();
+
+            if (climateSiteModel.ClimateSite != null)
+            {
+                climateSiteModel.ClimateDataValueList = ClimateDataValueList.Where(c => c.ClimateSiteID == climateSiteModel.ClimateSite.ClimateSiteID).ToList();
+            }
 
             ClimateSiteModelList.Add(climateSiteModel);
         }

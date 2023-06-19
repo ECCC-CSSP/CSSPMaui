@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillAllContactModelListAsync(List<ContactModel> ContactModelList)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<ContactModel> ContactModelList)";
+        string FunctionName = $"async Task<bool> FillAllContactModelListAsync(List<ContactModel> ContactModelList)";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<Contact> ContactList = await GetAllContactAsync();
@@ -19,7 +19,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
         foreach (Contact contact in ContactList)
         {
             ContactModel contactModel = new ContactModel();
-            contactModel.Contact = ContactList.Where(c => c.ContactTVItemID == contact.ContactTVItemID).FirstOrDefault();
+            contactModel.Contact = ContactList.Where(c => c.ContactTVItemID == contact.ContactTVItemID).FirstOrDefault() ?? new Contact();
 
             contactModel.ContactEmailTVItemIDList = (from c in TVItemLinkContactEmailList
                                                      where c.FromTVItemID == contact.ContactTVItemID

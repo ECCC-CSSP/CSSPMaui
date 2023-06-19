@@ -1128,11 +1128,11 @@
   <data name="ReportFileTypeEnumWord" xml:space="preserve">
     <value>Word (fr)</value>
   </data>
-  <data name="ReportFormatingDate" xml:space="preserve">
-    <value>ReportFormatingDate</value>
+  <data name="ReportFormattingDate" xml:space="preserve">
+    <value>ReportFormattingDate</value>
   </data>
-  <data name="ReportFormatingNumber" xml:space="preserve">
-    <value>ReportFormatingNumber</value>
+  <data name="ReportFormattingNumber" xml:space="preserve">
+    <value>ReportFormattingNumber</value>
   </data>
   <data name="ReportSorting" xml:space="preserve">
     <value>ReportSorting</value>

@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> StoreLocalAsync<T>(T webJson, string fileName)
     {
-        CSSPLogService.FunctionLog($"{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }<T>(T webJson, string fileName) -- fileName: { fileName }");
+        CSSPLogService.FunctionLog($"async Task<bool> StoreLocalAsync<T>(T webJson, string fileName) -- fileName: { fileName }");
 
         FileInfo fi = new FileInfo($"{ Configuration["CSSPJSONPathLocal"] }{ fileName }");
 
@@ -29,7 +29,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
             //new MemoryStream(Encoding.UTF8.GetBytes(JsonSerializer.Serialize<T>(webJson))).CopyTo(compressedFileStream);
         }
 
-        CSSPLogService.EndFunctionLog($"{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }<T>(T webJson, string fileName) -- fileName: { fileName }");
+        CSSPLogService.EndFunctionLog($"async Task<bool> StoreLocalAsync<T>(T webJson, string fileName) -- fileName: { fileName }");
 
         return await Task.FromResult(true);
     }

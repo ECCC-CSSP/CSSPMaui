@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> CreateWebAllReportTypesGzFileAsync()
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }()";
+        string FunctionName = $"async Task<bool> CreateWebAllReportTypesGzFileAsync()";
         CSSPLogService.FunctionLog(FunctionName);
 
         WebAllReportTypes webAllReportTypes = new WebAllReportTypes();

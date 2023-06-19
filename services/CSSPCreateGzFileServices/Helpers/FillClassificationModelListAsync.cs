@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillClassificationModelListAsync(List<ClassificationModel> ClassificationModelList, TVItem TVItem, TVTypeEnum TVType)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<MWQMSiteModel> MWQMSiteModelList, TVItem TVItem, TVTypeEnum TVType) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }  TVType: { TVType }";
+        string FunctionName = $"async Task<bool> FillClassificationModelListAsync(List<ClassificationModel> ClassificationModelList, TVItem TVItem, TVTypeEnum TVType) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }  TVType: { TVType }";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<TVItem> TVItemList = await GetTVItemChildrenListWithTVItemIDAsync(TVItem, TVType);
@@ -51,7 +51,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 
             classificationModel.TVItemModel = TVItemModel;
 
-            classificationModel.Classification = ClassificationList.Where(c => c.ClassificationTVItemID == tvItem.TVItemID).FirstOrDefault();
+            classificationModel.Classification = ClassificationList.Where(c => c.ClassificationTVItemID == tvItem.TVItemID).FirstOrDefault() ?? new Classification();
 
             ClassificationModelList.Add(classificationModel);
         }

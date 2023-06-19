@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillHydrometricSiteModelListAsync(List<HydrometricSiteModel> HydrometricSiteModelList, TVItem TVItem)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<HydrometricSiteModel> HydrometricSiteModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
+        string FunctionName = $"async Task<bool> FillHydrometricSiteModelListAsync(List<HydrometricSiteModel> HydrometricSiteModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<TVItem> TVItemList = await GetTVItemChildrenListWithTVItemIDAsync(TVItem, TVTypeEnum.HydrometricSite);
@@ -48,18 +48,25 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
             }
 
             hydrometricModel.TVItemModel = TVItemModel;
-            hydrometricModel.HydrometricSite = HydrometricSiteList.Where(c => c.HydrometricSiteTVItemID == tvItem.TVItemID).FirstOrDefault();
-            hydrometricModel.HydrometricDataValueList = HydrometricDataValueList.Where(c => c.HydrometricSiteID == hydrometricModel.HydrometricSite.HydrometricSiteID).ToList();
+            hydrometricModel.HydrometricSite = HydrometricSiteList.Where(c => c.HydrometricSiteTVItemID == tvItem.TVItemID).FirstOrDefault() ?? new HydrometricSite();
+
+            if (hydrometricModel.HydrometricSite != null)
+            {
+                hydrometricModel.HydrometricDataValueList = HydrometricDataValueList.Where(c => c.HydrometricSiteID == hydrometricModel.HydrometricSite.HydrometricSiteID).ToList();
+            }
 
             List<RatingCurveModel> ratingCurveModelList = new List<RatingCurveModel>();
 
-            foreach (RatingCurve ratingCurve in RatingCurveList.Where(c => c.HydrometricSiteID == hydrometricModel.HydrometricSite.HydrometricSiteID))
+            if (hydrometricModel.HydrometricSite != null)
             {
-                ratingCurveModelList.Add(new RatingCurveModel()
+                foreach (RatingCurve ratingCurve in RatingCurveList.Where(c => c.HydrometricSiteID == hydrometricModel.HydrometricSite.HydrometricSiteID))
                 {
-                    RatingCurve = ratingCurve,
-                    RatingCurveValueList = RatingCurveValueList.Where(c => c.RatingCurveID == ratingCurve.RatingCurveID).ToList(),
-                });
+                    ratingCurveModelList.Add(new RatingCurveModel()
+                    {
+                        RatingCurve = ratingCurve,
+                        RatingCurveValueList = RatingCurveValueList.Where(c => c.RatingCurveID == ratingCurve.RatingCurveID).ToList(),
+                    });
+                }
             }
 
             hydrometricModel.RatingCurveModelList = ratingCurveModelList;

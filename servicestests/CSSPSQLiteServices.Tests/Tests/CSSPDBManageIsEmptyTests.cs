@@ -9,6 +9,8 @@ public partial class CSSPSQLiteServiceTests
     {
         Assert.True(await CSSPSQLiteServiceSetup(culture));
 
+        Assert.NotNull(CSSPSQLiteService);
+
         bool retBool = await CSSPSQLiteService.CreateSQLiteCSSPDBManageAsync();
         Assert.True(retBool);
 
@@ -21,6 +23,8 @@ public partial class CSSPSQLiteServiceTests
             Error = "The Error",
             Log = "The Log"
         };
+
+        Assert.NotNull(dbManage);
 
         try
         {

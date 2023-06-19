@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillLabSheetModelListAsync(List<LabSheetModel> LabSheetModelList, TVItem TVItem)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<LabSheetModel> LabSheetModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
+        string FunctionName = $"async Task<bool> FillLabSheetModelListAsync(List<LabSheetModel> LabSheetModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<LabSheet> LabSheetList = await GetLabSheetListUnderSubsectorAsync(TVItem.TVItemID);
@@ -15,7 +15,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
         {
             LabSheetModel LabSheetModel = new LabSheetModel();
             LabSheetModel.LabSheet = LabSheet;
-            LabSheetModel.LabSheetDetail = LabSheetDetailList.Where(c => c.LabSheetID == LabSheet.LabSheetID).FirstOrDefault();
+            LabSheetModel.LabSheetDetail = LabSheetDetailList.Where(c => c.LabSheetID == LabSheet.LabSheetID).FirstOrDefault() ?? new LabSheetDetail();
             if (LabSheetModel.LabSheetDetail != null)
             {
                 LabSheetModel.LabSheetTubeMPNDetailList = LabSheetTubeMPNDetailList.Where(c => c.LabSheetDetailID == LabSheetModel.LabSheetDetail.LabSheetDetailID).ToList();

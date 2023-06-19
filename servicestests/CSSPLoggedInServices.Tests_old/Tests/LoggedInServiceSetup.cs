@@ -18,11 +18,11 @@ namespace LoggedInServices.Tests
         #endregion Variables
 
         #region Properties
-        private IConfiguration Configuration { get; set; }
-        private IServiceCollection Services { get; set; }
-        private IServiceProvider Provider { get; set; }
-        private ICSSPCultureService CSSPCultureService { get; set; }
-        private ILoggedInService LoggedInService { get; set; }
+        private IConfiguration? Configuration { get; set; }
+        private IServiceCollection? Services { get; set; }
+        private IServiceProvider? Provider { get; set; }
+        private ICSSPCultureService? CSSPCultureService { get; set; }
+        private ILoggedInService? LoggedInService { get; set; }
         #endregion Properties
 
         #region Constructors
@@ -44,8 +44,13 @@ namespace LoggedInServices.Tests
                 appsettings = "appsettings_cssploggedinservicestests_err1.json";
             }
 
+            DirectoryInfo? di = Directory.GetParent(AppContext.BaseDirectory);
+
+            Assert.NotNull(di);
+            Assert.True(di.Exists);
+
             Configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+                .SetBasePath(di.FullName)
                 .AddJsonFile(appsettings)
                 .AddUserSecrets("88fc6657-c426-4796-95bb-ca3d0daf2ff0")
                 .Build();
@@ -93,7 +98,11 @@ namespace LoggedInServices.Tests
                  * ---------------------------------------------------------------------------------      
                  */
 
-                FileInfo fiCSSPDBManage = new FileInfo(Configuration["CSSPDBManage"]);
+                string? CSSPDBManageText = Configuration["CSSPDBManage"];
+
+                Assert.NotNull(CSSPDBManageText);
+
+                FileInfo fiCSSPDBManage = new FileInfo(CSSPDBManageText);
                 Assert.True(fiCSSPDBManage.Exists);
 
                 Services.AddDbContext<CSSPDBManageContext>(options =>
@@ -141,11 +150,11 @@ namespace LoggedInServices.Tests
                     Assert.NotNull(LoggedInService);
             }
 
-            Assert.NotEmpty(Configuration["LoginEmail"]);
-            Assert.NotEmpty(Configuration["FirstName1"]);
-            Assert.NotEmpty(Configuration["Initial1"]);
-            Assert.NotEmpty(Configuration["LastName1"]);
-            Assert.NotEmpty(Configuration["LoginEmail3"]);
+            Assert.NotNull(Configuration["LoginEmail"]);
+            Assert.NotNull(Configuration["FirstName1"]);
+            Assert.NotNull(Configuration["Initial1"]);
+            Assert.NotNull(Configuration["LastName1"]);
+            Assert.NotNull(Configuration["LoginEmail3"]);
 
             return await Task.FromResult(true);
         }

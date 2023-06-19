@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillInfrastructureModelListAsync(List<InfrastructureModel> InfrastructureModelList, TVItem TVItem)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<InfrastructureModel> InfrastructureModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
+        string FunctionName = $"async Task<bool> FillInfrastructureModelListAsync(List<InfrastructureModel> InfrastructureModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<TVItem> TVItemList = await GetTVItemChildrenListWithTVItemIDAsync(TVItem, TVTypeEnum.Infrastructure);
@@ -35,7 +35,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 
             InfrastructureModel InfrastructureModel = new InfrastructureModel();
 
-            InfrastructureModel.Infrastructure = InfrastructureList.Where(c => c.InfrastructureTVItemID == tvItem.TVItemID).FirstOrDefault();
+            InfrastructureModel.Infrastructure = InfrastructureList.Where(c => c.InfrastructureTVItemID == tvItem.TVItemID).FirstOrDefault() ?? new Infrastructure();
 
             TVItemModel TVItemModel = new TVItemModel();
             TVItemModel.TVItem = tvItem;
@@ -66,7 +66,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 
             foreach (TVItem tvItemFile in TVItemFileList.Where(c => c.TVPath.StartsWith(tvItem.TVPath + "p")))
             {
-                TVFile tvFile = TVFileListAll.Where(c => c.TVFileTVItemID == tvItemFile.TVItemID).FirstOrDefault();
+                TVFile tvFile = TVFileListAll.Where(c => c.TVFileTVItemID == tvItemFile.TVItemID).FirstOrDefault() ?? new TVFile();
                 if (tvFile != null)
                 {
                     TVFileModel tvFileModel = new TVFileModel();
@@ -98,8 +98,12 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
                 }
             }
 
-            InfrastructureModel.Infrastructure = InfrastructureList.Where(c => c.InfrastructureTVItemID == tvItem.TVItemID).FirstOrDefault();
-            InfrastructureModel.InfrastructureLanguageList = InfrastructureLanguageList.Where(c => c.InfrastructureID == InfrastructureModel.Infrastructure.InfrastructureID).ToList();
+            InfrastructureModel.Infrastructure = InfrastructureList.Where(c => c.InfrastructureTVItemID == tvItem.TVItemID).FirstOrDefault() ?? new Infrastructure();
+
+            if (InfrastructureModel.Infrastructure != null)
+            {
+                InfrastructureModel.InfrastructureLanguageList = InfrastructureLanguageList.Where(c => c.InfrastructureID == InfrastructureModel.Infrastructure.InfrastructureID).ToList();
+            }
 
             foreach (BoxModel BoxModel in BoxModelList.Where(c => c.InfrastructureTVItemID == tvItem.TVItemID))
             {

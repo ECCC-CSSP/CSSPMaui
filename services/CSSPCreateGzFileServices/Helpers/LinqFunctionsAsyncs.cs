@@ -2,7 +2,7 @@
 
 public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFileService
 {
-    private async Task<TVItem> GetTVItemRootAsync()
+    private async Task<TVItem?> GetTVItemRootAsync()
     {
         if (Local)
         {
@@ -18,7 +18,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
                       select c).AsNoTracking().FirstOrDefaultAsync();
 
     }
-    private async Task<TVItem> GetTVItemWithTVItemIDAsync(int TVItemID)
+    private async Task<TVItem?> GetTVItemWithTVItemIDAsync(int TVItemID)
     {
         if (Local)
         {

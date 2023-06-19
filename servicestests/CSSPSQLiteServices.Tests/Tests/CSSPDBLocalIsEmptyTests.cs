@@ -9,6 +9,8 @@ public partial class CSSPSQLiteServiceTests
     {
         Assert.True(await CSSPSQLiteServiceSetup(culture));
 
+        Assert.NotNull(CSSPSQLiteService);
+
         bool retBool = await CSSPSQLiteService.CreateSQLiteCSSPDBLocalAsync();
         Assert.True(retBool);
 
@@ -31,6 +33,8 @@ public partial class CSSPSQLiteServiceTests
             TVItemID2 = 5,
         };
 
+        Assert.NotNull(dbLocal);
+
         try
         {
             dbLocal.AppTasks.Add(appTask);
@@ -41,7 +45,7 @@ public partial class CSSPSQLiteServiceTests
             Assert.True(false, ex.Message);
         }
 
-        AppTask appTaskRet = (from c in dbLocal.AppTasks
+        AppTask? appTaskRet = (from c in dbLocal.AppTasks
                               select c).FirstOrDefault();
 
         Assert.NotNull(appTaskRet);

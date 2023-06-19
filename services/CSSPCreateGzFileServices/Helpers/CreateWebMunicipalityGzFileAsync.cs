@@ -4,10 +4,10 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> CreateWebMunicipalityGzFileAsync(int MunicipalityTVItemID)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(MunicipalityTVItemID: { MunicipalityTVItemID })";
+        string FunctionName = $"async Task<bool> CreateWebMunicipalityGzFileAsync(MunicipalityTVItemID: { MunicipalityTVItemID })";
         CSSPLogService.FunctionLog(FunctionName);
 
-        TVItem TVItemMunicipality = await GetTVItemWithTVItemIDAsync(MunicipalityTVItemID);
+        TVItem? TVItemMunicipality = await GetTVItemWithTVItemIDAsync(MunicipalityTVItemID);
 
         if (TVItemMunicipality == null || TVItemMunicipality.TVType != TVTypeEnum.Municipality)
         {

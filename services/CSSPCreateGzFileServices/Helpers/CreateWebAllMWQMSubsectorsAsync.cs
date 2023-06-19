@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> CreateWebAllMWQMSubsectorsGzFileAsync()
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }()";
+        string FunctionName = $"async Task<bool> CreateWebAllMWQMSubsectorsGzFileAsync()";
         CSSPLogService.FunctionLog(FunctionName);
 
         WebAllMWQMSubsectors webAllMWQMSubsectors = new WebAllMWQMSubsectors();

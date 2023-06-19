@@ -4,13 +4,13 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> CreateWebMonitoringOtherStatsCountryGzFileAsync(int CountryTVItemID)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(CountryTVItemID: { CountryTVItemID })";
+        string FunctionName = $"async Task<bool> CreateWebMonitoringOtherStatsCountryGzFileAsync(CountryTVItemID: { CountryTVItemID })";
 
         CSSPLogService.FunctionLog(FunctionName);
 
-        TVItem tvItemRoot = await GetTVItemRootAsync();
+        TVItem? tvItemRoot = await GetTVItemRootAsync();
 
-        TVItem tvItemTest = await GetTVItemWithTVItemIDAsync(CountryTVItemID);
+        TVItem? tvItemTest = await GetTVItemWithTVItemIDAsync(CountryTVItemID);
         List<TVItemLanguage> tvItemLanguageTestList = await GetTVItemLanguageWithTVItemIDAsync(CountryTVItemID);
 
         if (tvItemTest == null || tvItemTest.TVType != TVTypeEnum.Country)
@@ -21,7 +21,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
             return await Task.FromResult(false);
         }
 
-        TVItem tvItemCountry = await GetTVItemWithTVItemIDAsync(CountryTVItemID);
+        TVItem? tvItemCountry = await GetTVItemWithTVItemIDAsync(CountryTVItemID);
         List<TVItemLanguage> tvItemLanguageCountryList = await GetTVItemLanguageWithTVItemIDAsync(CountryTVItemID);
 
         WebMonitoringOtherStatsCountry webMonitoringOtherStatsCountry = new WebMonitoringOtherStatsCountry();
@@ -34,9 +34,12 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 
             MonitoringStatByYear monitoringStatByYearOther = new MonitoringStatByYear();
             monitoringStatByYearOther.Year = year;
-            monitoringStatByYearOther.MWQMSiteCount = GetMWQMSiteCountOtherByYearUnderCountry(tvItemCountry, year);
-            monitoringStatByYearOther.MWQMRunCount = GetMWQMRunCountOtherByYearUnderCountry(tvItemCountry, year);
-            monitoringStatByYearOther.MWQMSampleCount = GetMWQMSampleCountOtherByYearUnderCountry(tvItemCountry, year);
+            if (tvItemCountry != null)
+            {
+                monitoringStatByYearOther.MWQMSiteCount = GetMWQMSiteCountOtherByYearUnderCountry(tvItemCountry, year);
+                monitoringStatByYearOther.MWQMRunCount = GetMWQMRunCountOtherByYearUnderCountry(tvItemCountry, year);
+                monitoringStatByYearOther.MWQMSampleCount = GetMWQMSampleCountOtherByYearUnderCountry(tvItemCountry, year);
+            }
 
             monitoringStatByYearOtherCountryList.Add(monitoringStatByYearOther);
         }
@@ -49,9 +52,12 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 
             MonitoringStatByMonth monitoringStatByMonthOther = new MonitoringStatByMonth();
             monitoringStatByMonthOther.Month = (MonthEnum)month;
-            monitoringStatByMonthOther.MWQMSiteCount = GetMWQMSiteCountOtherByMonthUnderCountry(tvItemCountry, (MonthEnum)month);
-            monitoringStatByMonthOther.MWQMRunCount = GetMWQMRunCountOtherByMonthUnderCountry(tvItemCountry, (MonthEnum)month);
-            monitoringStatByMonthOther.MWQMSampleCount = GetMWQMSampleCountOtherByMonthUnderCountry(tvItemCountry, (MonthEnum)month);
+            if (tvItemCountry != null)
+            {
+                monitoringStatByMonthOther.MWQMSiteCount = GetMWQMSiteCountOtherByMonthUnderCountry(tvItemCountry, (MonthEnum)month);
+                monitoringStatByMonthOther.MWQMRunCount = GetMWQMRunCountOtherByMonthUnderCountry(tvItemCountry, (MonthEnum)month);
+                monitoringStatByMonthOther.MWQMSampleCount = GetMWQMSampleCountOtherByMonthUnderCountry(tvItemCountry, (MonthEnum)month);
+            }
 
             monitoringStatByMonthOtherCountryList.Add(monitoringStatByMonthOther);
         }
@@ -64,38 +70,48 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 
             MonitoringStatBySeason monitoringStatBySeasonOther = new MonitoringStatBySeason();
             monitoringStatBySeasonOther.Season = (SeasonEnum)season;
-            monitoringStatBySeasonOther.MWQMSiteCount = GetMWQMSiteCountOtherBySeasonUnderCountry(tvItemCountry, (SeasonEnum)season);
-            monitoringStatBySeasonOther.MWQMRunCount = GetMWQMRunCountOtherBySeasonUnderCountry(tvItemCountry, (SeasonEnum)season);
-            monitoringStatBySeasonOther.MWQMSampleCount = GetMWQMSampleCountOtherBySeasonUnderCountry(tvItemCountry, (SeasonEnum)season);
+            if (tvItemCountry != null)
+            {
+                monitoringStatBySeasonOther.MWQMSiteCount = GetMWQMSiteCountOtherBySeasonUnderCountry(tvItemCountry, (SeasonEnum)season);
+                monitoringStatBySeasonOther.MWQMRunCount = GetMWQMRunCountOtherBySeasonUnderCountry(tvItemCountry, (SeasonEnum)season);
+                monitoringStatBySeasonOther.MWQMSampleCount = GetMWQMSampleCountOtherBySeasonUnderCountry(tvItemCountry, (SeasonEnum)season);
+            }
 
             monitoringStatBySeasonOtherCountryList.Add(monitoringStatBySeasonOther);
         }
 
-        webMonitoringOtherStatsCountry.MonitoringStatsModelList.Add(new MonitoringStatsModel()
+        if (tvItemCountry != null)
         {
-            TVItemModel = new TVItemModel()
-            {
-                TVItem = tvItemCountry,
-                TVItemLanguageList = (from c in tvItemLanguageCountryList
-                                      where c.TVItemID == tvItemCountry.TVItemID
-                                      select c).ToList()
 
-            },
-            MonitoringStatByYearList = monitoringStatByYearOtherCountryList,
-            MonitoringStatByMonthList = monitoringStatByMonthOtherCountryList,
-            MonitoringStatBySeasonList = monitoringStatBySeasonOtherCountryList,
-        });
+            webMonitoringOtherStatsCountry.MonitoringStatsModelList.Add(new MonitoringStatsModel()
+            {
+                TVItemModel = new TVItemModel()
+                {
+                    TVItem = tvItemCountry,
+                    TVItemLanguageList = (from c in tvItemLanguageCountryList
+                                          where c.TVItemID == tvItemCountry.TVItemID
+                                          select c).ToList()
+
+                },
+                MonitoringStatByYearList = monitoringStatByYearOtherCountryList,
+                MonitoringStatByMonthList = monitoringStatByMonthOtherCountryList,
+                MonitoringStatBySeasonList = monitoringStatBySeasonOtherCountryList,
+            });
+        }
 
         try
         {
+            if (tvItemCountry != null)
+            {
 
-            if (Local)
-            {
-                if (!await StoreLocalAsync<WebMonitoringOtherStatsCountry>(webMonitoringOtherStatsCountry, $"{ WebTypeEnum.WebMonitoringOtherStatsCountry }_{tvItemCountry.TVItemID}.gz")) return await Task.FromResult(false);
-            }
-            else
-            {
-                if (!await StoreAsync<WebMonitoringOtherStatsCountry>(webMonitoringOtherStatsCountry, $"{ WebTypeEnum.WebMonitoringOtherStatsCountry }_{tvItemCountry.TVItemID}.gz")) return await Task.FromResult(false);
+                if (Local)
+                {
+                    if (!await StoreLocalAsync<WebMonitoringOtherStatsCountry>(webMonitoringOtherStatsCountry, $"{WebTypeEnum.WebMonitoringOtherStatsCountry}_{tvItemCountry.TVItemID}.gz")) return await Task.FromResult(false);
+                }
+                else
+                {
+                    if (!await StoreAsync<WebMonitoringOtherStatsCountry>(webMonitoringOtherStatsCountry, $"{WebTypeEnum.WebMonitoringOtherStatsCountry}_{tvItemCountry.TVItemID}.gz")) return await Task.FromResult(false);
+                }
             }
         }
         catch (Exception ex)

@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillTideSiteModelListAsync(List<TideSiteModel> TideSiteModelList, TVItem TVItem)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<TideSiteModel> TideSiteModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }";
+        string FunctionName = $"async Task<bool> FillTideSiteModelListAsync(List<TideSiteModel> TideSiteModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath }";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<TVItem> TVItemList = await GetTVItemChildrenListWithTVItemIDAsync(TVItem, TVTypeEnum.TideSite);
@@ -45,8 +45,12 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
             }
 
             tideSiteModel.TVItemModel = TVItemModel;
-            tideSiteModel.TideSite = TideSiteList.Where(c => c.TideSiteTVItemID == tvItem.TVItemID).FirstOrDefault();
-            tideSiteModel.TideDataValueList = TideDataValueList.Where(c => c.TideSiteTVItemID == tideSiteModel.TideSite.TideSiteTVItemID).ToList();
+            tideSiteModel.TideSite = TideSiteList.Where(c => c.TideSiteTVItemID == tvItem.TVItemID).FirstOrDefault() ?? new TideSite();
+
+            if (tideSiteModel.TideSite != null)
+            {
+                tideSiteModel.TideDataValueList = TideDataValueList.Where(c => c.TideSiteTVItemID == tideSiteModel.TideSite.TideSiteTVItemID).ToList();
+            }
 
             TideSiteModelList.Add(tideSiteModel);
         }

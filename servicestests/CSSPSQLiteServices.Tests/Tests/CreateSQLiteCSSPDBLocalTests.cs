@@ -9,6 +9,8 @@ public partial class CSSPSQLiteServiceTests
     {
         Assert.True(await CSSPSQLiteServiceSetup(culture));
 
+        Assert.NotNull(Configuration);
+
         string? CSSPDBLocalText = Configuration["CSSPDBLocal"];
         if (CSSPDBLocalText != null)
         {
@@ -24,6 +26,8 @@ public partial class CSSPSQLiteServiceTests
                     Assert.True(false, ex.Message);
                 }
             }
+
+            Assert.NotNull(CSSPSQLiteService);
 
             bool retBool = await CSSPSQLiteService.CreateSQLiteCSSPDBLocalAsync();
             Assert.True(retBool);

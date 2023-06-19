@@ -5078,263 +5078,263 @@ namespace CSSPCultureServices.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDate.
+        ///   Looks up a localized string similar to ReportFormattingDate.
         /// </summary>
-        public static string ReportFormatingDate {
+        public static string ReportFormattingDate {
             get {
-                return ResourceManager.GetString("ReportFormatingDate", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateDayOnly.
+        ///   Looks up a localized string similar to ReportFormattingDateDayOnly.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateDayOnly {
+        public static string ReportFormattingDateEnumReportFormattingDateDayOnly {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateDayOnly", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateDayOnly", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateHourOnly.
+        ///   Looks up a localized string similar to ReportFormattingDateHourOnly.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateHourOnly {
+        public static string ReportFormattingDateEnumReportFormattingDateHourOnly {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateHourOnly", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateHourOnly", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateMinuteOnly.
+        ///   Looks up a localized string similar to ReportFormattingDateMinuteOnly.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateMinuteOnly {
+        public static string ReportFormattingDateEnumReportFormattingDateMinuteOnly {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateMinuteOnly", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateMinuteOnly", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateMonthDecimalOnly.
+        ///   Looks up a localized string similar to ReportFormattingDateMonthDecimalOnly.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateMonthDecimalOnly {
+        public static string ReportFormattingDateEnumReportFormattingDateMonthDecimalOnly {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateMonthDecimalOnly", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateMonthDecimalOnly", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateMonthFullTextOnly.
+        ///   Looks up a localized string similar to ReportFormattingDateMonthFullTextOnly.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateMonthFullTextOnly {
+        public static string ReportFormattingDateEnumReportFormattingDateMonthFullTextOnly {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateMonthFullTextOnly", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateMonthFullTextOnly", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateMonthShortTextOnly.
+        ///   Looks up a localized string similar to ReportFormattingDateMonthShortTextOnly.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateMonthShortTextOnly {
+        public static string ReportFormattingDateEnumReportFormattingDateMonthShortTextOnly {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateMonthShortTextOnly", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateMonthShortTextOnly", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateYearMonthDecimalDay.
+        ///   Looks up a localized string similar to ReportFormattingDateYearMonthDecimalDay.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateYearMonthDecimalDay {
+        public static string ReportFormattingDateEnumReportFormattingDateYearMonthDecimalDay {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateYearMonthDecimalDay", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateYearMonthDecimalDay", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateYearMonthDecimalDayHourMinute.
+        ///   Looks up a localized string similar to ReportFormattingDateYearMonthDecimalDayHourMinute.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateYearMonthDecimalDayHourMinute {
+        public static string ReportFormattingDateEnumReportFormattingDateYearMonthDecimalDayHourMinute {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateYearMonthDecimalDayHourMinute", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateYearMonthDecimalDayHourMinute", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateYearMonthFullTextDay.
+        ///   Looks up a localized string similar to ReportFormattingDateYearMonthFullTextDay.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateYearMonthFullTextDay {
+        public static string ReportFormattingDateEnumReportFormattingDateYearMonthFullTextDay {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateYearMonthFullTextDay", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateYearMonthFullTextDay", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateYearMonthFullTextDayHourMinute.
+        ///   Looks up a localized string similar to ReportFormattingDateYearMonthFullTextDayHourMinute.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateYearMonthFullTextDayHourMinute {
+        public static string ReportFormattingDateEnumReportFormattingDateYearMonthFullTextDayHourMinute {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateYearMonthFullTextDayHourMinute", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateYearMonthFullTextDayHourMinute", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateYearMonthShortTextDay.
+        ///   Looks up a localized string similar to ReportFormattingDateYearMonthShortTextDay.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateYearMonthShortTextDay {
+        public static string ReportFormattingDateEnumReportFormattingDateYearMonthShortTextDay {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateYearMonthShortTextDay", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateYearMonthShortTextDay", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateYearMonthShortTextDayHourMinute.
+        ///   Looks up a localized string similar to ReportFormattingDateYearMonthShortTextDayHourMinute.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateYearMonthShortTextDayHourMinute {
+        public static string ReportFormattingDateEnumReportFormattingDateYearMonthShortTextDayHourMinute {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateYearMonthShortTextDayHourMinute", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateYearMonthShortTextDayHourMinute", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingDateYearOnly.
+        ///   Looks up a localized string similar to ReportFormattingDateYearOnly.
         /// </summary>
-        public static string ReportFormatingDateEnumReportFormatingDateYearOnly {
+        public static string ReportFormattingDateEnumReportFormattingDateYearOnly {
             get {
-                return ResourceManager.GetString("ReportFormatingDateEnumReportFormatingDateYearOnly", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingDateEnumReportFormattingDateYearOnly", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumber.
+        ///   Looks up a localized string similar to ReportFormattingNumber.
         /// </summary>
-        public static string ReportFormatingNumber {
+        public static string ReportFormattingNumber {
             get {
-                return ResourceManager.GetString("ReportFormatingNumber", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumber", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumber0Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumber0Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumber0Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumber0Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumber0Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumber0Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumber1Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumber1Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumber1Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumber1Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumber1Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumber1Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumber2Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumber2Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumber2Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumber2Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumber2Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumber2Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumber3Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumber3Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumber3Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumber3Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumber3Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumber3Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumber4Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumber4Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumber4Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumber4Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumber4Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumber4Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumber5Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumber5Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumber5Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumber5Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumber5Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumber5Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumber6Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumber6Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumber6Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumber6Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumber6Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumber6Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumberScientific0Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumberScientific0Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumberScientific0Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumberScientific0Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumberScientific0Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumberScientific0Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumberScientific1Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumberScientific1Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumberScientific1Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumberScientific1Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumberScientific1Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumberScientific1Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumberScientific2Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumberScientific2Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumberScientific2Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumberScientific2Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumberScientific2Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumberScientific2Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumberScientific3Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumberScientific3Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumberScientific3Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumberScientific3Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumberScientific3Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumberScientific3Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumberScientific4Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumberScientific4Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumberScientific4Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumberScientific4Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumberScientific4Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumberScientific4Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumberScientific5Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumberScientific5Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumberScientific5Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumberScientific5Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumberScientific5Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumberScientific5Decimal", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ReportFormatingNumberScientific6Decimal.
+        ///   Looks up a localized string similar to ReportFormattingNumberScientific6Decimal.
         /// </summary>
-        public static string ReportFormatingNumberEnumReportFormatingNumberScientific6Decimal {
+        public static string ReportFormattingNumberEnumReportFormattingNumberScientific6Decimal {
             get {
-                return ResourceManager.GetString("ReportFormatingNumberEnumReportFormatingNumberScientific6Decimal", resourceCulture);
+                return ResourceManager.GetString("ReportFormattingNumberEnumReportFormattingNumberScientific6Decimal", resourceCulture);
             }
         }
         

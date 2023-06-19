@@ -42,7 +42,15 @@ namespace LoggedInServices.Tests
         {
             Assert.True(await LoggedInServiceSetup(culture));
 
-            await LoggedInService.SetLoggedInContactInfo(Configuration["LoginEmail"]);
+            Assert.NotNull(LoggedInService);
+            Assert.NotNull(LoggedInService.LoggedInContactInfo.LoggedInContact);
+            Assert.NotNull(Configuration);
+
+            string? LoginEmailText = Configuration["LoginEmail"];
+
+            Assert.NotNull(LoginEmailText);
+
+            await LoggedInService.SetLoggedInContactInfo(LoginEmailText);
             Assert.Equal(Configuration["LoginEmail"], LoggedInService.LoggedInContactInfo.LoggedInContact.LoginEmail);
 
             Contact contact = LoggedInService.LoggedInContactInfo.LoggedInContact;
@@ -63,7 +71,14 @@ namespace LoggedInServices.Tests
         {
             Assert.True(await LoggedInServiceSetup(culture));
 
-            await LoggedInService.SetLoggedInContactInfo(Configuration["LoginEmail3"]);
+            Assert.NotNull(Configuration);
+            Assert.NotNull(LoggedInService);
+
+            string? LoginEmail3Text = Configuration["LoginEmail3"];
+            
+            Assert.NotNull(LoginEmail3Text);
+
+            await LoggedInService.SetLoggedInContactInfo(LoginEmail3Text);
             Assert.Null(LoggedInService.LoggedInContactInfo.LoggedInContact);
             Assert.True(LoggedInService.LoggedInContactInfo.TVTypeUserAuthorizationList.Count == 0);
             Assert.True(LoggedInService.LoggedInContactInfo.TVItemUserAuthorizationList.Count == 0);
@@ -74,6 +89,8 @@ namespace LoggedInServices.Tests
         public async Task LoggedInService_SetLoggedInLocalContactInf_Good_Test(string culture)
         {
             Assert.True(await LoggedInServiceSetup(culture));
+
+            Assert.NotNull(LoggedInService);
 
             await LoggedInService.SetLoggedInLocalContactInfo();
             Assert.NotNull(LoggedInService.LoggedInContactInfo.LoggedInContact);
@@ -86,6 +103,8 @@ namespace LoggedInServices.Tests
         public async Task LoggedInService_Scramble_and_Descramble_With_Empty_String_Good_Test(string culture)
         {
             Assert.True(await LoggedInServiceSetup(culture));
+
+            Assert.NotNull(LoggedInService);
 
             string retStr = LoggedInService.Scramble("");
             Assert.Equal("", retStr);
@@ -113,6 +132,8 @@ namespace LoggedInServices.Tests
                 {
                     Word += (char)random.Next('0', 'z');
                 }
+
+                Assert.NotNull(LoggedInService);
 
                 ScrambleWord = LoggedInService.Scramble(Word);
                 Assert.NotEqual(Word, ScrambleWord);

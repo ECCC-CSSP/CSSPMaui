@@ -3,18 +3,23 @@
 [Collection("Sequential")]
 public partial class CSSPSQLiteServiceTests
 {
-    private IConfiguration Configuration { get; set; }
-    private IServiceProvider Provider { get; set; }
-    private IServiceCollection Services { get; set; }
-    private ICSSPCultureService CSSPCultureService { get; set; }
-    private CSSPDBLocalContext dbLocal { get; set; }
-    private CSSPDBManageContext dbManage { get; set; }
-    private ICSSPSQLiteService CSSPSQLiteService { get; set; }
+    private IConfiguration? Configuration { get; set; }
+    private IServiceProvider? Provider { get; set; }
+    private IServiceCollection? Services { get; set; }
+    private ICSSPCultureService? CSSPCultureService { get; set; }
+    private CSSPDBLocalContext? dbLocal { get; set; }
+    private CSSPDBManageContext? dbManage { get; set; }
+    private ICSSPSQLiteService? CSSPSQLiteService { get; set; }
 
     private async Task<bool> CSSPSQLiteServiceSetup(string culture)
     {
+        DirectoryInfo? di = Directory.GetParent(AppContext.BaseDirectory);
+
+        Assert.NotNull(di);
+        Assert.True(di.Exists);
+
         Configuration = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+           .SetBasePath(di.FullName)
            .AddJsonFile("appsettings_csspsqliteservicestests.json")
            .Build();
 

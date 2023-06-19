@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillFileModelListAsync(List<TVFileModel> TVFileModelList, TVItem TVItem)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<TVFileModel> TVFileModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
+        string FunctionName = $"async Task<bool> FillFileModelListAsync(List<TVFileModel> TVFileModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<TVItem> TVItemList = await GetTVItemChildrenListWithTVItemIDAsync(TVItem, TVTypeEnum.File);
@@ -17,7 +17,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
         {
             TVFileModel tvFileModel = new TVFileModel();
 
-            tvFileModel.TVFile = TVFileList.Where(c => c.TVFileTVItemID == tvFile.TVFileTVItemID).FirstOrDefault();
+            tvFileModel.TVFile = TVFileList.Where(c => c.TVFileTVItemID == tvFile.TVFileTVItemID).FirstOrDefault() ?? new TVFile();
             if (tvFileModel.TVFile != null)
             {
                 tvFileModel.TVFileLanguageList = TVFileLanguageList.Where(c => c.TVFileID == tvFileModel.TVFile.TVFileID).ToList();
@@ -27,7 +27,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 
             tvItemModel.TVItem = (from c in TVItemList
                                   where c.TVItemID == tvFile.TVFileTVItemID
-                                  select c).FirstOrDefault();
+                                  select c).FirstOrDefault() ?? new TVItem();
 
             tvItemModel.TVItemLanguageList = (from c in TVItemLanguageList
                                               where c.TVItemID == tvFile.TVFileTVItemID

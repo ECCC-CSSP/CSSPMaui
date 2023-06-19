@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> CreateWebAllPolSourceGroupingsGzFileAsync()
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }()";
+        string FunctionName = $"async Task<bool> CreateWebAllPolSourceGroupingsGzFileAsync()";
         CSSPLogService.FunctionLog(FunctionName);
 
         WebAllPolSourceGroupings webAllPolSourceGroupings = new WebAllPolSourceGroupings();

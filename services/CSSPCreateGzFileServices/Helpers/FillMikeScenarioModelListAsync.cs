@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillMikeScenarioModelListAsync(TVItemModel TVItemModel, List<TVItemModel> TVItemModelParentList, List<MikeScenarioModel> MIKEScenarioModelList, TVItem TVItem)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(TVItemModel TVItemModel, List<TVItemModel> TVItemParentList, List<MikeScenarioModel> MIKEScenarioModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
+        string FunctionName = $"async Task<bool> FillMikeScenarioModelListAsync(TVItemModel TVItemModel, List<TVItemModel> TVItemModelParentList, List<MikeScenarioModel> MIKEScenarioModelList, TVItem TVItem) -- TVItem.TVItemID: { TVItem.TVItemID }   TVItem.TVPath: { TVItem.TVPath })";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<TVItem> TVItemListMikeScenario = await GetTVItemChildrenListWithTVItemIDAsync(TVItem, TVTypeEnum.MikeScenario);
@@ -42,7 +42,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
         {
             MikeScenarioModel MikeScenarioModel = new MikeScenarioModel();
 
-            MikeScenarioModel.MikeScenario = MIKEScenarioList.Where(c => c.MikeScenarioTVItemID == tvItemMikeScenario.TVItemID).FirstOrDefault();
+            MikeScenarioModel.MikeScenario = MIKEScenarioList.Where(c => c.MikeScenarioTVItemID == tvItemMikeScenario.TVItemID).FirstOrDefault() ?? new MikeScenario();
 
             TVItemModel tvItemModel = new TVItemModel();
 
@@ -81,7 +81,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
             // doing MikeScenarioModel.TVItemFileList
             foreach (TVItem tvItemFile in TVItemFileList.Where(c => c.TVPath.StartsWith(tvItemMikeScenario.TVPath + "p")))
             {
-                TVFile tvFile = TVFileListAll.Where(c => c.TVFileTVItemID == tvItemFile.TVItemID).FirstOrDefault();
+                TVFile tvFile = TVFileListAll.Where(c => c.TVFileTVItemID == tvItemFile.TVItemID).FirstOrDefault() ?? new TVFile();
                 if (tvFile != null)
                 {
                     TVFileModel tvFileModel = new TVFileModel();
@@ -144,8 +144,12 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
                 }
 
                 mikeSourceModel.TVItemModel = TVItemModelMikeSource;
-                mikeSourceModel.MikeSource = MikeSourceList.Where(c => c.MikeSourceTVItemID == tvItem.TVItemID).FirstOrDefault();
-                mikeSourceModel.MikeSourceStartEndList = MikeSourceStartEndList.Where(c => c.MikeSourceID == mikeSourceModel.MikeSource.MikeSourceID).ToList();
+                mikeSourceModel.MikeSource = MikeSourceList.Where(c => c.MikeSourceTVItemID == tvItem.TVItemID).FirstOrDefault() ?? new MikeSource();
+
+                if (mikeSourceModel.MikeSource != null)
+                {
+                    mikeSourceModel.MikeSourceStartEndList = MikeSourceStartEndList.Where(c => c.MikeSourceID == mikeSourceModel.MikeSource.MikeSourceID).ToList();
+                }
 
                 MikeScenarioModel.MikeSourceModelList.Add(mikeSourceModel);
             }
@@ -181,7 +185,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
                 }
 
                 mikeBoundaryConditionModel.TVItemModel = TVItemModelBC;
-                mikeBoundaryConditionModel.MikeBoundaryCondition = MikeBoundaryConditionList.Where(c => c.MikeBoundaryConditionTVItemID == tvItem.TVItemID).FirstOrDefault();
+                mikeBoundaryConditionModel.MikeBoundaryCondition = MikeBoundaryConditionList.Where(c => c.MikeBoundaryConditionTVItemID == tvItem.TVItemID).FirstOrDefault() ?? new MikeBoundaryCondition();
 
                 MikeScenarioModel.MikeBoundaryConditionModelList.Add(mikeBoundaryConditionModel);
             }

@@ -24,6 +24,8 @@ namespace CSSPEnums.Tests
         {
             Assert.True(await EnumsSetup(culture));
 
+            Assert.NotNull(enums);
+
             string retStr = enums.GetResValueForTypeAndID(typeof(ActionDBTypeEnum), -100);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
@@ -63,6 +65,8 @@ namespace CSSPEnums.Tests
         public async Task GetResValueForTypeAndID_ForEnum_AddContactTypeEnum_Test(string culture)
         {
             Assert.True(await EnumsSetup(culture));
+
+            Assert.NotNull(enums);
 
             string retStr = enums.GetResValueForTypeAndID(typeof(AddContactTypeEnum), -100);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);

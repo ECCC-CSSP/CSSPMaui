@@ -9,9 +9,11 @@ public partial class CSSPSQLiteServiceTests
     {
         Assert.True(await CSSPSQLiteServiceSetup(culture));
 
+        Assert.NotNull(Configuration);
+
         string? CSSPDBManageText = Configuration["CSSPDBManage"];
 
-        if (CSSPDBManageText == null)
+        if (CSSPDBManageText != null)
         {
             FileInfo fi = new FileInfo(CSSPDBManageText);
             if (fi.Exists)
@@ -25,6 +27,8 @@ public partial class CSSPSQLiteServiceTests
                     Assert.True(false, ex.Message);
                 }
             }
+
+            Assert.NotNull(CSSPSQLiteService);
 
             bool retBool = await CSSPSQLiteService.CreateSQLiteCSSPDBManageAsync();
             Assert.True(retBool);

@@ -4,7 +4,7 @@ public partial class CSSPCreateGzFileService : ControllerBase, ICSSPCreateGzFile
 {
     private async Task<bool> FillReportTypeModelListAsync(List<ReportTypeModel> ReportTypeModelList)
     {
-        string FunctionName = $"{ this.GetType().Name }.{ CSSPLogService.GetFunctionName(MethodBase.GetCurrentMethod().DeclaringType.Name) }(List<ReportTypeModel> ReportTypeModelList)";
+        string FunctionName = $"async Task<bool> FillReportTypeModelListAsync(List<ReportTypeModel> ReportTypeModelList)";
         CSSPLogService.FunctionLog(FunctionName);
 
         List<ReportType> ReportTypeList = await GetReportTypeListAsync();

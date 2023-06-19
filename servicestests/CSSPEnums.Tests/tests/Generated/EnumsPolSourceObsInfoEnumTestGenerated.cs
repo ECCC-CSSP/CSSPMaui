@@ -20,6 +20,8 @@ namespace CSSPEnums.Tests
         {
             Assert.True(await EnumsSetup(culture));
 
+            Assert.NotNull(enums);
+
             string retStr = enums.GetResValueForTypeAndID(typeof(PolSourceObsInfoEnum), null, null);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
             string retStrDesc = enums.GetResValueForTypeAndID(typeof(PolSourceObsInfoEnum), null, PolSourceObsInfoTypeEnum.Description);
