@@ -105,6 +105,8 @@ namespace CSSPEnums.Tests
         {
             Assert.True(await EnumsSetup(culture));
 
+            Assert.NotNull(enums);
+
             string retStr = enums.GetResValueForTypeAndID(typeof(EntityQueryTypeEnum), -100);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
@@ -1401,7 +1403,7 @@ namespace CSSPEnums.Tests
                     case ExcelExportShowDataTypeEnum.P90:
                         Assert.Equal(CSSPCultureEnumsRes.ExcelExportShowDataTypeEnumP90, retStr);
                         break;
-                    case ExcelExportShowDataTypeEnum.GemetricMean:
+                    case ExcelExportShowDataTypeEnum.GeometricMean:
                         Assert.Equal(CSSPCultureEnumsRes.ExcelExportShowDataTypeEnumGemetricMean, retStr);
                         break;
                     case ExcelExportShowDataTypeEnum.Median:
@@ -3069,66 +3071,66 @@ namespace CSSPEnums.Tests
         [Theory]
         [InlineData("en-CA")]
         [InlineData("fr-CA")]
-        public async Task GetResValueForTypeAndID_ForEnum_ReportFormatingDateEnum_Test(string culture)
+        public async Task GetResValueForTypeAndID_ForEnum_ReportFormattingDateEnum_Test(string culture)
         {
             Assert.True(await EnumsSetup(culture));
 
-            string retStr = enums.GetResValueForTypeAndID(typeof(ReportFormatingDateEnum), -100);
+            string retStr = enums.GetResValueForTypeAndID(typeof(ReportFormattingDateEnum), -100);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
-            retStr = enums.GetResValueForTypeAndID(typeof(ReportFormatingDateEnum), 10000000);
+            retStr = enums.GetResValueForTypeAndID(typeof(ReportFormattingDateEnum), 10000000);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
-            retStr = enums.GetResValueForTypeAndID(typeof(ReportFormatingDateEnum), null);
+            retStr = enums.GetResValueForTypeAndID(typeof(ReportFormattingDateEnum), null);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
             retStr = enums.GetResValueForTypeAndID(typeof(string), null);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
-            foreach (int i in Enum.GetValues(typeof(ReportFormatingDateEnum)))
+            foreach (int i in Enum.GetValues(typeof(ReportFormattingDateEnum)))
             {
-                retStr = enums.GetResValueForTypeAndID(typeof(ReportFormatingDateEnum), i);
+                retStr = enums.GetResValueForTypeAndID(typeof(ReportFormattingDateEnum), i);
 
-                switch ((ReportFormatingDateEnum)i)
+                switch ((ReportFormattingDateEnum)i)
                 {
-                    case ReportFormatingDateEnum.ReportFormatingDateYearOnly:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateYearOnly, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateYearOnly:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateYearOnly, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateMonthDecimalOnly:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateMonthDecimalOnly, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateMonthDecimalOnly:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateMonthDecimalOnly, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateMonthShortTextOnly:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateMonthShortTextOnly, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateMonthShortTextOnly:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateMonthShortTextOnly, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateMonthFullTextOnly:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateMonthFullTextOnly, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateMonthFullTextOnly:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateMonthFullTextOnly, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateDayOnly:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateDayOnly, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateDayOnly:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateDayOnly, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateHourOnly:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateHourOnly, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateHourOnly:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateHourOnly, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateMinuteOnly:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateMinuteOnly, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateMinuteOnly:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateMinuteOnly, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateYearMonthDecimalDay:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateYearMonthDecimalDay, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateYearMonthDecimalDay:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateYearMonthDecimalDay, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateYearMonthShortTextDay:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateYearMonthShortTextDay, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateYearMonthShortTextDay:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateYearMonthShortTextDay, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateYearMonthFullTextDay:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateYearMonthFullTextDay, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateYearMonthFullTextDay:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateYearMonthFullTextDay, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateYearMonthDecimalDayHourMinute:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateYearMonthDecimalDayHourMinute, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateYearMonthDecimalDayHourMinute:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateYearMonthDecimalDayHourMinute, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateYearMonthShortTextDayHourMinute:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateYearMonthShortTextDayHourMinute, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateYearMonthShortTextDayHourMinute:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateYearMonthShortTextDayHourMinute, retStr);
                         break;
-                    case ReportFormatingDateEnum.ReportFormatingDateYearMonthFullTextDayHourMinute:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingDateEnumReportFormatingDateYearMonthFullTextDayHourMinute, retStr);
+                    case ReportFormattingDateEnum.ReportFormattingDateYearMonthFullTextDayHourMinute:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingDateEnumReportFormattingDateYearMonthFullTextDayHourMinute, retStr);
                         break;
                 }
             }
@@ -3136,69 +3138,69 @@ namespace CSSPEnums.Tests
         [Theory]
         [InlineData("en-CA")]
         [InlineData("fr-CA")]
-        public async Task GetResValueForTypeAndID_ForEnum_ReportFormatingNumberEnum_Test(string culture)
+        public async Task GetResValueForTypeAndID_ForEnum_ReportFormattingNumberEnum_Test(string culture)
         {
             Assert.True(await EnumsSetup(culture));
 
-            string retStr = enums.GetResValueForTypeAndID(typeof(ReportFormatingNumberEnum), -100);
+            string retStr = enums.GetResValueForTypeAndID(typeof(ReportFormattingNumberEnum), -100);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
-            retStr = enums.GetResValueForTypeAndID(typeof(ReportFormatingNumberEnum), 10000000);
+            retStr = enums.GetResValueForTypeAndID(typeof(ReportFormattingNumberEnum), 10000000);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
-            retStr = enums.GetResValueForTypeAndID(typeof(ReportFormatingNumberEnum), null);
+            retStr = enums.GetResValueForTypeAndID(typeof(ReportFormattingNumberEnum), null);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
             retStr = enums.GetResValueForTypeAndID(typeof(string), null);
             Assert.Equal(CSSPCultureEnumsRes.Empty, retStr);
 
-            foreach (int i in Enum.GetValues(typeof(ReportFormatingNumberEnum)))
+            foreach (int i in Enum.GetValues(typeof(ReportFormattingNumberEnum)))
             {
-                retStr = enums.GetResValueForTypeAndID(typeof(ReportFormatingNumberEnum), i);
+                retStr = enums.GetResValueForTypeAndID(typeof(ReportFormattingNumberEnum), i);
 
-                switch ((ReportFormatingNumberEnum)i)
+                switch ((ReportFormattingNumberEnum)i)
                 {
-                    case ReportFormatingNumberEnum.ReportFormatingNumber0Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumber0Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumber0Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumber0Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumber1Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumber1Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumber1Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumber1Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumber2Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumber2Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumber2Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumber2Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumber3Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumber3Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumber3Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumber3Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumber4Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumber4Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumber4Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumber4Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumber5Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumber5Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumber5Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumber5Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumber6Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumber6Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumber6Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumber6Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumberScientific0Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumberScientific0Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumberScientific0Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumberScientific0Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumberScientific1Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumberScientific1Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumberScientific1Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumberScientific1Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumberScientific2Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumberScientific2Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumberScientific2Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumberScientific2Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumberScientific3Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumberScientific3Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumberScientific3Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumberScientific3Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumberScientific4Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumberScientific4Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumberScientific4Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumberScientific4Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumberScientific5Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumberScientific5Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumberScientific5Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumberScientific5Decimal, retStr);
                         break;
-                    case ReportFormatingNumberEnum.ReportFormatingNumberScientific6Decimal:
-                        Assert.Equal(CSSPCultureEnumsRes.ReportFormatingNumberEnumReportFormatingNumberScientific6Decimal, retStr);
+                    case ReportFormattingNumberEnum.ReportFormattingNumberScientific6Decimal:
+                        Assert.Equal(CSSPCultureEnumsRes.ReportFormattingNumberEnumReportFormattingNumberScientific6Decimal, retStr);
                         break;
                 }
             }
@@ -4217,7 +4219,7 @@ namespace CSSPEnums.Tests
                     case SecondaryTreatmentTypeEnum.MovingBedBioReactor:
                         Assert.Equal(CSSPCultureEnumsRes.SecondaryTreatmentTypeEnumMovingBedBioReactor, retStr);
                         break;
-                    case SecondaryTreatmentTypeEnum.BiologicalAearatedFilters:
+                    case SecondaryTreatmentTypeEnum.BiologicalAeratedFilters:
                         Assert.Equal(CSSPCultureEnumsRes.SecondaryTreatmentTypeEnumBiologicalAearatedFilters, retStr);
                         break;
                     case SecondaryTreatmentTypeEnum.AeratedSubmergedBioFilmReactor:
@@ -4511,7 +4513,7 @@ namespace CSSPEnums.Tests
                     case StorageDataTypeEnum.Archived:
                         Assert.Equal(CSSPCultureEnumsRes.StorageDataTypeEnumArchived, retStr);
                         break;
-                    case StorageDataTypeEnum.Forcasted:
+                    case StorageDataTypeEnum.Forecasted:
                         Assert.Equal(CSSPCultureEnumsRes.StorageDataTypeEnumForcasted, retStr);
                         break;
                     case StorageDataTypeEnum.Observed:
@@ -4946,7 +4948,7 @@ namespace CSSPEnums.Tests
                     case TreatmentTypeEnum.LagoonWithAeration6Cell:
                         Assert.Equal(CSSPCultureEnumsRes.TreatmentTypeEnumLagoonWithAeration6Cell, retStr);
                         break;
-                    case TreatmentTypeEnum.StabalizingPondOnly:
+                    case TreatmentTypeEnum.StabilizationPondOnly:
                         Assert.Equal(CSSPCultureEnumsRes.TreatmentTypeEnumStabalizingPondOnly, retStr);
                         break;
                     case TreatmentTypeEnum.OxidationDitchOnly:
@@ -4988,7 +4990,7 @@ namespace CSSPEnums.Tests
                     case TreatmentTypeEnum.ChemicalPrimary:
                         Assert.Equal(CSSPCultureEnumsRes.TreatmentTypeEnumChemicalPrimary, retStr);
                         break;
-                    case TreatmentTypeEnum.Chromoglass:
+                    case TreatmentTypeEnum.Chromaglass:
                         Assert.Equal(CSSPCultureEnumsRes.TreatmentTypeEnumChromoglass, retStr);
                         break;
                     case TreatmentTypeEnum.Primary:
@@ -5000,7 +5002,7 @@ namespace CSSPEnums.Tests
                     case TreatmentTypeEnum.PeatSystem:
                         Assert.Equal(CSSPCultureEnumsRes.TreatmentTypeEnumPeatSystem, retStr);
                         break;
-                    case TreatmentTypeEnum.Physicochimique:
+                    case TreatmentTypeEnum.Physicochemical:
                         Assert.Equal(CSSPCultureEnumsRes.TreatmentTypeEnumPhysicochimique, retStr);
                         break;
                     case TreatmentTypeEnum.RotatingBiologicalContactor:
@@ -6737,7 +6739,7 @@ namespace CSSPEnums.Tests
                      case ExcelExportShowDataTypeEnum.Temperature:
                      case ExcelExportShowDataTypeEnum.Salinity:
                      case ExcelExportShowDataTypeEnum.P90:
-                     case ExcelExportShowDataTypeEnum.GemetricMean:
+                     case ExcelExportShowDataTypeEnum.GeometricMean:
                      case ExcelExportShowDataTypeEnum.Median:
                      case ExcelExportShowDataTypeEnum.PercOfP90Over43:
                      case ExcelExportShowDataTypeEnum.PercOfP90Over260:
@@ -7984,42 +7986,42 @@ namespace CSSPEnums.Tests
         [Theory]
         [InlineData("en-CA")]
         [InlineData("fr-CA")]
-        public async Task Enums_ReportFormatingDateOK_Test(string culture)
+        public async Task Enums_ReportFormattingDateOK_Test(string culture)
         {
             Assert.True(await EnumsSetup(culture));
 
-            string retStr = enums.EnumTypeOK(typeof(ReportFormatingDateEnum), null);
+            string retStr = enums.EnumTypeOK(typeof(ReportFormattingDateEnum), null);
             Assert.Equal("", retStr);
 
-            retStr = enums.EnumTypeOK(typeof(ReportFormatingDateEnum), -100);
-            Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormatingDateEnum"), retStr);
+            retStr = enums.EnumTypeOK(typeof(ReportFormattingDateEnum), -100);
+            Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormattingDateEnum"), retStr);
 
-            retStr = enums.EnumTypeOK(typeof(ReportFormatingDateEnum), 10000000);
-            Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormatingDateEnum"), retStr);
+            retStr = enums.EnumTypeOK(typeof(ReportFormattingDateEnum), 10000000);
+            Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormattingDateEnum"), retStr);
 
-            foreach (int i in Enum.GetValues(typeof(ReportFormatingDateEnum)))
+            foreach (int i in Enum.GetValues(typeof(ReportFormattingDateEnum)))
             {
-                retStr = enums.EnumTypeOK(typeof(ReportFormatingDateEnum), i);
+                retStr = enums.EnumTypeOK(typeof(ReportFormattingDateEnum), i);
 
-                switch ((ReportFormatingDateEnum)i)
+                switch ((ReportFormattingDateEnum)i)
                 {
-                     case ReportFormatingDateEnum.ReportFormatingDateYearOnly:
-                     case ReportFormatingDateEnum.ReportFormatingDateMonthDecimalOnly:
-                     case ReportFormatingDateEnum.ReportFormatingDateMonthShortTextOnly:
-                     case ReportFormatingDateEnum.ReportFormatingDateMonthFullTextOnly:
-                     case ReportFormatingDateEnum.ReportFormatingDateDayOnly:
-                     case ReportFormatingDateEnum.ReportFormatingDateHourOnly:
-                     case ReportFormatingDateEnum.ReportFormatingDateMinuteOnly:
-                     case ReportFormatingDateEnum.ReportFormatingDateYearMonthDecimalDay:
-                     case ReportFormatingDateEnum.ReportFormatingDateYearMonthShortTextDay:
-                     case ReportFormatingDateEnum.ReportFormatingDateYearMonthFullTextDay:
-                     case ReportFormatingDateEnum.ReportFormatingDateYearMonthDecimalDayHourMinute:
-                     case ReportFormatingDateEnum.ReportFormatingDateYearMonthShortTextDayHourMinute:
-                     case ReportFormatingDateEnum.ReportFormatingDateYearMonthFullTextDayHourMinute:
+                     case ReportFormattingDateEnum.ReportFormattingDateYearOnly:
+                     case ReportFormattingDateEnum.ReportFormattingDateMonthDecimalOnly:
+                     case ReportFormattingDateEnum.ReportFormattingDateMonthShortTextOnly:
+                     case ReportFormattingDateEnum.ReportFormattingDateMonthFullTextOnly:
+                     case ReportFormattingDateEnum.ReportFormattingDateDayOnly:
+                     case ReportFormattingDateEnum.ReportFormattingDateHourOnly:
+                     case ReportFormattingDateEnum.ReportFormattingDateMinuteOnly:
+                     case ReportFormattingDateEnum.ReportFormattingDateYearMonthDecimalDay:
+                     case ReportFormattingDateEnum.ReportFormattingDateYearMonthShortTextDay:
+                     case ReportFormattingDateEnum.ReportFormattingDateYearMonthFullTextDay:
+                     case ReportFormattingDateEnum.ReportFormattingDateYearMonthDecimalDayHourMinute:
+                     case ReportFormattingDateEnum.ReportFormattingDateYearMonthShortTextDayHourMinute:
+                     case ReportFormattingDateEnum.ReportFormattingDateYearMonthFullTextDayHourMinute:
                         Assert.Equal("", retStr);
                         break;
                     default:
-                        Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormatingDateEnum"), retStr);
+                        Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormattingDateEnum"), retStr);
                         break;
                 }
             }
@@ -8027,43 +8029,43 @@ namespace CSSPEnums.Tests
         [Theory]
         [InlineData("en-CA")]
         [InlineData("fr-CA")]
-        public async Task Enums_ReportFormatingNumberOK_Test(string culture)
+        public async Task Enums_ReportFormattingNumberOK_Test(string culture)
         {
             Assert.True(await EnumsSetup(culture));
 
-            string retStr = enums.EnumTypeOK(typeof(ReportFormatingNumberEnum), null);
+            string retStr = enums.EnumTypeOK(typeof(ReportFormattingNumberEnum), null);
             Assert.Equal("", retStr);
 
-            retStr = enums.EnumTypeOK(typeof(ReportFormatingNumberEnum), -100);
-            Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormatingNumberEnum"), retStr);
+            retStr = enums.EnumTypeOK(typeof(ReportFormattingNumberEnum), -100);
+            Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormattingNumberEnum"), retStr);
 
-            retStr = enums.EnumTypeOK(typeof(ReportFormatingNumberEnum), 10000000);
-            Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormatingNumberEnum"), retStr);
+            retStr = enums.EnumTypeOK(typeof(ReportFormattingNumberEnum), 10000000);
+            Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormattingNumberEnum"), retStr);
 
-            foreach (int i in Enum.GetValues(typeof(ReportFormatingNumberEnum)))
+            foreach (int i in Enum.GetValues(typeof(ReportFormattingNumberEnum)))
             {
-                retStr = enums.EnumTypeOK(typeof(ReportFormatingNumberEnum), i);
+                retStr = enums.EnumTypeOK(typeof(ReportFormattingNumberEnum), i);
 
-                switch ((ReportFormatingNumberEnum)i)
+                switch ((ReportFormattingNumberEnum)i)
                 {
-                     case ReportFormatingNumberEnum.ReportFormatingNumber0Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumber1Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumber2Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumber3Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumber4Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumber5Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumber6Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumberScientific0Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumberScientific1Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumberScientific2Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumberScientific3Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumberScientific4Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumberScientific5Decimal:
-                     case ReportFormatingNumberEnum.ReportFormatingNumberScientific6Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumber0Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumber1Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumber2Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumber3Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumber4Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumber5Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumber6Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumberScientific0Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumberScientific1Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumberScientific2Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumberScientific3Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumberScientific4Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumberScientific5Decimal:
+                     case ReportFormattingNumberEnum.ReportFormattingNumberScientific6Decimal:
                         Assert.Equal("", retStr);
                         break;
                     default:
-                        Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormatingNumberEnum"), retStr);
+                        Assert.Equal(string.Format(CSSPCultureEnumsRes._IsRequired, "ReportFormattingNumberEnum"), retStr);
                         break;
                 }
             }
@@ -8709,7 +8711,7 @@ namespace CSSPEnums.Tests
                      case SecondaryTreatmentTypeEnum.ContactStabilization:
                      case SecondaryTreatmentTypeEnum.PhysicalChemicalProcesses:
                      case SecondaryTreatmentTypeEnum.MovingBedBioReactor:
-                     case SecondaryTreatmentTypeEnum.BiologicalAearatedFilters:
+                     case SecondaryTreatmentTypeEnum.BiologicalAeratedFilters:
                      case SecondaryTreatmentTypeEnum.AeratedSubmergedBioFilmReactor:
                      case SecondaryTreatmentTypeEnum.IntegratedFixedFilmActivatedSludge:
                      case SecondaryTreatmentTypeEnum.ActivatedSludge:
@@ -8931,7 +8933,7 @@ namespace CSSPEnums.Tests
                 switch ((StorageDataTypeEnum)i)
                 {
                      case StorageDataTypeEnum.Archived:
-                     case StorageDataTypeEnum.Forcasted:
+                     case StorageDataTypeEnum.Forecasted:
                      case StorageDataTypeEnum.Observed:
                         Assert.Equal("", retStr);
                         break;
@@ -9262,7 +9264,7 @@ namespace CSSPEnums.Tests
                      case TreatmentTypeEnum.LagoonWithAeration4Cell:
                      case TreatmentTypeEnum.LagoonWithAeration5Cell:
                      case TreatmentTypeEnum.LagoonWithAeration6Cell:
-                     case TreatmentTypeEnum.StabalizingPondOnly:
+                     case TreatmentTypeEnum.StabilizationPondOnly:
                      case TreatmentTypeEnum.OxidationDitchOnly:
                      case TreatmentTypeEnum.CirculatingFluidizedBed:
                      case TreatmentTypeEnum.TricklingFilter:
@@ -9276,11 +9278,11 @@ namespace CSSPEnums.Tests
                      case TreatmentTypeEnum.BioGreen:
                      case TreatmentTypeEnum.BioDisks:
                      case TreatmentTypeEnum.ChemicalPrimary:
-                     case TreatmentTypeEnum.Chromoglass:
+                     case TreatmentTypeEnum.Chromaglass:
                      case TreatmentTypeEnum.Primary:
                      case TreatmentTypeEnum.SequencingBatchReactor:
                      case TreatmentTypeEnum.PeatSystem:
-                     case TreatmentTypeEnum.Physicochimique:
+                     case TreatmentTypeEnum.Physicochemical:
                      case TreatmentTypeEnum.RotatingBiologicalContactor:
                         Assert.Equal("", retStr);
                         break;
@@ -12898,18 +12900,18 @@ namespace CSSPEnums.Tests
         [Theory]
         [InlineData("en-CA")]
         [InlineData("fr-CA")]
-        public async Task Enums_ReportFormatingDateEnumTextOrdered_Test(string culture)
+        public async Task Enums_ReportFormattingDateEnumTextOrdered_Test(string culture)
         {
             Assert.True(await EnumsSetup(culture));
 
             List<EnumIDAndText> enumTextOrderedList = new List<EnumIDAndText>();
-            foreach (int i in Enum.GetValues(typeof(ReportFormatingDateEnum)))
+            foreach (int i in Enum.GetValues(typeof(ReportFormattingDateEnum)))
             {
-                enumTextOrderedList.Add(new EnumIDAndText() { EnumID = i, EnumText = enums.GetResValueForTypeAndID(typeof(ReportFormatingDateEnum), i) });
+                enumTextOrderedList.Add(new EnumIDAndText() { EnumID = i, EnumText = enums.GetResValueForTypeAndID(typeof(ReportFormattingDateEnum), i) });
             }
             enumTextOrderedList = enumTextOrderedList.OrderBy(c => c.EnumText).ToList();
 
-            List<EnumIDAndText> enumTextOrderedList2 = enums.GetEnumTextOrderedList(typeof(ReportFormatingDateEnum));
+            List<EnumIDAndText> enumTextOrderedList2 = enums.GetEnumTextOrderedList(typeof(ReportFormattingDateEnum));
             Assert.Equal(enumTextOrderedList.Count, enumTextOrderedList2.Count);
 
             EnumIDAndText enumTextOrdered = new EnumIDAndText();
@@ -12924,18 +12926,18 @@ namespace CSSPEnums.Tests
         [Theory]
         [InlineData("en-CA")]
         [InlineData("fr-CA")]
-        public async Task Enums_ReportFormatingNumberEnumTextOrdered_Test(string culture)
+        public async Task Enums_ReportFormattingNumberEnumTextOrdered_Test(string culture)
         {
             Assert.True(await EnumsSetup(culture));
 
             List<EnumIDAndText> enumTextOrderedList = new List<EnumIDAndText>();
-            foreach (int i in Enum.GetValues(typeof(ReportFormatingNumberEnum)))
+            foreach (int i in Enum.GetValues(typeof(ReportFormattingNumberEnum)))
             {
-                enumTextOrderedList.Add(new EnumIDAndText() { EnumID = i, EnumText = enums.GetResValueForTypeAndID(typeof(ReportFormatingNumberEnum), i) });
+                enumTextOrderedList.Add(new EnumIDAndText() { EnumID = i, EnumText = enums.GetResValueForTypeAndID(typeof(ReportFormattingNumberEnum), i) });
             }
             enumTextOrderedList = enumTextOrderedList.OrderBy(c => c.EnumText).ToList();
 
-            List<EnumIDAndText> enumTextOrderedList2 = enums.GetEnumTextOrderedList(typeof(ReportFormatingNumberEnum));
+            List<EnumIDAndText> enumTextOrderedList2 = enums.GetEnumTextOrderedList(typeof(ReportFormattingNumberEnum));
             Assert.Equal(enumTextOrderedList.Count, enumTextOrderedList2.Count);
 
             EnumIDAndText enumTextOrdered = new EnumIDAndText();

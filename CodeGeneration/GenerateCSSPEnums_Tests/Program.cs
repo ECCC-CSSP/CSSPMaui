@@ -1,31 +1,41 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.IO;
-using System.Threading.Tasks;
+﻿namespace GenerateCSSPEnums_Tests;
 
-namespace GenerateCSSPEnums_Tests
+partial class Program
 {
-    partial class Program
+    #region Variables
+    #endregion Variables
+
+    #region Entry
+    public static async Task Main(string[] args)
     {
-        #region Variables
-        #endregion Variables
+        string appSettings = "appsettings.json";
 
-        #region Entry
-        public static async Task Main(string[] args)
+        DirectoryInfo? di = Directory.GetParent(AppContext.BaseDirectory);
+        if (di == null)
         {
-            IConfiguration Configuration = new ConfigurationBuilder()
-               .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
-               .AddJsonFile("appsettings.json")
-               .Build();
-
-            Startup startup = new Startup(Configuration);
-            await startup.Generate();
+            Console.WriteLine("Directory.GetParent(AppContext.BaseDirectory) is null");
+            return;
         }
-        #endregion Entry
 
-        #region Functions private
-        #endregion Functions private
+        FileInfo fi = new FileInfo($@"{di.FullName}\{appSettings}");
+        if (!fi.Exists)
+        {
+            Console.WriteLine($"{fi.FullName} does not exist");
+            return;
+        }
 
+        IConfiguration Configuration = new ConfigurationBuilder()
+           .SetBasePath(di.FullName)
+           .AddJsonFile(appSettings)
+           .Build();
 
+        Startup startup = new Startup(Configuration);
+        await startup.Generate();
     }
+    #endregion Entry
+
+    #region Functions private
+    #endregion Functions private
+
+
 }

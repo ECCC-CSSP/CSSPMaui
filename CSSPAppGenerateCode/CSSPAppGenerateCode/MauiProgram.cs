@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace CSSPAppGenerateCode;
+﻿namespace CSSPAppGenerateCode;
 
 public static class MauiProgram
 {
@@ -19,6 +17,10 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<MainPageViewModel>();
+		builder.Services.AddSingleton<IConfigService, ConfigService>();
+
+        return builder.Build();
 	}
 }

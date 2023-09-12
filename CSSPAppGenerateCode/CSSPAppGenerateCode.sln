@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSPEnums", "..\Services\CS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSPCultureServices", "..\Services\CSSPCultureServices\CSSPCultureServices.csproj", "{B4A9CB2F-C7CB-4D1F-A328-071F66859BF9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateCSSPEnums_Tests", "..\CodeGeneration\GenerateCSSPEnums_Tests\GenerateCSSPEnums_Tests.csproj", "{8009C1A5-C58E-4B02-A431-808E4E34427B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{B4A9CB2F-C7CB-4D1F-A328-071F66859BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4A9CB2F-C7CB-4D1F-A328-071F66859BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4A9CB2F-C7CB-4D1F-A328-071F66859BF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8009C1A5-C58E-4B02-A431-808E4E34427B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8009C1A5-C58E-4B02-A431-808E4E34427B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8009C1A5-C58E-4B02-A431-808E4E34427B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8009C1A5-C58E-4B02-A431-808E4E34427B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

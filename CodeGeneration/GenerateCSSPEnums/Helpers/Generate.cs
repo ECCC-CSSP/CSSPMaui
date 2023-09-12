@@ -1,6 +1,11 @@
 ﻿namespace GenerateCSSPEnums;
 
-public partial class Startup
+public interface IStartup
+{
+    Task<bool> Generate();
+}
+
+public partial class Startup : IStartup
 {
     public async Task<bool> Generate()
     {
